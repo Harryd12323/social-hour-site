@@ -1,0 +1,333 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Bellasofia Fortino — The Social Hour Agency</title>
+  <meta name="description" content="Creative content portfolio of Bellasofia Fortino, The Social Hour Agency — engagements, brands, events, travel, aerial and headshots. Serving Philly + NJ.">
+  <link rel="stylesheet" href="style.css">
+  <script>document.documentElement.classList.add("js")</script>
+</head>
+<body>
+
+  <!-- Navbar: transparent over the hero, turns solid black once you scroll -->
+  <header class="nav" id="nav">
+    <a href="#top" class="nav-logo"><img src="images/signature.png" alt="Bellasofia Fortino" width="339" height="150"></a>
+    <button class="nav-toggle" id="nav-toggle" aria-label="Open menu" aria-expanded="false">
+      <span></span><span></span>
+    </button>
+    <nav class="nav-links" id="nav-links">
+      <a href="#about">About</a>
+      <a href="#video">Video</a>
+      <a href="#work">Photos</a>
+      <a href="#contact">Contact</a>
+    </nav>
+  </header>
+
+  <!--
+    Hero background, in layers:
+      1. VIDEO: save your clip as videos/hero.mp4 (and optionally videos/hero.webm). It plays muted, looping,
+         with no controls. Keep it short (10-20 s) and small (under ~8 MB) so it loads fast on phones.
+      2. STILL IMAGE: images/hero.jpg is the poster - it shows while the video loads, if there's no video yet,
+         and for anyone with "reduce motion" turned on (script.js pauses the video for them).
+      3. If neither file exists, a dark gradient shows (see .hero in style.css).
+  -->
+  <section class="hero" id="top">
+    <video class="hero-video" id="hero-video" autoplay muted loop playsinline preload="metadata"
+           poster="images/hero.jpg" aria-hidden="true">
+      <!-- VIDEO FILE GOES HERE: -->
+      <source src="videos/hero.webm" type="video/webm">
+      <source src="videos/hero.mp4" type="video/mp4">
+    </video>
+    <div class="hero-overlay"></div>
+    <div class="hero-content">
+      <img class="hero-seal fade-up" src="images/wax-seal.png" alt="The Social Hour wax seal" width="523" height="503">
+      <h1 class="fade-up"><img class="hero-signature" src="images/signature.png" alt="Bellasofia Fortino" width="339" height="150"></h1>
+      <p class="eyebrow fade-up">Creative Content Portfolio</p>
+      <p class="hero-sub fade-up">Capturing moments so you can live in them.</p>
+      <a href="#work" class="btn btn-light fade-up">View the work</a>
+    </div>
+    <a href="#about" class="scroll-cue" aria-label="Scroll down"></a>
+  </section>
+
+  <section class="about" id="about">
+    <div class="container about-grid">
+      <h2 class="fade-up">About</h2>
+      <div class="fade-up">
+        <p class="lead">Digital storytelling through the camera lens.</p>
+        <p>I'm Bellasofia Fortino, and The Social Hour Agency is my full-scale content studio: engagements and
+          bridal, brand and product shoots, events and sports, travel and food, drone videography and headshots,
+          across Philly and New Jersey.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="quote">
+    <figure class="container fade-up">
+      <blockquote>Good content isn't about good storytelling. It's about telling a true story well.</blockquote>
+      <figcaption>— Ann Handley</figcaption>
+    </figure>
+  </section>
+
+  <section class="video" id="video">
+    <div class="container">
+      <div class="work-head fade-up">
+        <h2>Video</h2>
+        <p class="section-note">Reels &amp; highlight films</p>
+      </div>
+
+      <!--
+        To add a reel, replace a tile's <div class="ph">…</div> with the embed code, e.g.
+          YouTube: <iframe src="https://www.youtube-nocookie.com/embed/VIDEO_ID" title="Wedding highlight reel"
+                     allow="fullscreen; picture-in-picture" allowfullscreen loading="lazy"></iframe>
+          Vimeo:   <iframe src="https://player.vimeo.com/video/VIDEO_ID" title="…" allow="fullscreen" loading="lazy"></iframe>
+          Your own file: <video src="videos/reel-1.mp4" controls preload="metadata" poster="images/reel-1.jpg"></video>
+        The tile keeps the 16:9 shape whatever goes in it. Change the caption text below each tile to match.
+      -->
+      <div class="video-grid">
+        <figure class="video-tile fade-up">
+          <div class="frame"><div class="ph"><span class="play" aria-hidden="true"></span><span>Video here</span><small>Reel 1 · 16:9</small></div></div>
+          <figcaption><span>Engagements &amp; Bridal</span>Highlight film</figcaption>
+        </figure>
+        <figure class="video-tile fade-up">
+          <div class="frame"><div class="ph"><span class="play" aria-hidden="true"></span><span>Video here</span><small>Reel 2 · 16:9</small></div></div>
+          <figcaption><span>Aerial</span>Drone reel</figcaption>
+        </figure>
+        <figure class="video-tile fade-up">
+          <div class="frame"><div class="ph"><span class="play" aria-hidden="true"></span><span>Video here</span><small>Reel 3 · 16:9</small></div></div>
+          <figcaption><span>Brands &amp; Products</span>Brand story</figcaption>
+        </figure>
+      </div>
+    </div>
+  </section>
+
+  <section class="work" id="work">
+    <div class="container">
+      <div class="work-head fade-up">
+        <h2>Photos</h2>
+        <div class="filters" role="group" aria-label="Filter photos">
+<button class="filter active" data-filter="all" aria-pressed="true">All</button>
+          <button class="filter" data-filter="bridal" aria-pressed="false">Engagements &amp; Bridal</button>
+          <button class="filter" data-filter="brands" aria-pressed="false">Brands &amp; Products</button>
+          <button class="filter" data-filter="events" aria-pressed="false">Events &amp; Sports</button>
+          <button class="filter" data-filter="travel" aria-pressed="false">Travel &amp; Food</button>
+          <button class="filter" data-filter="aerial" aria-pressed="false">Aerial</button>
+          <button class="filter" data-filter="headshots" aria-pressed="false">Headshots</button>
+        </div>
+      </div>
+
+      <!--
+        Photos come from the client's portfolio PDF. Originals (full resolution) are in images/portfolio/;
+        the page uses the web copies in images/web/ (max 2000px wide), which load faster on phones.
+        To add one: make a web copy, copy a <figure> below, change src, alt, width/height and the caption, and set data-category to one of
+        bridal, brands, events, travel, aerial, headshots so the filter picks it up.
+      -->
+      <div class="gallery" id="gallery">
+        <figure class="item fade-up" data-category="bridal">
+          <img src="images/web/img-007-024.jpg" alt="A man on one knee proposing on the beach" width="820" height="1229" loading="lazy" decoding="async">
+          <figcaption><span>Engagements &amp; Bridal</span>The proposal</figcaption>
+        </figure>
+        <figure class="item fade-up" data-category="bridal">
+          <img src="images/web/img-007-025.jpg" alt="A bride-to-be in white beside a floral arch and candles" width="1094" height="1640" loading="lazy" decoding="async">
+          <figcaption><span>Engagements &amp; Bridal</span>Bridal portrait</figcaption>
+        </figure>
+        <figure class="item fade-up" data-category="bridal">
+          <img src="images/web/img-007-026.jpg" alt="A couple embracing, the engagement ring in view" width="2000" height="1334" loading="lazy" decoding="async">
+          <figcaption><span>Engagements &amp; Bridal</span>She said yes</figcaption>
+        </figure>
+        <figure class="item fade-up" data-category="brands">
+          <img src="images/web/img-006-020.jpg" alt="Vacation sunscreen bottles on a pool edge" width="845" height="911" loading="lazy" decoding="async">
+          <figcaption><span>Brands &amp; Products</span>Vacation sunscreen</figcaption>
+        </figure>
+        <figure class="item fade-up" data-category="brands">
+          <img src="images/web/img-006-021.jpg" alt="Vacation sunscreen spray over sparkling pool water" width="939" height="951" loading="lazy" decoding="async">
+          <figcaption><span>Brands &amp; Products</span>Vacation Classic Spray</figcaption>
+        </figure>
+        <figure class="item fade-up" data-category="events">
+          <img src="images/web/img-008-029.jpg" alt="A lifeguard with a rescue board at the water&#x27;s edge" width="845" height="587" loading="lazy" decoding="async">
+          <figcaption><span>Events &amp; Sports</span>Lifeguard races</figcaption>
+        </figure>
+        <figure class="item fade-up" data-category="events">
+          <img src="images/web/img-008-030.jpg" alt="Lifeguards launching the Brigantine boat" width="845" height="591" loading="lazy" decoding="async">
+          <figcaption><span>Events &amp; Sports</span>Brigantine crew</figcaption>
+        </figure>
+        <figure class="item fade-up" data-category="events">
+          <img src="images/web/img-008-031.jpg" alt="A lifeguard boat crew rowing through the waves" width="965" height="629" loading="lazy" decoding="async">
+          <figcaption><span>Events &amp; Sports</span>Through the surf</figcaption>
+        </figure>
+        <figure class="item fade-up" data-category="events">
+          <img src="images/web/img-008-032.jpg" alt="A lifeguard team posing together on the beach" width="845" height="588" loading="lazy" decoding="async">
+          <figcaption><span>Events &amp; Sports</span>Race day</figcaption>
+        </figure>
+        <figure class="item fade-up" data-category="travel">
+          <img src="images/web/img-012-040.jpg" alt="Desert dunes at dusk in Morocco" width="1086" height="724" loading="lazy" decoding="async">
+          <figcaption><span>Travel &amp; Food</span>Morocco</figcaption>
+        </figure>
+        <figure class="item fade-up" data-category="travel">
+          <img src="images/web/img-012-041.jpg" alt="Camels resting under the moon in Morocco" width="1086" height="724" loading="lazy" decoding="async">
+          <figcaption><span>Travel &amp; Food</span>Morocco</figcaption>
+        </figure>
+        <figure class="item fade-up" data-category="travel">
+          <img src="images/web/img-013-044.jpg" alt="A camel caravan crossing the dunes" width="652" height="978" loading="lazy" decoding="async">
+          <figcaption><span>Travel &amp; Food</span>Morocco</figcaption>
+        </figure>
+        <figure class="item fade-up" data-category="travel">
+          <img src="images/web/img-013-045.jpg" alt="A camel caravan and its long shadows" width="652" height="978" loading="lazy" decoding="async">
+          <figcaption><span>Travel &amp; Food</span>Morocco</figcaption>
+        </figure>
+        <figure class="item fade-up" data-category="travel">
+          <img src="images/web/img-013-046.jpg" alt="Riders on a distant dune at dusk" width="652" height="978" loading="lazy" decoding="async">
+          <figcaption><span>Travel &amp; Food</span>Morocco</figcaption>
+        </figure>
+        <figure class="item fade-up" data-category="travel">
+          <img src="images/web/img-014-049.jpg" alt="A cold drink on a rooftop over Barcelona" width="1130" height="1614" loading="lazy" decoding="async">
+          <figcaption><span>Travel &amp; Food</span>Barcelona</figcaption>
+        </figure>
+        <figure class="item fade-up" data-category="travel">
+          <img src="images/web/img-014-050.jpg" alt="The Brunells bakery storefront in Barcelona" width="1019" height="1528" loading="lazy" decoding="async">
+          <figcaption><span>Travel &amp; Food</span>Barcelona</figcaption>
+        </figure>
+        <figure class="item fade-up" data-category="travel">
+          <img src="images/web/img-014-051.jpg" alt="Paella cooking in giant pans" width="1800" height="1200" loading="lazy" decoding="async">
+          <figcaption><span>Travel &amp; Food</span>Barcelona</figcaption>
+        </figure>
+        <figure class="item fade-up" data-category="travel">
+          <img src="images/web/img-014-052.jpg" alt="A sandwich held up at a Barcelona food stall" width="1800" height="1200" loading="lazy" decoding="async">
+          <figcaption><span>Travel &amp; Food</span>Barcelona</figcaption>
+        </figure>
+        <figure class="item fade-up" data-category="travel">
+          <img src="images/web/img-015-055.jpg" alt="An &quot;All Those Food Market&quot; sign against blue sky" width="1100" height="1650" loading="lazy" decoding="async">
+          <figcaption><span>Travel &amp; Food</span>Food market</figcaption>
+        </figure>
+        <figure class="item fade-up" data-category="travel">
+          <img src="images/web/img-015-056.jpg" alt="A burger held up at an outdoor food market" width="1578" height="1138" loading="lazy" decoding="async">
+          <figcaption><span>Travel &amp; Food</span>Food market</figcaption>
+        </figure>
+        <figure class="item fade-up" data-category="travel">
+          <img src="images/web/img-015-057.jpg" alt="A latte with leaf art in a dark cup" width="1800" height="1200" loading="lazy" decoding="async">
+          <figcaption><span>Travel &amp; Food</span>Latte art</figcaption>
+        </figure>
+        <figure class="item fade-up" data-category="travel">
+          <img src="images/web/img-015-058.jpg" alt="Chocolate strawberry cake and desserts" width="1539" height="1026" loading="lazy" decoding="async">
+          <figcaption><span>Travel &amp; Food</span>Dessert table</figcaption>
+        </figure>
+        <figure class="item fade-up" data-category="travel">
+          <img src="images/web/img-016-061.jpg" alt="Red city bikes lined up on a Barcelona street" width="801" height="1200" loading="lazy" decoding="async">
+          <figcaption><span>Travel &amp; Food</span>Barcelona</figcaption>
+        </figure>
+        <figure class="item fade-up" data-category="travel">
+          <img src="images/web/img-016-062.jpg" alt="A building corner against pale sky" width="1200" height="1800" loading="lazy" decoding="async">
+          <figcaption><span>Travel &amp; Food</span>Barcelona</figcaption>
+        </figure>
+        <figure class="item fade-up" data-category="travel">
+          <img src="images/web/img-016-063.jpg" alt="Escalators beside a green wall" width="1800" height="1200" loading="lazy" decoding="async">
+          <figcaption><span>Travel &amp; Food</span>Barcelona</figcaption>
+        </figure>
+        <figure class="item fade-up" data-category="travel">
+          <img src="images/web/img-016-067.jpg" alt="The entrance of La Boqueria market" width="1200" height="800" loading="lazy" decoding="async">
+          <figcaption><span>Travel &amp; Food</span>Barcelona</figcaption>
+        </figure>
+        <figure class="item fade-up" data-category="travel">
+          <img src="images/web/img-010-034.jpg" alt="A beach at sunset with a seagull, shot on film" width="1800" height="1200" loading="lazy" decoding="async">
+          <figcaption><span>Travel &amp; Food</span>Film photography</figcaption>
+        </figure>
+        <figure class="item fade-up" data-category="travel">
+          <img src="images/web/img-010-035.jpg" alt="A bright beach and white hillside town, shot on film" width="1248" height="826" loading="lazy" decoding="async">
+          <figcaption><span>Travel &amp; Food</span>Film photography</figcaption>
+        </figure>
+        <figure class="item fade-up" data-category="aerial">
+          <img src="images/web/img-011-039.jpg" alt="Aerial view of a long beach and the town behind it" width="1600" height="900" loading="lazy" decoding="async">
+          <figcaption><span>Aerial</span>Drone</figcaption>
+        </figure>
+        <figure class="item fade-up" data-category="aerial">
+          <img src="images/web/img-011-038-upright.jpg" alt="Aerial view of the shoreline at dusk" width="960" height="724" loading="lazy" decoding="async">
+          <figcaption><span>Aerial</span>Drone</figcaption>
+        </figure>
+        <figure class="item fade-up" data-category="headshots">
+          <img src="images/web/img-004-012-upright.jpg" alt="Suburban Life magazine cover featuring Dr. Robert Fortino, spring 2026" width="990" height="1290" loading="lazy" decoding="async">
+          <figcaption><span>Headshots</span>Suburban Life cover</figcaption>
+        </figure>
+        <figure class="item fade-up" data-category="headshots">
+          <img src="images/web/img-005-013.jpg" alt="Staff headshot in a blue team sweatshirt" width="603" height="623" loading="lazy" decoding="async">
+          <figcaption><span>Headshots</span>Headshot</figcaption>
+        </figure>
+        <figure class="item fade-up" data-category="headshots">
+          <img src="images/web/img-005-014.jpg" alt="Staff headshot in a tan top" width="603" height="797" loading="lazy" decoding="async">
+          <figcaption><span>Headshots</span>Headshot</figcaption>
+        </figure>
+        <figure class="item fade-up" data-category="headshots">
+          <img src="images/web/img-005-015.jpg" alt="Staff headshot against a seascape backdrop" width="724" height="712" loading="lazy" decoding="async">
+          <figcaption><span>Headshots</span>Headshot</figcaption>
+        </figure>
+        <figure class="item fade-up" data-category="headshots">
+          <img src="images/web/img-005-016.jpg" alt="Staff headshot in blue scrubs" width="603" height="593" loading="lazy" decoding="async">
+          <figcaption><span>Headshots</span>Headshot</figcaption>
+        </figure>
+        <figure class="item fade-up" data-category="headshots">
+          <img src="images/web/img-005-017.jpg" alt="Staff headshot with a seascape backdrop" width="603" height="593" loading="lazy" decoding="async">
+          <figcaption><span>Headshots</span>Headshot</figcaption>
+        </figure>
+      </div>
+    </div>
+  </section>
+
+  <section class="contact" id="contact">
+    <div class="container contact-grid">
+      <div class="fade-up">
+        <h2>Let's work together</h2>
+        <p>Tell me about your day, your team or your brand.</p>
+        <ul class="contact-list">
+          <li><span>Instagram</span><a href="https://www.instagram.com/thesocial.hour/" target="_blank" rel="noopener">@thesocial.hour</a></li>
+          <li><span>Email</span><a href="mailto:bellasofia4tno@gmail.com">bellasofia4tno@gmail.com</a></li>
+          <li><span>Phone</span><a href="tel:+12675160152">267-516-0152</a></li>
+          <li><span>Area</span>Serving Philly + NJ</li>
+        </ul>
+      </div>
+
+      <!-- NOT CONNECTED YET: this form doesn't send anywhere. See script.js (FORM_ENDPOINT) to hook it up. -->
+      <form class="contact-form fade-up" id="contact-form" novalidate>
+        <label>Name
+          <input type="text" name="name" autocomplete="name" required>
+        </label>
+        <label>Email
+          <input type="email" name="email" autocomplete="email" required>
+        </label>
+        <label>What are you looking for?
+          <select name="type">
+            <option>Engagement or bridal</option>
+            <option>Brand or product</option>
+            <option>Event or sports</option>
+            <option>Travel or food</option>
+            <option>Aerial / drone</option>
+            <option>Headshots</option>
+            <option>Something else</option>
+          </select>
+        </label>
+        <label>Message
+          <textarea name="message" rows="5" required></textarea>
+        </label>
+        <button type="submit" class="btn btn-dark">Send message</button>
+        <p class="form-status" id="form-status" role="status" aria-live="polite"></p>
+      </form>
+    </div>
+  </section>
+
+  <footer class="footer">
+    <p class="footer-mark"><img src="images/wax-seal.png" alt="" width="523" height="503">© <span id="year"></span> The Social Hour Agency · Bellasofia Fortino</p>
+    <div class="footer-links">
+      <a class="footer-social" href="https://instagram.com/thesocial.hour" target="_blank" rel="noopener noreferrer"
+         aria-label="Instagram">
+        <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.6"
+             stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false">
+          <rect x="3" y="3" width="18" height="18" rx="5"/>
+          <circle cx="12" cy="12" r="4.2"/>
+          <circle cx="17.3" cy="6.7" r=".6" fill="currentColor" stroke="none"/>
+        </svg>
+      </a>
+      <a href="#top">Back to top ↑</a>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>

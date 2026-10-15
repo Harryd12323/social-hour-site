@@ -1,0 +1,7 @@
+# Windows download marker files
+*:Zone.Identifier
+
+# Source material: kept on this PC (and in the private social-hour-site-source repo), never published
+Portfolio.pdf.pdf
+*.pdf
+images/portfolio/
