@@ -333,9 +333,9 @@ section[id] { scroll-margin-top: var(--nav-h); }
 .contact-list span { width: 6.5rem; font-size: .7rem; letter-spacing: .22em; text-transform: uppercase; color: var(--gray); }
 .contact-list a { text-decoration: none; overflow-wrap: anywhere; }
 .contact-list a:hover, .contact-list a:focus-visible { text-decoration: underline; text-underline-offset: 4px; }
-.contact-form { display: grid; gap: 1.4rem; }
-/* One thin frame around all the fields, same padding on every side */
-.form-frame { display: grid; gap: 1.4rem; padding: clamp(1.25rem, 4vw, 2.5rem); border: 1px solid #9a9a9a; }
+/* One thin black frame around the whole form, button included */
+.contact-form { display: grid; gap: 1.4rem; padding: clamp(1rem, 3vw, 1.75rem); border: 1px solid var(--black); }
+.form-frame { display: grid; gap: 1.4rem; }
 .contact-form label {
   display: grid;
   gap: .4rem;
@@ -363,6 +363,7 @@ section[id] { scroll-margin-top: var(--nav-h); }
 .contact-form .invalid { border-bottom-color: var(--black); box-shadow: 0 2px 0 var(--black); }
 .contact-form .btn { justify-self: stretch; }
 .form-status { margin: 0; min-height: 1.5em; font-size: .9rem; text-align: center; }
+.form-status:empty { display: none; }   /* no blank gap inside the frame until there is a message */
 
 /* ---------- Footer ---------- */
 .footer {
@@ -462,5 +463,12 @@ section[id] { scroll-margin-top: var(--nav-h); }
   .gallery { columns: 1; }
   .video-grid { grid-template-columns: 1fr; gap: 2.5rem; }
   .work-head { align-items: start; }
-  .footer { flex-direction: column; align-items: center; text-align: center; }
+  /* Side by side on phones too: smaller text, copyright wraps to two lines, link shortens to "Top ↑" */
+  .footer { gap: .75rem; padding: 1.5rem 1rem; font-size: .6rem; letter-spacing: .06em; }
+  .footer-mark { flex: 1; min-width: 0; gap: .5rem; line-height: 1.6; }
+  .footer-mark img { width: 26px; flex-shrink: 0; }
+  .footer-links { gap: .6rem; white-space: nowrap; }
+  .footer-social { width: 34px; height: 34px; }
+  .top-full { display: none; }
+  .footer-name { display: block; }
 }
