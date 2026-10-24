@@ -139,6 +139,23 @@ section[id] { scroll-margin-top: var(--nav-h); }
   font-size: clamp(1.15rem, 2.4vw, 1.6rem);
   opacity: .9;
 }
+.ig-pill {
+  display: flex;
+  align-items: center;
+  gap: .5rem;
+  width: max-content;
+  min-height: 40px;
+  margin: 1.5rem auto 0;
+  padding: .5rem 1.1rem;
+  font-size: .78rem;
+  letter-spacing: .12em;
+  text-decoration: none;
+  color: var(--white);
+  border: 1px solid rgba(255,255,255,.5);
+  border-radius: 999px;
+  transition: background .3s var(--ease), color .3s var(--ease), border-color .3s var(--ease);
+}
+.ig-pill:hover, .ig-pill:focus-visible { background: var(--white); color: var(--black); border-color: var(--white); }
 .scroll-cue {
   position: absolute;
   bottom: 2rem;
@@ -277,6 +294,8 @@ section[id] { scroll-margin-top: var(--nav-h); }
   border: 1px dashed #a9a9a7;
 }
 .ph span { font-family: var(--display); font-size: 1.5rem; color: #4a4a4a; }
+.item.placeholder { cursor: default; }
+.item.placeholder .ph { aspect-ratio: 4 / 3; }
 .ph small { font-size: .7rem; letter-spacing: .25em; text-transform: uppercase; }
 
 /* Hover caption */
@@ -315,6 +334,8 @@ section[id] { scroll-margin-top: var(--nav-h); }
 .contact-list a { text-decoration: none; overflow-wrap: anywhere; }
 .contact-list a:hover, .contact-list a:focus-visible { text-decoration: underline; text-underline-offset: 4px; }
 .contact-form { display: grid; gap: 1.4rem; }
+/* One thin frame around all the fields, same padding on every side */
+.form-frame { display: grid; gap: 1.4rem; padding: clamp(1.25rem, 4vw, 2.5rem); border: 1px solid #9a9a9a; }
 .contact-form label {
   display: grid;
   gap: .4rem;
@@ -340,8 +361,8 @@ section[id] { scroll-margin-top: var(--nav-h); }
   background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8'%3E%3Cpath d='M1 1l5 5 5-5' fill='none' stroke='%23161616'/%3E%3C/svg%3E") right center no-repeat; }
 .contact-form :is(input, select, textarea):focus { outline: none; border-bottom-color: var(--black); box-shadow: 0 1px 0 var(--black); }
 .contact-form .invalid { border-bottom-color: var(--black); box-shadow: 0 2px 0 var(--black); }
-.contact-form .btn { justify-self: start; }
-.form-status { margin: 0; min-height: 1.5em; font-size: .9rem; }
+.contact-form .btn { justify-self: stretch; }
+.form-status { margin: 0; min-height: 1.5em; font-size: .9rem; text-align: center; }
 
 /* ---------- Footer ---------- */
 .footer {
@@ -387,6 +408,16 @@ section[id] { scroll-margin-top: var(--nav-h); }
 }
 
 /* ---------- Responsive ---------- */
+/* Desktop: the contact details sit in one row above the framed form, the same width and lined up with it.
+   Below 961px the details stay the stacked list they've always been. */
+@media (min-width: 961px) {
+  .contact-grid { grid-template-columns: 1fr; gap: 2.5rem; max-width: 880px; }
+  .contact-list { display: flex; justify-content: space-between; gap: 1.5rem; padding: 1rem 0;
+    border-top: 1px solid #cfcfcd; border-bottom: 1px solid #cfcfcd; }
+  .contact-list li, .contact-list li:last-child { display: block; min-height: 0; border: 0; }
+  .contact-list span { display: block; width: auto; margin-bottom: .25rem; }
+}
+
 @media (max-width: 960px) {
   .gallery { columns: 2; }
   .contact-grid, .about-grid { grid-template-columns: 1fr; gap: 2rem; }

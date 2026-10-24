@@ -59,7 +59,8 @@ filters.forEach((btn) => {
       b.setAttribute("aria-pressed", String(b === btn));
     });
     items.forEach((item) => {
-      const show = pick === "all" || item.dataset.category === pick;
+      const placeholder = item.classList.contains("placeholder");   // "coming soon" tiles only show under their own filter
+      const show = pick === "all" ? !placeholder : item.dataset.category === pick;
       item.classList.toggle("hidden", !show);
       item.classList.remove("filtering");
       if (show) {
