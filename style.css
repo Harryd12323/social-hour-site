@@ -7,6 +7,7 @@
   --gray: #8a8a8a;
   --gray-light: #d9d9d9;
   --paper: #f4f4f2;
+  --mist: #ebebe9;
   --white: #ffffff;
   --display: "Didot", "Bodoni 72", "Bodoni MT", "Playfair Display", Georgia, "Times New Roman", serif;
   --body: "Helvetica Neue", Helvetica, Arial, system-ui, sans-serif;
@@ -176,13 +177,16 @@ section[id] { scroll-margin-top: var(--nav-h); }
 
 /* ---------- About ---------- */
 .about { padding: clamp(5rem, 12vw, 9rem) 0; background: var(--paper); }
-.about-grid { display: grid; grid-template-columns: 1fr 2fr; gap: 3rem; align-items: start; }
+.about-grid { display: grid; grid-template-columns: 1fr 1.5fr; gap: clamp(2rem, 5vw, 4.5rem); align-items: start; }
+.about-photo { margin: 0; position: sticky; top: calc(var(--nav-h) + 1.5rem); }
+.about-photo img { display: block; width: 100%; height: auto; aspect-ratio: 2 / 3; object-fit: cover; }
+.about .about-kicker { margin: .75rem 0 2rem; font-size: .75rem; letter-spacing: .25em; text-transform: uppercase; color: var(--gray); }
 .about p { margin: 0 0 1.25rem; max-width: 60ch; color: #3a3a3a; }
 .about .lead { font-family: var(--display); font-size: clamp(1.4rem, 2.6vw, 1.95rem); line-height: 1.35; color: var(--ink); }
 
 /* ---------- Pull quote ---------- */
 .quote { padding: clamp(4rem, 9vw, 7rem) 0; background: var(--white); text-align: center; }
-.quote figure { margin: 0 auto; max-width: 900px; }
+.quote figure { margin: 0 auto; max-width: 900px; padding: clamp(2.5rem, 6vw, 4.5rem) clamp(1.5rem, 5vw, 4rem); background: var(--mist); }
 .quote blockquote {
   margin: 0;
   font-family: var(--display);
@@ -193,7 +197,7 @@ section[id] { scroll-margin-top: var(--nav-h); }
 .quote blockquote::before, .quote blockquote::after { color: var(--gray); }
 .quote blockquote::before { content: "\201C"; }
 .quote blockquote::after { content: "\201D"; }
-.quote figcaption { margin-top: 1.5rem; font-size: .78rem; letter-spacing: .3em; text-transform: uppercase; color: var(--gray); }
+.quote figcaption { margin-top: 1.5rem; font-size: .78rem; letter-spacing: .3em; text-transform: uppercase; color: #5e5e5e; }
 
 /* ---------- Video ---------- */
 .video { padding: clamp(5rem, 10vw, 8rem) 0; background: var(--black); color: var(--white); }
@@ -422,6 +426,7 @@ section[id] { scroll-margin-top: var(--nav-h); }
 @media (max-width: 960px) {
   .gallery { columns: 2; }
   .contact-grid, .about-grid { grid-template-columns: 1fr; gap: 2rem; }
+  .about-photo { position: static; max-width: 420px; }
   .video-grid { grid-template-columns: 1fr 1fr; }
 }
 
