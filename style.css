@@ -182,11 +182,11 @@ section[id] { scroll-margin-top: var(--nav-h); }
 .about-photo img { display: block; width: 100%; height: auto; aspect-ratio: 2 / 3; object-fit: cover; }
 .about .about-kicker { margin: .75rem 0 2rem; font-size: .75rem; letter-spacing: .25em; text-transform: uppercase; color: var(--gray); }
 .about p { margin: 0 0 1.25rem; max-width: 60ch; color: #3a3a3a; }
-.about .lead { font-family: var(--display); font-size: clamp(1.4rem, 2.6vw, 1.95rem); line-height: 1.35; color: var(--ink); }
 
 /* ---------- Pull quote ---------- */
 .quote { padding: clamp(4rem, 9vw, 7rem) 0; background: var(--white); text-align: center; }
-.quote figure { margin: 0 auto; max-width: 900px; padding: clamp(2.5rem, 6vw, 4.5rem) clamp(1.5rem, 5vw, 4rem); background: var(--mist); }
+/* Plain quote: no box, quote marks and attribution in the same ink as the words */
+.quote figure { margin: 0 auto; max-width: 900px; padding: 0 clamp(1.25rem, 5vw, 4rem); color: var(--ink); }
 .quote blockquote {
   margin: 0;
   font-family: var(--display);
@@ -194,51 +194,107 @@ section[id] { scroll-margin-top: var(--nav-h); }
   font-size: clamp(1.6rem, 3.6vw, 2.7rem);
   line-height: 1.3;
 }
-.quote blockquote::before, .quote blockquote::after { color: var(--gray); }
 .quote blockquote::before { content: "\201C"; }
 .quote blockquote::after { content: "\201D"; }
-.quote figcaption { margin-top: 1.5rem; font-size: .78rem; letter-spacing: .3em; text-transform: uppercase; color: #5e5e5e; }
+.quote figcaption { margin-top: 1.5rem; font-size: .78rem; letter-spacing: .3em; text-transform: uppercase; }
 
 /* ---------- Video ---------- */
 .video { padding: clamp(5rem, 10vw, 8rem) 0; background: var(--black); color: var(--white); }
 .section-note { margin: 0; font-size: .75rem; letter-spacing: .25em; text-transform: uppercase; color: var(--gray); }
-.video-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 2.5rem 14px; }
-.video-tile { margin: 0; }
-.video-tile .frame {
+/* Moving gallery: a sideways-scrolling row that script.js nudges along. Native scrolling, so it swipes on phones. */
+.video { overflow-x: clip; }   /* the full-width belt never makes the page scroll sideways */
+.video .section-note { margin-top: .9rem; }
+.see-all { flex-shrink: 0; }
+.reel-belt {
+  overflow-x: auto;
+  overscroll-behavior-x: contain;   /* a swipe past the end doesn't trigger the browser's back gesture */
+  scrollbar-width: none;
+  -webkit-overflow-scrolling: touch;
+  padding: 0 clamp(1.25rem, 4vw, 3rem);
+  outline: none;
+}
+.reel-belt::-webkit-scrollbar { display: none; }
+.reel-track { display: flex; gap: 14px; width: max-content; margin: 0; padding: 0; list-style: none; }
+.reel { flex: 0 0 clamp(150px, 20vw, 260px); }
+.reel-link { display: block; color: inherit; text-decoration: none; -webkit-tap-highlight-color: transparent; }
+.reel-frame {
   position: relative;
+  display: grid;
+  place-items: center;
   aspect-ratio: 9 / 16;   /* Bella's reels are vertical */
   overflow: hidden;
   background: var(--ink);
 }
-.video-tile .frame > * { position: absolute; inset: 0; width: 100%; height: 100%; border: 0; object-fit: cover; }
-.video-tile .ph {
-  color: var(--gray);
-  background:
-    repeating-linear-gradient(45deg, transparent 0 14px, rgba(255,255,255,.03) 14px 15px),
-    linear-gradient(160deg, #1f1f1f, #121212);
-  border: 1px dashed #444;
-}
-.video-tile .ph span:not(.play) { color: var(--gray-light); }
+.reel-frame img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; transition: transform .8s var(--ease); }
+.reel-link:hover .reel-frame img, .reel-link:focus-visible .reel-frame img { transform: scale(1.04); }
+.reel-link:focus-visible { outline: 2px solid var(--white); outline-offset: 3px; }
 .play {
+  position: relative;
   width: 54px;
   height: 54px;
-  margin-bottom: .35rem;
-  border: 1px solid rgba(255,255,255,.6);
+  border: 1px solid rgba(255,255,255,.75);
   border-radius: 50%;
-  background: no-repeat 55% center / 16px
+  background: rgba(0,0,0,.25) no-repeat 55% center / 16px
     url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 10 12'%3E%3Cpath d='M0 0l10 6-10 6z' fill='white'/%3E%3C/svg%3E");
   transition: transform .4s var(--ease), background-color .4s var(--ease);
 }
-.video-tile:hover .play { transform: scale(1.08); background-color: rgba(255,255,255,.1); }
-.video-tile figcaption { padding-top: 1rem; font-family: var(--display); font-size: 1.25rem; }
-.video-tile figcaption span {
+.reel-link:hover .play { transform: scale(1.08); background-color: rgba(255,255,255,.15); }
+.reel-cap { display: block; padding-top: .9rem; font-family: var(--display); font-size: 1.2rem; line-height: 1.25; }
+.reel-cap span {
   display: block;
-  margin-bottom: .25rem;
-  font: 500 .68rem/1 var(--body);
-  letter-spacing: .25em;
+  margin-bottom: .3rem;
+  font: 500 .64rem/1.3 var(--body);
+  letter-spacing: .22em;
   text-transform: uppercase;
   color: var(--gray);
 }
+
+/* Play buttons only appear once the belt is stopped: then a click or tap plays */
+.reel-belt .play { opacity: 0; transform: scale(.85); transition: opacity .3s var(--ease), transform .3s var(--ease); }
+.reel-belt.is-stopped .play { opacity: 1; transform: none; }
+.reel-hint { margin: 1.25rem 0 0; padding: 0 clamp(1.25rem, 4vw, 3rem); min-height: 1.2em; font-size: .68rem;
+  letter-spacing: .22em; text-transform: uppercase; color: var(--gray); text-align: center; }
+
+/* Player and "See all" overlays */
+.reel-player, .reel-grid { padding: 0; border: 0; color: var(--white); background: var(--black); }
+.reel-player::backdrop, .reel-grid::backdrop { background: rgba(0,0,0,.88); }
+.reel-player { width: auto; max-width: calc(100vw - 2rem); overflow: visible; background: transparent; }
+/* As big as fits: never wider than the screen, never taller than ~78% of it, always 9:16 */
+.reel-player video { display: block; width: min(calc(100vw - 2rem), calc(78dvh * 9 / 16), 480px); height: auto; aspect-ratio: 9 / 16; background: var(--ink); }
+.reel-player-cap { margin: .8rem 0 0; font-family: var(--display); font-size: 1.15rem; text-align: center; }
+.reel-player .dialog-close { position: absolute; top: -3rem; right: 0; }
+.dialog-close {
+  width: 44px;
+  height: 44px;
+  padding: 0;
+  font: 300 2rem/1 var(--body);
+  color: var(--white);
+  background: none;
+  border: 0;
+  cursor: pointer;
+}
+.reel-grid { width: 100vw; max-width: none; height: 100dvh; max-height: none; margin: 0; overflow-y: auto; overscroll-behavior: contain; }
+.reel-grid-head {
+  position: sticky;
+  top: 0;
+  z-index: 1;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1rem clamp(1.25rem, 4vw, 3rem);
+  background: var(--black);
+}
+.reel-grid-head h2 { font-size: clamp(1.8rem, 4vw, 2.6rem); }
+.reel-grid-list {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 2rem 14px;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 1rem clamp(1.25rem, 4vw, 3rem) 3rem;
+  list-style: none;
+}
+html.dialog-open { overflow: hidden; }
 
 /* ---------- Gallery ---------- */
 .work { padding: clamp(5rem, 10vw, 8rem) 0; background: var(--white); }
@@ -427,7 +483,7 @@ section[id] { scroll-margin-top: var(--nav-h); }
   .gallery { columns: 2; }
   .contact-grid, .about-grid { grid-template-columns: 1fr; gap: 2rem; }
   .about-photo { position: static; max-width: 420px; }
-  .video-grid { grid-template-columns: repeat(3, 1fr); }
+  .reel-grid-list { grid-template-columns: repeat(3, 1fr); }
 }
 
 @media (max-width: 720px) {
@@ -466,8 +522,10 @@ section[id] { scroll-margin-top: var(--nav-h); }
 @media (max-width: 560px) {
   body { font-size: 16px; }
   .gallery { columns: 1; }
-  .video-grid { grid-template-columns: 1fr 1fr; gap: 1.75rem 10px; }
-  .video-tile figcaption { padding-top: .6rem; font-size: 1rem; }
+  .reel { flex-basis: 42vw; }   /* about two and a half tiles in view: an obvious cue to swipe */
+  .reel-track { gap: 10px; }
+  .reel-cap { padding-top: .6rem; font-size: 1rem; }
+  .reel-grid-list { grid-template-columns: 1fr 1fr; gap: 1.5rem 10px; }
   .work-head { align-items: start; }
   /* Side by side on phones too: smaller text, copyright wraps to two lines, link shortens to "Top ↑" */
   .footer { gap: .75rem; padding: 1.5rem 1rem; font-size: .6rem; letter-spacing: .06em; }

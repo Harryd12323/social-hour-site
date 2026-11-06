@@ -65,7 +65,7 @@
       <div class="fade-up">
         <h2>Meet Bellasofia</h2>
         <p class="about-kicker">The Creative Behind The Social Hour</p>
-        <p class="lead">Hi, I'm Bellasofia, the founder and creative mind behind The Social Hour Agency, a boutique
+        <p>Hi, I'm Bellasofia, the founder and creative mind behind The Social Hour Agency, a boutique
           content creation business built from my passion for storytelling, creativity, and capturing life's most
           memorable moments.</p>
         <p>With a background in marketing, photography, and digital communications, I've turned my love for
@@ -97,59 +97,90 @@
   <section class="video" id="video">
     <div class="container">
       <div class="work-head fade-up">
-        <h2>Video</h2>
-        <p class="section-note">Reels &amp; highlight films</p>
-      </div>
-
-      <!--
-        Bella's reels: vertical (9:16) H.264 MP4s in videos/, posters in images/bella/posters/.
-        preload="none" means nothing downloads until someone presses play; script.js fills in each poster
-        (data-poster) as the tile scrolls near, so phones don't fetch them all up front.
-        To add one: make a web copy (720px wide H.264, +faststart), a poster JPEG, and copy a <figure> below.
-      -->
-      <div class="video-grid">
-        <figure class="video-tile fade-up">
-          <div class="frame"><video src="videos/wedding-ceremony.mp4" data-poster="images/bella/posters/wedding-ceremony.jpg" controls playsinline preload="none"
-                 width="720" height="1280" aria-label="Garden ceremony reel"></video></div>
-          <figcaption><span>Engagements &amp; Bridal</span>Garden ceremony</figcaption>
-        </figure>
-        <figure class="video-tile fade-up">
-          <div class="frame"><video src="videos/wedding-reception.mp4" data-poster="images/bella/posters/wedding-reception.jpg" controls playsinline preload="none"
-                 width="720" height="1280" aria-label="The reception reel"></video></div>
-          <figcaption><span>Engagements &amp; Bridal</span>The reception</figcaption>
-        </figure>
-        <figure class="video-tile fade-up">
-          <div class="frame"><video src="videos/brand-corepower-barre.mp4" data-poster="images/bella/posters/brand-corepower-barre.jpg" controls playsinline preload="none"
-                 width="720" height="1280" aria-label="CorePower Barre reel"></video></div>
-          <figcaption><span>Brands &amp; Products</span>CorePower Barre</figcaption>
-        </figure>
-        <figure class="video-tile fade-up">
-          <div class="frame"><video src="videos/brand-laybacknj-beach.mp4" data-poster="images/bella/posters/brand-laybacknj-beach.jpg" controls playsinline preload="none"
-                 width="720" height="1280" aria-label="LayBackNJ beach concierge reel"></video></div>
-          <figcaption><span>Brands &amp; Products</span>LayBackNJ beach concierge</figcaption>
-        </figure>
-        <figure class="video-tile fade-up">
-          <div class="frame"><video src="videos/brand-yoga-sculpt.mp4" data-poster="images/bella/posters/brand-yoga-sculpt.jpg" controls playsinline preload="none"
-                 width="720" height="1280" aria-label="Philly Yoga Sculpt reel"></video></div>
-          <figcaption><span>Brands &amp; Products</span>Philly Yoga Sculpt</figcaption>
-        </figure>
-        <figure class="video-tile fade-up">
-          <div class="frame"><video src="videos/travel-champagne-reims.mp4" data-poster="images/bella/posters/travel-champagne-reims.jpg" controls playsinline preload="none"
-                 width="720" height="1280" aria-label="Champagne in Reims reel"></video></div>
-          <figcaption><span>Travel &amp; Food</span>Champagne in Reims</figcaption>
-        </figure>
-        <figure class="video-tile fade-up">
-          <div class="frame"><video src="videos/travel-lafayette-hotel.mp4" data-poster="images/bella/posters/travel-lafayette-hotel.jpg" controls playsinline preload="none"
-                 width="720" height="1280" aria-label="Breakfast at the Lafayette reel"></video></div>
-          <figcaption><span>Travel &amp; Food</span>Breakfast at the Lafayette</figcaption>
-        </figure>
-        <figure class="video-tile fade-up">
-          <div class="frame"><video src="videos/travel-starlite-sandiego.mp4" data-poster="images/bella/posters/travel-starlite-sandiego.jpg" controls playsinline preload="none"
-                 width="720" height="1280" aria-label="Starlite, San Diego reel"></video></div>
-          <figcaption><span>Travel &amp; Food</span>Starlite, San Diego</figcaption>
-        </figure>
+        <div>
+          <h2>Videos</h2>
+          <p class="section-note">Reels &amp; highlight films</p>
+        </div>
+        <button class="btn btn-light see-all" id="see-all" type="button" aria-haspopup="dialog">See all</button>
       </div>
     </div>
+
+    <!--
+      Moving gallery ("conveyor belt"): a normal sideways-scrolling row that script.js nudges along slowly.
+      It pauses on hover / touch / keyboard focus; then a click or tap opens that reel in the player below.
+      script.js copies the list once so the row loops seamlessly, and builds the "See all" grid from it.
+      To add a reel: a 720px-wide H.264 MP4 in videos/ (+faststart), a poster JPEG in images/bella/posters/,
+      and one more <li> below. Without JavaScript each tile simply links to its video file.
+    -->
+    <div class="reel-belt fade-up" id="reel-belt" role="region" aria-label="Video reels, scrolling slowly. Hover or touch to pause." tabindex="-1">
+      <ul class="reel-track" id="reel-track">
+          <li class="reel">
+            <a class="reel-link" href="videos/wedding-ceremony.mp4" data-video="videos/wedding-ceremony.mp4" data-poster="images/bella/posters/wedding-ceremony.jpg">
+              <span class="reel-frame"><img src="images/bella/posters/wedding-ceremony.jpg" alt="" width="360" height="640" loading="lazy" decoding="async"><span class="play" aria-hidden="true"></span></span>
+              <span class="reel-cap"><span>Engagements &amp; Bridal</span>Garden ceremony</span>
+            </a>
+          </li>
+          <li class="reel">
+            <a class="reel-link" href="videos/wedding-reception.mp4" data-video="videos/wedding-reception.mp4" data-poster="images/bella/posters/wedding-reception.jpg">
+              <span class="reel-frame"><img src="images/bella/posters/wedding-reception.jpg" alt="" width="360" height="640" loading="lazy" decoding="async"><span class="play" aria-hidden="true"></span></span>
+              <span class="reel-cap"><span>Engagements &amp; Bridal</span>The reception</span>
+            </a>
+          </li>
+          <li class="reel">
+            <a class="reel-link" href="videos/brand-corepower-barre.mp4" data-video="videos/brand-corepower-barre.mp4" data-poster="images/bella/posters/brand-corepower-barre.jpg">
+              <span class="reel-frame"><img src="images/bella/posters/brand-corepower-barre.jpg" alt="" width="360" height="640" loading="lazy" decoding="async"><span class="play" aria-hidden="true"></span></span>
+              <span class="reel-cap"><span>Brands &amp; Products</span>CorePower Barre</span>
+            </a>
+          </li>
+          <li class="reel">
+            <a class="reel-link" href="videos/brand-laybacknj-beach.mp4" data-video="videos/brand-laybacknj-beach.mp4" data-poster="images/bella/posters/brand-laybacknj-beach.jpg">
+              <span class="reel-frame"><img src="images/bella/posters/brand-laybacknj-beach.jpg" alt="" width="360" height="640" loading="lazy" decoding="async"><span class="play" aria-hidden="true"></span></span>
+              <span class="reel-cap"><span>Brands &amp; Products</span>LayBackNJ beach concierge</span>
+            </a>
+          </li>
+          <li class="reel">
+            <a class="reel-link" href="videos/brand-yoga-sculpt.mp4" data-video="videos/brand-yoga-sculpt.mp4" data-poster="images/bella/posters/brand-yoga-sculpt.jpg">
+              <span class="reel-frame"><img src="images/bella/posters/brand-yoga-sculpt.jpg" alt="" width="360" height="640" loading="lazy" decoding="async"><span class="play" aria-hidden="true"></span></span>
+              <span class="reel-cap"><span>Brands &amp; Products</span>Philly Yoga Sculpt</span>
+            </a>
+          </li>
+          <li class="reel">
+            <a class="reel-link" href="videos/travel-champagne-reims.mp4" data-video="videos/travel-champagne-reims.mp4" data-poster="images/bella/posters/travel-champagne-reims.jpg">
+              <span class="reel-frame"><img src="images/bella/posters/travel-champagne-reims.jpg" alt="" width="360" height="640" loading="lazy" decoding="async"><span class="play" aria-hidden="true"></span></span>
+              <span class="reel-cap"><span>Travel &amp; Food</span>Champagne in Reims</span>
+            </a>
+          </li>
+          <li class="reel">
+            <a class="reel-link" href="videos/travel-lafayette-hotel.mp4" data-video="videos/travel-lafayette-hotel.mp4" data-poster="images/bella/posters/travel-lafayette-hotel.jpg">
+              <span class="reel-frame"><img src="images/bella/posters/travel-lafayette-hotel.jpg" alt="" width="360" height="640" loading="lazy" decoding="async"><span class="play" aria-hidden="true"></span></span>
+              <span class="reel-cap"><span>Travel &amp; Food</span>Breakfast at the Lafayette</span>
+            </a>
+          </li>
+          <li class="reel">
+            <a class="reel-link" href="videos/travel-starlite-sandiego.mp4" data-video="videos/travel-starlite-sandiego.mp4" data-poster="images/bella/posters/travel-starlite-sandiego.jpg">
+              <span class="reel-frame"><img src="images/bella/posters/travel-starlite-sandiego.jpg" alt="" width="360" height="640" loading="lazy" decoding="async"><span class="play" aria-hidden="true"></span></span>
+              <span class="reel-cap"><span>Travel &amp; Food</span>Starlite, San Diego</span>
+            </a>
+          </li>
+      </ul>
+    </div>
+    <p class="reel-hint" id="reel-hint" aria-live="polite"></p>
+
+    <!-- One player for every reel, so only one video can ever play at a time -->
+    <dialog class="reel-player" id="reel-player" aria-label="Video player">
+      <button class="dialog-close" type="button" aria-label="Close video">&times;</button>
+      <video controls playsinline preload="none"></video>
+      <p class="reel-player-cap"></p>
+    </dialog>
+
+    <!-- "See all": every reel in a simple grid (filled in by script.js) -->
+    <dialog class="reel-grid" id="reel-grid" aria-labelledby="reel-grid-title">
+      <div class="reel-grid-head">
+        <h2 id="reel-grid-title">All videos</h2>
+        <button class="dialog-close" type="button" aria-label="Close all videos">&times;</button>
+      </div>
+      <ul class="reel-grid-list"></ul>
+    </dialog>
   </section>
 
   <section class="work" id="work">
@@ -570,7 +601,7 @@
   <section class="contact" id="contact">
     <div class="container contact-grid">
       <div class="fade-up">
-        <h2>LET'S WORK TOGETHER!</h2>
+        <h2>Let's Work Together!</h2>
         <ul class="contact-list">
           <li><span>Instagram</span><a href="https://www.instagram.com/thesocial.hour/" target="_blank" rel="noopener">@thesocial.hour</a></li>
           <li><span>Email</span><a href="mailto:bellasofia4tno@gmail.com">bellasofia4tno@gmail.com</a></li>

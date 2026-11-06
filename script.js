@@ -1,4 +1,4 @@
-// The Social Hour Agency — navbar, mobile menu, gallery filter, fade-up on scroll, contact form.
+// The Social Hour Agency — navbar, video belt, mobile menu, gallery filter, fade-up on scroll, contact form.
 
 // Where the contact form sends to. Empty = not connected: the form checks the fields but sends nothing,
 // and says so. To connect it, paste the URL from a form service (e.g. Formspree or Basin) here.
@@ -20,22 +20,139 @@ const setHeroVideo = () => {
 setHeroVideo();
 calm.addEventListener?.("change", setHeroVideo);
 
-// ---------- Reels: posters load as they scroll near; one reel plays at a time ----------
-const reels = document.querySelectorAll(".video-tile video");
-const showPoster = (v) => { if (v.dataset.poster) { v.poster = v.dataset.poster; delete v.dataset.poster; } };
+// ---------- Videos: moving gallery ("conveyor belt") ----------
+// The belt is an ordinary sideways-scrolling row of poster images (no video plays in it), so phones can swipe it.
+// It drifts slowly on its own. Hover or a touch holds it still; the FIRST click/tap stops it (play buttons appear),
+// the SECOND click/tap on a reel opens it in the one shared player. It drifts again after a few quiet seconds.
+// Reduced motion: it never drifts, so a single click/tap plays.
+const belt = document.getElementById("reel-belt");
+const track = document.getElementById("reel-track");
+const hint = document.getElementById("reel-hint");
+const player = document.getElementById("reel-player");
+const playerVideo = player.querySelector("video");
+const playerCap = player.querySelector(".reel-player-cap");
+const grid = document.getElementById("reel-grid");
+const originals = [...track.children];
+const SPEED = 28;            // px per second
+const IDLE_MS = 5000;        // quiet time before a stopped belt drifts again
+const tapWord = window.matchMedia("(hover: none)").matches ? "Tap" : "Click";
+let stopped = false, hovered = false, touching = false, keyFocus = false, inView = false;
+let lastInteraction = 0, pos = 0, lastSet = -1, setWidth = 0, rafId = 0, lastT = 0;
+
+// Loop seamlessly: append copies of the list until there's always one full set beyond the visible width.
+const addCopy = () => originals.forEach((li) => {
+  const c = li.cloneNode(true);
+  c.setAttribute("aria-hidden", "true");
+  c.querySelector("a").tabIndex = -1;
+  track.append(c);
+});
+const measure = () => {
+  setWidth = track.children[originals.length].offsetLeft - originals[0].offsetLeft;
+  while (track.scrollWidth < setWidth + belt.clientWidth + 2) addCopy();
+};
+addCopy();
+measure();
+window.addEventListener("resize", measure);
+
+const dialogOpen = () => player.open || grid.open;
+const canMove = () => !calm.matches && inView && !document.hidden && !stopped && !hovered && !touching &&
+  !keyFocus && !dialogOpen() && performance.now() - lastInteraction > 1200;
+
+const setStopped = (on) => {
+  stopped = on;
+  belt.classList.toggle("is-stopped", on || calm.matches);
+  hint.textContent = on || calm.matches ? `${tapWord} a video to play` : `${tapWord} to pause`;
+};
+setStopped(false);
+calm.addEventListener?.("change", () => setStopped(stopped));
+
+const frame = (t) => {
+  const dt = Math.min((t - lastT) / 1000, 0.1);
+  lastT = t;
+  if (canMove()) {
+    pos += SPEED * dt;
+    if (pos >= setWidth) pos -= setWidth;
+    belt.scrollLeft = pos;
+    lastSet = belt.scrollLeft;
+  } else {
+    // After a long swipe, hop back one set (only once the swipe has settled, so momentum isn't cut short)
+    if (!touching && setWidth && belt.scrollLeft >= setWidth && performance.now() - lastInteraction > 400) belt.scrollLeft -= setWidth;
+    pos = belt.scrollLeft;
+    lastSet = pos;
+    if (stopped && !hovered && !keyFocus && !dialogOpen() && performance.now() - lastInteraction > IDLE_MS) setStopped(false);
+  }
+  rafId = requestAnimationFrame(frame);
+};
+const run = () => {
+  const go = inView && !document.hidden;
+  if (go && !rafId) { lastT = performance.now(); rafId = requestAnimationFrame(frame); }
+  if (!go && rafId) { cancelAnimationFrame(rafId); rafId = 0; }
+};
 if ("IntersectionObserver" in window) {
-  const posterIO = new IntersectionObserver((entries) => {
-    entries.forEach((entry) => {
-      if (entry.isIntersecting) { showPoster(entry.target); posterIO.unobserve(entry.target); }
-    });
-  }, { rootMargin: "300px 0px" });
-  reels.forEach((v) => posterIO.observe(v));
-} else {
-  reels.forEach(showPoster);
-}
-reels.forEach((v) => v.addEventListener("play", () => {
-  reels.forEach((other) => { if (other !== v) other.pause(); });
-}));
+  new IntersectionObserver(([e]) => { inView = e.isIntersecting; run(); }).observe(belt);
+} else { inView = true; run(); }
+document.addEventListener("visibilitychange", run);
+
+const touched = () => { lastInteraction = performance.now(); };
+belt.addEventListener("pointerenter", (e) => { if (e.pointerType === "mouse") hovered = true; });
+belt.addEventListener("pointerleave", (e) => { if (e.pointerType === "mouse") { hovered = false; touched(); } });
+belt.addEventListener("pointerdown", (e) => { if (e.pointerType !== "mouse") touching = true; touched(); });
+["pointerup", "pointercancel", "touchend", "touchcancel"].forEach((ev) =>
+  belt.addEventListener(ev, () => { touching = false; touched(); }, { passive: true }));
+belt.addEventListener("touchstart", () => { touching = true; touched(); }, { passive: true });
+belt.addEventListener("wheel", touched, { passive: true });
+belt.addEventListener("scroll", () => { if (Math.abs(belt.scrollLeft - lastSet) > 2) touched(); }, { passive: true });
+// Tabbing onto a reel holds the belt still (moving content under keyboard focus is hard to use).
+// Only real Tab presses count: focus coming back from a closed player shouldn't freeze it for good.
+let tabbing = false;
+document.addEventListener("keydown", (e) => { tabbing = e.key === "Tab"; });
+document.addEventListener("pointerdown", () => { tabbing = false; });
+belt.addEventListener("focusin", () => { if (tabbing) { keyFocus = true; setStopped(true); } });
+belt.addEventListener("focusout", () => { keyFocus = false; touched(); });
+
+// One player for every reel, so only one video ever plays.
+const syncLock = () => document.documentElement.classList.toggle("dialog-open", dialogOpen());
+const openReel = (link) => {
+  playerVideo.poster = link.dataset.poster;
+  playerVideo.src = link.dataset.video;
+  playerCap.textContent = link.querySelector(".reel-cap").lastChild.textContent.trim();
+  player.showModal();
+  syncLock();
+  playerVideo.play().catch(() => {});      // if autoplay is refused, the controls are right there
+};
+player.addEventListener("close", () => {
+  playerVideo.pause();
+  playerVideo.removeAttribute("src");       // stop downloading
+  playerVideo.load();
+  syncLock();
+  touched();
+});
+
+belt.addEventListener("click", (e) => {
+  e.preventDefault();
+  touched();
+  if (!stopped && !calm.matches) { setStopped(true); return; }   // first click/tap: stop the belt
+  const link = e.target.closest(".reel-link");
+  if (link) openReel(link);                                       // second: play that reel
+});
+
+// "See all": every reel in a simple grid; one click/tap plays.
+const gridList = grid.querySelector(".reel-grid-list");
+originals.forEach((li) => gridList.append(li.cloneNode(true)));
+gridList.addEventListener("click", (e) => {
+  const link = e.target.closest(".reel-link");
+  if (!link) return;
+  e.preventDefault();
+  openReel(link);
+});
+document.getElementById("see-all").addEventListener("click", () => { grid.showModal(); syncLock(); });
+grid.addEventListener("close", () => { syncLock(); touched(); });
+
+// Close buttons, and a click on the dark backdrop, close either overlay.
+[player, grid].forEach((d) => {
+  d.querySelector(".dialog-close").addEventListener("click", () => d.close());
+  d.addEventListener("click", (e) => { if (e.target === d) d.close(); });
+});
 
 // ---------- Mobile menu ----------
 const toggle = document.getElementById("nav-toggle");
