@@ -263,6 +263,12 @@ section[id] { scroll-margin-top: var(--nav-h); }
 .reel-player video { display: block; width: min(calc(100vw - 2rem), calc(78dvh * 9 / 16), 480px); height: auto; aspect-ratio: 9 / 16; background: var(--ink); }
 .reel-player-cap { margin: .8rem 0 0; font-family: var(--display); font-size: 1.15rem; text-align: center; }
 .reel-player .dialog-close { position: absolute; top: -3rem; right: 0; }
+/* Tablet and desktop: shrink the player to the video's width so the browser centers it (video, caption and close
+   button together) in the middle of the screen. Phones keep the full-width layout above. */
+@media (min-width: 721px) {
+  .reel-player { width: fit-content; height: fit-content; margin: auto; padding-top: 3rem; }
+  .reel-player .dialog-close { top: 0; }   /* inside the box, so all three center as one */
+}
 .dialog-close {
   width: 44px;
   height: 44px;
