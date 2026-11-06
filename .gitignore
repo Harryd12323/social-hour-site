@@ -5,3 +5,8 @@
 Portfolio.pdf.pdf
 *.pdf
 images/portfolio/
+
+# Bella's full-size originals (camera JPEGs, phone .mov) stay off GitHub: only the optimized copies in images/bella/ and videos/ are published
+*.mov
+*.MOV
+bella-media/

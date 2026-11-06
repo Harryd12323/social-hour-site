@@ -202,11 +202,11 @@ section[id] { scroll-margin-top: var(--nav-h); }
 /* ---------- Video ---------- */
 .video { padding: clamp(5rem, 10vw, 8rem) 0; background: var(--black); color: var(--white); }
 .section-note { margin: 0; font-size: .75rem; letter-spacing: .25em; text-transform: uppercase; color: var(--gray); }
-.video-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 14px; }
+.video-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 2.5rem 14px; }
 .video-tile { margin: 0; }
 .video-tile .frame {
   position: relative;
-  aspect-ratio: 16 / 9;
+  aspect-ratio: 9 / 16;   /* Bella's reels are vertical */
   overflow: hidden;
   background: var(--ink);
 }
@@ -427,7 +427,7 @@ section[id] { scroll-margin-top: var(--nav-h); }
   .gallery { columns: 2; }
   .contact-grid, .about-grid { grid-template-columns: 1fr; gap: 2rem; }
   .about-photo { position: static; max-width: 420px; }
-  .video-grid { grid-template-columns: 1fr 1fr; }
+  .video-grid { grid-template-columns: repeat(3, 1fr); }
 }
 
 @media (max-width: 720px) {
@@ -466,7 +466,8 @@ section[id] { scroll-margin-top: var(--nav-h); }
 @media (max-width: 560px) {
   body { font-size: 16px; }
   .gallery { columns: 1; }
-  .video-grid { grid-template-columns: 1fr; gap: 2.5rem; }
+  .video-grid { grid-template-columns: 1fr 1fr; gap: 1.75rem 10px; }
+  .video-tile figcaption { padding-top: .6rem; font-size: 1rem; }
   .work-head { align-items: start; }
   /* Side by side on phones too: smaller text, copyright wraps to two lines, link shortens to "Top ↑" */
   .footer { gap: .75rem; padding: 1.5rem 1rem; font-size: .6rem; letter-spacing: .06em; }

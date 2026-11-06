@@ -20,6 +20,23 @@ const setHeroVideo = () => {
 setHeroVideo();
 calm.addEventListener?.("change", setHeroVideo);
 
+// ---------- Reels: posters load as they scroll near; one reel plays at a time ----------
+const reels = document.querySelectorAll(".video-tile video");
+const showPoster = (v) => { if (v.dataset.poster) { v.poster = v.dataset.poster; delete v.dataset.poster; } };
+if ("IntersectionObserver" in window) {
+  const posterIO = new IntersectionObserver((entries) => {
+    entries.forEach((entry) => {
+      if (entry.isIntersecting) { showPoster(entry.target); posterIO.unobserve(entry.target); }
+    });
+  }, { rootMargin: "300px 0px" });
+  reels.forEach((v) => posterIO.observe(v));
+} else {
+  reels.forEach(showPoster);
+}
+reels.forEach((v) => v.addEventListener("play", () => {
+  reels.forEach((other) => { if (other !== v) other.pause(); });
+}));
+
 // ---------- Mobile menu ----------
 const toggle = document.getElementById("nav-toggle");
 const setMenu = (open) => {

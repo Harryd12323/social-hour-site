@@ -102,25 +102,51 @@
       </div>
 
       <!--
-        To add a reel, replace a tile's <div class="ph">…</div> with the embed code, e.g.
-          YouTube: <iframe src="https://www.youtube-nocookie.com/embed/VIDEO_ID" title="Wedding highlight reel"
-                     allow="fullscreen; picture-in-picture" allowfullscreen loading="lazy"></iframe>
-          Vimeo:   <iframe src="https://player.vimeo.com/video/VIDEO_ID" title="…" allow="fullscreen" loading="lazy"></iframe>
-          Your own file: <video src="videos/reel-1.mp4" controls preload="metadata" poster="images/reel-1.jpg"></video>
-        The tile keeps the 16:9 shape whatever goes in it. Change the caption text below each tile to match.
+        Bella's reels: vertical (9:16) H.264 MP4s in videos/, posters in images/bella/posters/.
+        preload="none" means nothing downloads until someone presses play; script.js fills in each poster
+        (data-poster) as the tile scrolls near, so phones don't fetch them all up front.
+        To add one: make a web copy (720px wide H.264, +faststart), a poster JPEG, and copy a <figure> below.
       -->
       <div class="video-grid">
         <figure class="video-tile fade-up">
-          <div class="frame"><div class="ph"><span class="play" aria-hidden="true"></span><span>Video here</span><small>Reel 1 · 16:9</small></div></div>
-          <figcaption><span>Engagements &amp; Bridal</span>Highlight film</figcaption>
+          <div class="frame"><video src="videos/wedding-ceremony.mp4" data-poster="images/bella/posters/wedding-ceremony.jpg" controls playsinline preload="none"
+                 width="720" height="1280" aria-label="Garden ceremony reel"></video></div>
+          <figcaption><span>Engagements &amp; Bridal</span>Garden ceremony</figcaption>
         </figure>
         <figure class="video-tile fade-up">
-          <div class="frame"><div class="ph"><span class="play" aria-hidden="true"></span><span>Video here</span><small>Reel 2 · 16:9</small></div></div>
-          <figcaption><span>Aerial</span>Drone reel</figcaption>
+          <div class="frame"><video src="videos/wedding-reception.mp4" data-poster="images/bella/posters/wedding-reception.jpg" controls playsinline preload="none"
+                 width="720" height="1280" aria-label="The reception reel"></video></div>
+          <figcaption><span>Engagements &amp; Bridal</span>The reception</figcaption>
         </figure>
         <figure class="video-tile fade-up">
-          <div class="frame"><div class="ph"><span class="play" aria-hidden="true"></span><span>Video here</span><small>Reel 3 · 16:9</small></div></div>
-          <figcaption><span>Brands &amp; Products</span>Brand story</figcaption>
+          <div class="frame"><video src="videos/brand-corepower-barre.mp4" data-poster="images/bella/posters/brand-corepower-barre.jpg" controls playsinline preload="none"
+                 width="720" height="1280" aria-label="CorePower Barre reel"></video></div>
+          <figcaption><span>Brands &amp; Products</span>CorePower Barre</figcaption>
+        </figure>
+        <figure class="video-tile fade-up">
+          <div class="frame"><video src="videos/brand-laybacknj-beach.mp4" data-poster="images/bella/posters/brand-laybacknj-beach.jpg" controls playsinline preload="none"
+                 width="720" height="1280" aria-label="LayBackNJ beach concierge reel"></video></div>
+          <figcaption><span>Brands &amp; Products</span>LayBackNJ beach concierge</figcaption>
+        </figure>
+        <figure class="video-tile fade-up">
+          <div class="frame"><video src="videos/brand-yoga-sculpt.mp4" data-poster="images/bella/posters/brand-yoga-sculpt.jpg" controls playsinline preload="none"
+                 width="720" height="1280" aria-label="Philly Yoga Sculpt reel"></video></div>
+          <figcaption><span>Brands &amp; Products</span>Philly Yoga Sculpt</figcaption>
+        </figure>
+        <figure class="video-tile fade-up">
+          <div class="frame"><video src="videos/travel-champagne-reims.mp4" data-poster="images/bella/posters/travel-champagne-reims.jpg" controls playsinline preload="none"
+                 width="720" height="1280" aria-label="Champagne in Reims reel"></video></div>
+          <figcaption><span>Travel &amp; Food</span>Champagne in Reims</figcaption>
+        </figure>
+        <figure class="video-tile fade-up">
+          <div class="frame"><video src="videos/travel-lafayette-hotel.mp4" data-poster="images/bella/posters/travel-lafayette-hotel.jpg" controls playsinline preload="none"
+                 width="720" height="1280" aria-label="Breakfast at the Lafayette reel"></video></div>
+          <figcaption><span>Travel &amp; Food</span>Breakfast at the Lafayette</figcaption>
+        </figure>
+        <figure class="video-tile fade-up">
+          <div class="frame"><video src="videos/travel-starlite-sandiego.mp4" data-poster="images/bella/posters/travel-starlite-sandiego.jpg" controls playsinline preload="none"
+                 width="720" height="1280" aria-label="Starlite, San Diego reel"></video></div>
+          <figcaption><span>Travel &amp; Food</span>Starlite, San Diego</figcaption>
         </figure>
       </div>
     </div>
@@ -143,12 +169,11 @@
       </div>
 
       <!--
-        Photos come from the client's portfolio PDF. Originals (full resolution) are in images/portfolio/;
-        the page uses the web copies in images/web/ (max 2000px wide), which load faster on phones.
-        To add one: make a web copy, copy a <figure> below, change src, alt, width/height and the caption, and set data-category to one of
+        Photos from the client's portfolio PDF use the web copies in images/web/ (originals in images/portfolio/, not published).
+        Bella's newer shoots are in images/bella/: each has 800px and 1600px versions in WebP and JPEG, picked by
+        <picture> + srcset so phones get the small file. Full-size originals are never committed.
+        To add one: make the web copies, copy a <figure> below, change the paths, alt, width/height and caption, and set data-category to one of
         bridal, brands, events, travel, aerial, headshots, realestate so the filter picks it up.
-        A figure with class "placeholder" only shows when its own filter is picked (never under "All");
-        delete it once that category has real photos.
       -->
       <div class="gallery" id="gallery">
         <figure class="item fade-up" data-category="bridal">
@@ -187,12 +212,151 @@
           <img src="images/web/img-008-032.jpg" alt="A lifeguard team posing together on the beach" width="845" height="588" loading="lazy" decoding="async">
           <figcaption><span>Events &amp; Sports</span>Race day</figcaption>
         </figure>
-        <!-- PLACEHOLDERS: swap each for real photos (data-category="events") once Bella sends them, then delete it. -->
-        <figure class="item placeholder hidden" data-category="events">
-          <div class="ph"><span>Drexel Sports</span><small>Photos coming soon</small></div>
+        <!-- DJ & concert (Maddix) -->
+        <figure class="item fade-up" data-category="events">
+          <picture>
+            <source type="image/webp" srcset="images/bella/concert-01-800.webp 800w, images/bella/concert-01-1600.webp 1600w" sizes="(max-width: 720px) 100vw, (max-width: 960px) 50vw, 33vw">
+            <img src="images/bella/concert-01-800.jpg" srcset="images/bella/concert-01-800.jpg 800w, images/bella/concert-01-1600.jpg 1600w" sizes="(max-width: 720px) 100vw, (max-width: 960px) 50vw, 33vw"
+                 alt="A packed crowd under green stage lights at a DJ show" width="1600" height="1067" loading="lazy" decoding="async">
+          </picture>
+          <figcaption><span>Events &amp; Sports</span>Maddix live</figcaption>
         </figure>
-        <figure class="item placeholder hidden" data-category="events">
-          <div class="ph"><span>DJ &amp; Concert</span><small>Photos coming soon</small></div>
+        <figure class="item fade-up" data-category="events">
+          <picture>
+            <source type="image/webp" srcset="images/bella/concert-02-800.webp 533w, images/bella/concert-02-1600.webp 1067w" sizes="(max-width: 720px) 100vw, (max-width: 960px) 50vw, 33vw">
+            <img src="images/bella/concert-02-800.jpg" srcset="images/bella/concert-02-800.jpg 533w, images/bella/concert-02-1600.jpg 1067w" sizes="(max-width: 720px) 100vw, (max-width: 960px) 50vw, 33vw"
+                 alt="The crowd facing a stage screen reading MADDIX" width="1067" height="1600" loading="lazy" decoding="async">
+          </picture>
+          <figcaption><span>Events &amp; Sports</span>Maddix live</figcaption>
+        </figure>
+        <figure class="item fade-up" data-category="events">
+          <picture>
+            <source type="image/webp" srcset="images/bella/concert-04-800.webp 800w, images/bella/concert-04-1600.webp 1600w" sizes="(max-width: 720px) 100vw, (max-width: 960px) 50vw, 33vw">
+            <img src="images/bella/concert-04-800.jpg" srcset="images/bella/concert-04-800.jpg 800w, images/bella/concert-04-1600.jpg 1600w" sizes="(max-width: 720px) 100vw, (max-width: 960px) 50vw, 33vw"
+                 alt="The DJ in a cap and RAVE IS MY THERAPY shirt at the decks" width="1600" height="1067" loading="lazy" decoding="async">
+          </picture>
+          <figcaption><span>Events &amp; Sports</span>Behind the decks</figcaption>
+        </figure>
+        <figure class="item fade-up" data-category="events">
+          <picture>
+            <source type="image/webp" srcset="images/bella/concert-05-800.webp 533w, images/bella/concert-05-1600.webp 1067w" sizes="(max-width: 720px) 100vw, (max-width: 960px) 50vw, 33vw">
+            <img src="images/bella/concert-05-800.jpg" srcset="images/bella/concert-05-800.jpg 533w, images/bella/concert-05-1600.jpg 1067w" sizes="(max-width: 720px) 100vw, (max-width: 960px) 50vw, 33vw"
+                 alt="The DJ seen from behind under red and white lasers" width="1067" height="1600" loading="lazy" decoding="async">
+          </picture>
+          <figcaption><span>Events &amp; Sports</span>Lasers</figcaption>
+        </figure>
+        <figure class="item fade-up" data-category="events">
+          <picture>
+            <source type="image/webp" srcset="images/bella/concert-06-800.webp 533w, images/bella/concert-06-1600.webp 1067w" sizes="(max-width: 720px) 100vw, (max-width: 960px) 50vw, 33vw">
+            <img src="images/bella/concert-06-800.jpg" srcset="images/bella/concert-06-800.jpg 533w, images/bella/concert-06-1600.jpg 1067w" sizes="(max-width: 720px) 100vw, (max-width: 960px) 50vw, 33vw"
+                 alt="Two fans dancing in a crowd with arms raised" width="1067" height="1600" loading="lazy" decoding="async">
+          </picture>
+          <figcaption><span>Events &amp; Sports</span>The crowd</figcaption>
+        </figure>
+        <figure class="item fade-up" data-category="events">
+          <picture>
+            <source type="image/webp" srcset="images/bella/concert-08-800.webp 800w, images/bella/concert-08-1600.webp 1600w" sizes="(max-width: 720px) 100vw, (max-width: 960px) 50vw, 33vw">
+            <img src="images/bella/concert-08-800.jpg" srcset="images/bella/concert-08-800.jpg 800w, images/bella/concert-08-1600.jpg 1600w" sizes="(max-width: 720px) 100vw, (max-width: 960px) 50vw, 33vw"
+                 alt="A wide view of the dance floor under white light beams" width="1600" height="1067" loading="lazy" decoding="async">
+          </picture>
+          <figcaption><span>Events &amp; Sports</span>Maddix live</figcaption>
+        </figure>
+        <figure class="item fade-up" data-category="events">
+          <picture>
+            <source type="image/webp" srcset="images/bella/concert-09-800.webp 533w, images/bella/concert-09-1600.webp 1067w" sizes="(max-width: 720px) 100vw, (max-width: 960px) 50vw, 33vw">
+            <img src="images/bella/concert-09-800.jpg" srcset="images/bella/concert-09-800.jpg 533w, images/bella/concert-09-1600.jpg 1067w" sizes="(max-width: 720px) 100vw, (max-width: 960px) 50vw, 33vw"
+                 alt="The DJ from behind, light beams fanning out over the crowd" width="1067" height="1600" loading="lazy" decoding="async">
+          </picture>
+          <figcaption><span>Events &amp; Sports</span>Main stage</figcaption>
+        </figure>
+        <figure class="item fade-up" data-category="events">
+          <picture>
+            <source type="image/webp" srcset="images/bella/concert-12-800.webp 800w, images/bella/concert-12-1600.webp 1600w" sizes="(max-width: 720px) 100vw, (max-width: 960px) 50vw, 33vw">
+            <img src="images/bella/concert-12-800.jpg" srcset="images/bella/concert-12-800.jpg 800w, images/bella/concert-12-1600.jpg 1600w" sizes="(max-width: 720px) 100vw, (max-width: 960px) 50vw, 33vw"
+                 alt="Blue and pink smoke over a crowd at a concert" width="1600" height="1067" loading="lazy" decoding="async">
+          </picture>
+          <figcaption><span>Events &amp; Sports</span>Maddix live</figcaption>
+        </figure>
+        <!-- Drexel sports -->
+        <figure class="item fade-up" data-category="events">
+          <picture>
+            <source type="image/webp" srcset="images/bella/drexel-02-800.webp 533w, images/bella/drexel-02-1600.webp 1067w" sizes="(max-width: 720px) 100vw, (max-width: 960px) 50vw, 33vw">
+            <img src="images/bella/drexel-02-800.jpg" srcset="images/bella/drexel-02-800.jpg 533w, images/bella/drexel-02-1600.jpg 1067w" sizes="(max-width: 720px) 100vw, (max-width: 960px) 50vw, 33vw"
+                 alt="A Drexel player lining up a free throw" width="1067" height="1600" loading="lazy" decoding="async">
+          </picture>
+          <figcaption><span>Events &amp; Sports</span>Drexel basketball</figcaption>
+        </figure>
+        <figure class="item fade-up" data-category="events">
+          <picture>
+            <source type="image/webp" srcset="images/bella/drexel-03-800.webp 533w, images/bella/drexel-03-1600.webp 1067w" sizes="(max-width: 720px) 100vw, (max-width: 960px) 50vw, 33vw">
+            <img src="images/bella/drexel-03-800.jpg" srcset="images/bella/drexel-03-800.jpg 533w, images/bella/drexel-03-1600.jpg 1067w" sizes="(max-width: 720px) 100vw, (max-width: 960px) 50vw, 33vw"
+                 alt="A Drexel player rising for a layup" width="1067" height="1600" loading="lazy" decoding="async">
+          </picture>
+          <figcaption><span>Events &amp; Sports</span>Drexel basketball</figcaption>
+        </figure>
+        <figure class="item fade-up" data-category="events">
+          <picture>
+            <source type="image/webp" srcset="images/bella/drexel-04-800.webp 533w, images/bella/drexel-04-1600.webp 1067w" sizes="(max-width: 720px) 100vw, (max-width: 960px) 50vw, 33vw">
+            <img src="images/bella/drexel-04-800.jpg" srcset="images/bella/drexel-04-800.jpg 533w, images/bella/drexel-04-1600.jpg 1067w" sizes="(max-width: 720px) 100vw, (max-width: 960px) 50vw, 33vw"
+                 alt="Drexel players slapping hands along the bench" width="1067" height="1600" loading="lazy" decoding="async">
+          </picture>
+          <figcaption><span>Events &amp; Sports</span>Drexel basketball</figcaption>
+        </figure>
+        <figure class="item fade-up" data-category="events">
+          <picture>
+            <source type="image/webp" srcset="images/bella/drexel-05-800.webp 800w, images/bella/drexel-05-1600.webp 1600w" sizes="(max-width: 720px) 100vw, (max-width: 960px) 50vw, 33vw">
+            <img src="images/bella/drexel-05-800.jpg" srcset="images/bella/drexel-05-800.jpg 800w, images/bella/drexel-05-1600.jpg 1600w" sizes="(max-width: 720px) 100vw, (max-width: 960px) 50vw, 33vw"
+                 alt="A Drexel women&#x27;s player in a number 55 practice jersey" width="1600" height="1382" loading="lazy" decoding="async">
+          </picture>
+          <figcaption><span>Events &amp; Sports</span>Drexel women&#x27;s basketball</figcaption>
+        </figure>
+        <figure class="item fade-up" data-category="events">
+          <picture>
+            <source type="image/webp" srcset="images/bella/drexel-06-800.webp 800w, images/bella/drexel-06-1600.webp 1600w" sizes="(max-width: 720px) 100vw, (max-width: 960px) 50vw, 33vw">
+            <img src="images/bella/drexel-06-800.jpg" srcset="images/bella/drexel-06-800.jpg 800w, images/bella/drexel-06-1600.jpg 1600w" sizes="(max-width: 720px) 100vw, (max-width: 960px) 50vw, 33vw"
+                 alt="A Drexel women&#x27;s player driving with the ball in practice" width="1600" height="1339" loading="lazy" decoding="async">
+          </picture>
+          <figcaption><span>Events &amp; Sports</span>Drexel women&#x27;s basketball</figcaption>
+        </figure>
+        <figure class="item fade-up" data-category="events">
+          <picture>
+            <source type="image/webp" srcset="images/bella/drexel-10-800.webp 800w, images/bella/drexel-10-1600.webp 1600w" sizes="(max-width: 720px) 100vw, (max-width: 960px) 50vw, 33vw">
+            <img src="images/bella/drexel-10-800.jpg" srcset="images/bella/drexel-10-800.jpg 800w, images/bella/drexel-10-1600.jpg 1600w" sizes="(max-width: 720px) 100vw, (max-width: 960px) 50vw, 33vw"
+                 alt="A Drexel player taking a jump shot over a defender in practice" width="1600" height="1409" loading="lazy" decoding="async">
+          </picture>
+          <figcaption><span>Events &amp; Sports</span>Drexel practice</figcaption>
+        </figure>
+        <figure class="item fade-up" data-category="events">
+          <picture>
+            <source type="image/webp" srcset="images/bella/drexel-12-800.webp 533w, images/bella/drexel-12-1600.webp 1067w" sizes="(max-width: 720px) 100vw, (max-width: 960px) 50vw, 33vw">
+            <img src="images/bella/drexel-12-800.jpg" srcset="images/bella/drexel-12-800.jpg 533w, images/bella/drexel-12-1600.jpg 1067w" sizes="(max-width: 720px) 100vw, (max-width: 960px) 50vw, 33vw"
+                 alt="A Drexel player in number 15 walking up the court" width="1067" height="1600" loading="lazy" decoding="async">
+          </picture>
+          <figcaption><span>Events &amp; Sports</span>Drexel basketball</figcaption>
+        </figure>
+        <figure class="item fade-up" data-category="events">
+          <picture>
+            <source type="image/webp" srcset="images/bella/drexel-15-800.webp 569w, images/bella/drexel-15-1600.webp 1138w" sizes="(max-width: 720px) 100vw, (max-width: 960px) 50vw, 33vw">
+            <img src="images/bella/drexel-15-800.jpg" srcset="images/bella/drexel-15-800.jpg 569w, images/bella/drexel-15-1600.jpg 1138w" sizes="(max-width: 720px) 100vw, (max-width: 960px) 50vw, 33vw"
+                 alt="A Drexel guard driving past a defender" width="1138" height="1600" loading="lazy" decoding="async">
+          </picture>
+          <figcaption><span>Events &amp; Sports</span>Drexel basketball</figcaption>
+        </figure>
+        <figure class="item fade-up" data-category="events">
+          <picture>
+            <source type="image/webp" srcset="images/bella/drexel-16-800.webp 533w, images/bella/drexel-16-1600.webp 1067w" sizes="(max-width: 720px) 100vw, (max-width: 960px) 50vw, 33vw">
+            <img src="images/bella/drexel-16-800.jpg" srcset="images/bella/drexel-16-800.jpg 533w, images/bella/drexel-16-1600.jpg 1067w" sizes="(max-width: 720px) 100vw, (max-width: 960px) 50vw, 33vw"
+                 alt="A Drexel guard dribbling into the lane" width="1067" height="1600" loading="lazy" decoding="async">
+          </picture>
+          <figcaption><span>Events &amp; Sports</span>Drexel basketball</figcaption>
+        </figure>
+        <figure class="item fade-up" data-category="events">
+          <picture>
+            <source type="image/webp" srcset="images/bella/drexel-17-800.webp 533w, images/bella/drexel-17-1600.webp 1067w" sizes="(max-width: 720px) 100vw, (max-width: 960px) 50vw, 33vw">
+            <img src="images/bella/drexel-17-800.jpg" srcset="images/bella/drexel-17-800.jpg 533w, images/bella/drexel-17-1600.jpg 1067w" sizes="(max-width: 720px) 100vw, (max-width: 960px) 50vw, 33vw"
+                 alt="Drexel players gathered in a huddle" width="1067" height="1600" loading="lazy" decoding="async">
+          </picture>
+          <figcaption><span>Events &amp; Sports</span>Drexel basketball</figcaption>
         </figure>
         <figure class="item fade-up" data-category="travel">
           <img src="images/web/img-012-040.jpg" alt="Desert dunes at dusk in Morocco" width="1086" height="724" loading="lazy" decoding="async">
@@ -302,9 +466,102 @@
           <img src="images/web/img-005-017.jpg" alt="Staff headshot with a seascape backdrop" width="603" height="593" loading="lazy" decoding="async">
           <figcaption><span>Headshots</span>Headshot</figcaption>
         </figure>
-        <!-- REAL ESTATE: photos coming later. Add them above this placeholder with data-category="realestate", then delete it. -->
-        <figure class="item placeholder hidden" data-category="realestate">
-          <div class="ph"><span>Real Estate</span><small>Photos coming soon</small></div>
+        <!-- Real estate: medical office, condo, family home -->
+        <figure class="item fade-up" data-category="realestate">
+          <picture>
+            <source type="image/webp" srcset="images/bella/office-01-800.webp 800w, images/bella/office-01-1600.webp 1600w" sizes="(max-width: 720px) 100vw, (max-width: 960px) 50vw, 33vw">
+            <img src="images/bella/office-01-800.jpg" srcset="images/bella/office-01-800.jpg 800w, images/bella/office-01-1600.jpg 1600w" sizes="(max-width: 720px) 100vw, (max-width: 960px) 50vw, 33vw"
+                 alt="The columned brick entrance of a medical office" width="1600" height="1067" loading="lazy" decoding="async">
+          </picture>
+          <figcaption><span>Real Estate</span>Medical office</figcaption>
+        </figure>
+        <figure class="item fade-up" data-category="realestate">
+          <picture>
+            <source type="image/webp" srcset="images/bella/office-02-800.webp 800w, images/bella/office-02-1600.webp 1600w" sizes="(max-width: 720px) 100vw, (max-width: 960px) 50vw, 33vw">
+            <img src="images/bella/office-02-800.jpg" srcset="images/bella/office-02-800.jpg 800w, images/bella/office-02-1600.jpg 1600w" sizes="(max-width: 720px) 100vw, (max-width: 960px) 50vw, 33vw"
+                 alt="A bright waiting room with rows of chairs and ocean art" width="1600" height="1066" loading="lazy" decoding="async">
+          </picture>
+          <figcaption><span>Real Estate</span>Medical office</figcaption>
+        </figure>
+        <figure class="item fade-up" data-category="realestate">
+          <picture>
+            <source type="image/webp" srcset="images/bella/office-06-800.webp 800w, images/bella/office-06-1600.webp 1600w" sizes="(max-width: 720px) 100vw, (max-width: 960px) 50vw, 33vw">
+            <img src="images/bella/office-06-800.jpg" srcset="images/bella/office-06-800.jpg 800w, images/bella/office-06-1600.jpg 1600w" sizes="(max-width: 720px) 100vw, (max-width: 960px) 50vw, 33vw"
+                 alt="A blue reception window in a medical office" width="1600" height="1066" loading="lazy" decoding="async">
+          </picture>
+          <figcaption><span>Real Estate</span>Medical office</figcaption>
+        </figure>
+        <figure class="item fade-up" data-category="realestate">
+          <picture>
+            <source type="image/webp" srcset="images/bella/office-08-800.webp 800w, images/bella/office-08-1600.webp 1600w" sizes="(max-width: 720px) 100vw, (max-width: 960px) 50vw, 33vw">
+            <img src="images/bella/office-08-800.jpg" srcset="images/bella/office-08-800.jpg 800w, images/bella/office-08-1600.jpg 1600w" sizes="(max-width: 720px) 100vw, (max-width: 960px) 50vw, 33vw"
+                 alt="An exam room with the Dr. Robert Fortino logo on the wall" width="1600" height="1067" loading="lazy" decoding="async">
+          </picture>
+          <figcaption><span>Real Estate</span>Medical office</figcaption>
+        </figure>
+        <figure class="item fade-up" data-category="realestate">
+          <picture>
+            <source type="image/webp" srcset="images/bella/condo-02-800.webp 800w, images/bella/condo-02-1600.webp 1600w" sizes="(max-width: 720px) 100vw, (max-width: 960px) 50vw, 33vw">
+            <img src="images/bella/condo-02-800.jpg" srcset="images/bella/condo-02-800.jpg 800w, images/bella/condo-02-1600.jpg 1600w" sizes="(max-width: 720px) 100vw, (max-width: 960px) 50vw, 33vw"
+                 alt="An open living room with wood floors and a fireplace" width="1600" height="1067" loading="lazy" decoding="async">
+          </picture>
+          <figcaption><span>Real Estate</span>Condo</figcaption>
+        </figure>
+        <figure class="item fade-up" data-category="realestate">
+          <picture>
+            <source type="image/webp" srcset="images/bella/condo-04-800.webp 800w, images/bella/condo-04-1600.webp 1600w" sizes="(max-width: 720px) 100vw, (max-width: 960px) 50vw, 33vw">
+            <img src="images/bella/condo-04-800.jpg" srcset="images/bella/condo-04-800.jpg 800w, images/bella/condo-04-1600.jpg 1600w" sizes="(max-width: 720px) 100vw, (max-width: 960px) 50vw, 33vw"
+                 alt="A kitchen with wood cabinets and stainless appliances" width="1600" height="1070" loading="lazy" decoding="async">
+          </picture>
+          <figcaption><span>Real Estate</span>Condo</figcaption>
+        </figure>
+        <figure class="item fade-up" data-category="realestate">
+          <picture>
+            <source type="image/webp" srcset="images/bella/condo-08-800.webp 800w, images/bella/condo-08-1600.webp 1600w" sizes="(max-width: 720px) 100vw, (max-width: 960px) 50vw, 33vw">
+            <img src="images/bella/condo-08-800.jpg" srcset="images/bella/condo-08-800.jpg 800w, images/bella/condo-08-1600.jpg 1600w" sizes="(max-width: 720px) 100vw, (max-width: 960px) 50vw, 33vw"
+                 alt="A dining nook beside sliding doors to a balcony" width="1600" height="1065" loading="lazy" decoding="async">
+          </picture>
+          <figcaption><span>Real Estate</span>Condo</figcaption>
+        </figure>
+        <figure class="item fade-up" data-category="realestate">
+          <picture>
+            <source type="image/webp" srcset="images/bella/condo-09-800.webp 800w, images/bella/condo-09-1600.webp 1600w" sizes="(max-width: 720px) 100vw, (max-width: 960px) 50vw, 33vw">
+            <img src="images/bella/condo-09-800.jpg" srcset="images/bella/condo-09-800.jpg 800w, images/bella/condo-09-1600.jpg 1600w" sizes="(max-width: 720px) 100vw, (max-width: 960px) 50vw, 33vw"
+                 alt="A sunny balcony with a wrought-iron railing" width="1600" height="1067" loading="lazy" decoding="async">
+          </picture>
+          <figcaption><span>Real Estate</span>Condo</figcaption>
+        </figure>
+        <figure class="item fade-up" data-category="realestate">
+          <picture>
+            <source type="image/webp" srcset="images/bella/condo-10-800.webp 800w, images/bella/condo-10-1600.webp 1600w" sizes="(max-width: 720px) 100vw, (max-width: 960px) 50vw, 33vw">
+            <img src="images/bella/condo-10-800.jpg" srcset="images/bella/condo-10-800.jpg 800w, images/bella/condo-10-1600.jpg 1600w" sizes="(max-width: 720px) 100vw, (max-width: 960px) 50vw, 33vw"
+                 alt="A carpeted bedroom with a large window" width="1600" height="1069" loading="lazy" decoding="async">
+          </picture>
+          <figcaption><span>Real Estate</span>Condo</figcaption>
+        </figure>
+        <figure class="item fade-up" data-category="realestate">
+          <picture>
+            <source type="image/webp" srcset="images/bella/condo-13-800.webp 800w, images/bella/condo-13-1600.webp 1600w" sizes="(max-width: 720px) 100vw, (max-width: 960px) 50vw, 33vw">
+            <img src="images/bella/condo-13-800.jpg" srcset="images/bella/condo-13-800.jpg 800w, images/bella/condo-13-1600.jpg 1600w" sizes="(max-width: 720px) 100vw, (max-width: 960px) 50vw, 33vw"
+                 alt="A bathroom with a glass shower and double vanity" width="1600" height="1069" loading="lazy" decoding="async">
+          </picture>
+          <figcaption><span>Real Estate</span>Condo</figcaption>
+        </figure>
+        <figure class="item fade-up" data-category="realestate">
+          <picture>
+            <source type="image/webp" srcset="images/bella/house-01-800.webp 800w, images/bella/house-01-1600.webp 1600w" sizes="(max-width: 720px) 100vw, (max-width: 960px) 50vw, 33vw">
+            <img src="images/bella/house-01-800.jpg" srcset="images/bella/house-01-800.jpg 800w, images/bella/house-01-1600.jpg 1600w" sizes="(max-width: 720px) 100vw, (max-width: 960px) 50vw, 33vw"
+                 alt="A yellow house with a wide front porch and flowers" width="1600" height="1082" loading="lazy" decoding="async">
+          </picture>
+          <figcaption><span>Real Estate</span>Family home</figcaption>
+        </figure>
+        <figure class="item fade-up" data-category="realestate">
+          <picture>
+            <source type="image/webp" srcset="images/bella/house-02-800.webp 800w, images/bella/house-02-1600.webp 1600w" sizes="(max-width: 720px) 100vw, (max-width: 960px) 50vw, 33vw">
+            <img src="images/bella/house-02-800.jpg" srcset="images/bella/house-02-800.jpg 800w, images/bella/house-02-1600.jpg 1600w" sizes="(max-width: 720px) 100vw, (max-width: 960px) 50vw, 33vw"
+                 alt="A warm dining room with a chandelier and set table" width="1600" height="1068" loading="lazy" decoding="async">
+          </picture>
+          <figcaption><span>Real Estate</span>Family home</figcaption>
         </figure>
       </div>
     </div>
