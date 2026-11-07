@@ -878,8 +878,16 @@
         </ul>
       </div>
 
-      <!-- NOT CONNECTED YET: this form doesn't send anywhere. See script.js (FORM_ENDPOINT) to hook it up. -->
-      <form class="contact-form fade-up" id="contact-form" novalidate>
+      <!--
+        Sends through FormSubmit (formsubmit.co, no account) to bellasofia4tno@gmail.com; script.js sends it in the background and
+        shows the thank-you below. Without JavaScript the browser posts straight to FormSubmit instead.
+        It only delivers once the inbox owner has clicked "Activate Form" in FormSubmit's first email.
+      -->
+      <form class="contact-form fade-up" id="contact-form" action="https://formsubmit.co/bellasofia4tno@gmail.com" method="POST" novalidate>
+        <input type="hidden" name="_subject" value="New Social Hour inquiry">
+        <input type="hidden" name="_template" value="table">
+        <!-- Spam trap: hidden from people, so only bots fill it in. FormSubmit drops anything that has it filled. -->
+        <input type="text" name="_honey" class="hp" tabindex="-1" autocomplete="off" aria-hidden="true">
         <div class="form-frame">
         <label>Name
           <input type="text" name="name" autocomplete="name" required>
@@ -906,6 +914,10 @@
         </div>
         <button type="submit" class="btn btn-dark">Send message</button>
         <p class="form-status" id="form-status" role="status" aria-live="polite"></p>
+        <div class="form-thanks" id="form-thanks" tabindex="-1" hidden>
+          <p class="form-thanks-h">Thank you!</p>
+          <p>Your message is on its way to Bella. She'll be in touch soon.</p>
+        </div>
       </form>
     </div>
   </section>
