@@ -389,9 +389,9 @@ html:not(.js) .filters, html:not(.js) .see-all { display: none; }
 .work { overflow-x: clip; }   /* the full-width row never makes the page scroll sideways */
 .photo-belt .reel-track { gap: clamp(28px, 5vw, 56px); }
 .pgroup { cursor: pointer; }
-.pgroup-name { margin: 0 0 .8rem; font: 400 1.25rem/1.2 var(--display); }
+.pgroup-name { margin: 0 0 1rem; font: 400 1.25rem/1.2 var(--display); white-space: nowrap; }   /* always one line, so the photos never shift */
 .pgroup-photos { display: flex; gap: 10px; }
-.pitem { margin: 0; overflow: hidden; background: var(--gray-light); }
+.pitem { position: relative; margin: 0; overflow: hidden; background: var(--gray-light); }
 /* Every photo the same height; the width follows the crop (portrait 4:5, real estate landscape 3:2) */
 .pitem img { width: auto; max-width: none; height: clamp(230px, 34vw, 400px); aspect-ratio: 4 / 5; object-fit: cover;
   transition: transform .8s var(--ease); }
@@ -404,10 +404,33 @@ html:not(.js) .filters, html:not(.js) .see-all { display: none; }
 .pg-cat h3 { margin: 0 0 1rem; font: 400 clamp(1.4rem, 3vw, 1.9rem)/1.2 var(--display); }
 .pg-cat h3 span { margin-left: .4rem; font: 500 .7rem/1 var(--body); letter-spacing: .2em; color: var(--gray); vertical-align: middle; }
 .pg-list { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1.25rem 12px; }
-.pg-list .pitem { background: var(--ink); }
+.pg-list .pitem { background: var(--gray-light); }
 .pg-list .pitem img { width: 100%; max-width: 100%; height: auto; aspect-ratio: 4 / 5; }
 .pg-cat[data-category="realestate"] .pitem img { aspect-ratio: 3 / 2; }
-.pg-list figcaption { padding-top: .5rem; font-size: .8rem; line-height: 1.4; color: var(--gray-light); background: var(--black); }
+/* Photo captions (the originals). Phones and touch screens: always shown, small, under each photo.
+   Mouse: hidden until you hover a photo, then they rise over its bottom edge, like the original gallery. */
+.pitem figcaption { padding-top: .45rem; font-size: .78rem; line-height: 1.35; color: #555; background: var(--paper); }
+.pgroup .pitem figcaption { white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+@media (hover: hover) and (pointer: fine) {
+  .pitem figcaption {
+    position: absolute; inset: auto 0 0 0;
+    padding: 2.5rem 1rem .9rem;
+    font: 400 1.15rem/1.2 var(--display); color: var(--white);
+    background: linear-gradient(0deg, rgba(0,0,0,.75), transparent);
+    opacity: 0; transform: translateY(10px);
+    transition: opacity .4s var(--ease), transform .4s var(--ease);
+  }
+  .pitem:hover figcaption, .pitem:focus-within figcaption { opacity: 1; transform: none; }
+}
+
+/* "See all" photos is light like the rest of the site (the video "See all" stays dark) */
+.photo-grid { color: var(--ink); background: var(--paper); }
+.photo-grid::backdrop { background: rgba(245,245,243,.9); }
+.photo-grid .reel-grid-head { background: var(--paper); border-bottom: 1px solid var(--gray-light); }
+.photo-grid-body { padding-top: 1.5rem; }
+/* Close button: dark, in a thin circle, so it is easy to spot on the light background */
+.photo-grid .dialog-close { color: var(--ink); border: 1px solid var(--ink); border-radius: 50%; font-size: 1.6rem; line-height: 1; }
+.photo-grid .dialog-close:hover, .photo-grid .dialog-close:focus-visible { color: var(--white); background: var(--ink); }
 
 /* ---------- Contact ---------- */
 .contact { padding: clamp(5rem, 10vw, 8rem) 0; background: var(--white); }   /* white, so it stands apart from About above */
@@ -616,7 +639,7 @@ html:not(.js) .filters, html:not(.js) .see-all { display: none; }
   .pitem img { height: 62vw; }
   .pg-list .pitem img { height: auto; }
   /* Category buttons: one swipeable row instead of three wrapped lines */
-  .filters { flex-wrap: nowrap; overflow-x: auto; scrollbar-width: none; margin: 0 -1.5rem; padding: 0 1.5rem; width: calc(100% + 3rem); }
+  .filters { flex-wrap: nowrap; overflow-x: auto; scrollbar-width: none; margin: 0 -1.5rem 2rem; padding: 0 1.5rem; width: calc(100% + 3rem); }
   .filters::-webkit-scrollbar { display: none; }
   .filter { flex-shrink: 0; white-space: nowrap; }
 
