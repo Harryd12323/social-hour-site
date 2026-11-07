@@ -132,20 +132,16 @@ section[id] { scroll-margin-top: var(--nav-h); }
   background: linear-gradient(180deg, rgba(0,0,0,.55) 0%, rgba(0,0,0,.35) 45%, rgba(0,0,0,.7) 100%);
 }
 .hero-content { position: relative; padding: calc(var(--nav-h) + 1rem) 1.5rem 4.5rem; max-width: 960px; }
+.hero-seal { width: 64px; height: auto; margin: 0 auto 1.25rem; filter: drop-shadow(0 4px 10px rgba(0,0,0,.45)); }
+/* The signature is black ink on transparent; invert() turns it white on the dark hero. */
+.hero-signature { width: min(520px, 80vw); height: auto; margin: 0 auto; filter: invert(1); }
+.eyebrow { margin: 1.25rem 0 0; font-size: .78rem; letter-spacing: .4em; text-transform: uppercase; opacity: .85; }
 .hero h1 {
-  max-width: 15ch;
-  margin: 0 auto;
-  font-size: clamp(2.5rem, 7vw, 5.2rem);
-  line-height: 1.04;
-  text-wrap: balance;
-}
-.hero-seal { width: 64px; height: auto; margin: 0 auto 1.5rem; filter: drop-shadow(0 4px 10px rgba(0,0,0,.45)); }
-.hero-sub {
-  margin: 1.5rem auto 2.25rem;
-  max-width: 38ch;
-  font-size: clamp(1.02rem, 2vw, 1.25rem);
-  line-height: 1.5;
-  opacity: .9;
+  max-width: 24ch;
+  margin: 1.1rem auto 2.25rem;
+  font-style: italic;
+  font-size: clamp(1.45rem, 3.2vw, 2.3rem);
+  line-height: 1.25;
   text-wrap: balance;
 }
 .hero-actions { display: flex; flex-wrap: wrap; justify-content: center; gap: .75rem; }
@@ -352,7 +348,7 @@ section[id] { scroll-margin-top: var(--nav-h); }
 html.dialog-open { overflow: hidden; }
 
 /* ---------- Gallery ---------- */
-.work { padding: clamp(5rem, 10vw, 8rem) 0; background: var(--white); }
+.work { padding: clamp(5rem, 10vw, 8rem) 0; background: var(--paper); }
 .work-head {
   display: flex;
   flex-wrap: wrap;
@@ -361,7 +357,7 @@ html.dialog-open { overflow: hidden; }
   gap: 1.5rem;
   margin-bottom: 3rem;
 }
-.filters { display: flex; flex-wrap: wrap; gap: .25rem; }
+.filters { display: flex; flex-wrap: wrap; gap: .25rem; margin-bottom: 2rem; }
 .filter {
   min-height: 44px;
   padding: .6rem 1.1rem;
@@ -376,55 +372,34 @@ html.dialog-open { overflow: hidden; }
 }
 .filter:hover { color: var(--black); }
 .filter.active { color: var(--black); border-color: var(--black); }
+.work .work-head { margin-bottom: 2rem; }
+.work .see-all { flex-shrink: 0; }
+/* Without JavaScript the row still swipes, but the category names and See all would do nothing, so hide them */
+html:not(.js) .filters, html:not(.js) .see-all { display: none; }
 
-/* An even grid, so a category reads at a glance. Photos are cropped to one shape; real estate stays landscape. */
-.gallery { display: grid; grid-template-columns: repeat(3, 1fr); gap: 14px; }
-.item {
-  position: relative;
-  margin: 0;
-  overflow: hidden;
-  background: var(--gray-light);
-  cursor: pointer;
-}
-.item[hidden] { display: none; }
-.item.filtering { animation: pop .45s var(--ease); }
-@keyframes pop { from { opacity: 0; transform: scale(.97); } to { opacity: 1; transform: none; } }
-.item img {
-  width: 100%;
-  height: auto;
-  aspect-ratio: 4 / 5;
-  object-fit: cover;
-  transition: transform .8s var(--ease);
-}
-.item[data-category="realestate"] img { aspect-ratio: 3 / 2; }
-.see-more-wrap { margin: 2.25rem 0 0; text-align: center; }
-.see-more-wrap:has(> [hidden]) { display: none; }
-/* Without JavaScript every photo shows and the category buttons would do nothing, so hide them */
-html:not(.js) .filters { display: none; }
+/* Showcase: the same moving row as the videos (see .reel-belt above), one group of three photos per category */
+.work { overflow-x: clip; }   /* the full-width row never makes the page scroll sideways */
+.photo-belt .reel-track { gap: clamp(28px, 5vw, 56px); }
+.pgroup { cursor: pointer; }
+.pgroup-name { margin: 0 0 .8rem; font: 400 1.25rem/1.2 var(--display); }
+.pgroup-photos { display: flex; gap: 10px; }
+.pitem { margin: 0; overflow: hidden; background: var(--gray-light); }
+/* Every photo the same height; the width follows the crop (portrait 4:5, real estate landscape 3:2) */
+.pitem img { width: auto; max-width: none; height: clamp(230px, 34vw, 400px); aspect-ratio: 4 / 5; object-fit: cover;
+  transition: transform .8s var(--ease); }
+.pgroup[data-category="realestate"] .pitem img { aspect-ratio: 3 / 2; }
+.pgroup:hover .pitem img { transform: scale(1.03); }
 
-/* Hover caption */
-.item figcaption {
-  position: absolute;
-  inset: auto 0 0 0;
-  padding: 2.5rem 1.25rem 1.1rem;
-  color: var(--white);
-  font-family: var(--display);
-  font-size: 1.35rem;
-  background: linear-gradient(0deg, rgba(0,0,0,.75), transparent);
-  opacity: 0;
-  transform: translateY(12px);
-  transition: opacity .4s var(--ease), transform .4s var(--ease);
-}
-.item figcaption span {
-  display: block;
-  margin-bottom: .2rem;
-  font: 500 .68rem/1 var(--body);
-  letter-spacing: .25em;
-  text-transform: uppercase;
-  opacity: .75;
-}
-.item:hover figcaption, .item:focus-within figcaption, .item.show-caption figcaption { opacity: 1; transform: none; }
-.item:hover img { transform: scale(1.04); }
+/* "See all" photos: full-screen, by category */
+.photo-grid-body { max-width: 1200px; margin: 0 auto; padding: .5rem clamp(1.25rem, 4vw, 3rem) 3rem; }
+.pg-cat + .pg-cat { margin-top: 3rem; }
+.pg-cat h3 { margin: 0 0 1rem; font: 400 clamp(1.4rem, 3vw, 1.9rem)/1.2 var(--display); }
+.pg-cat h3 span { margin-left: .4rem; font: 500 .7rem/1 var(--body); letter-spacing: .2em; color: var(--gray); vertical-align: middle; }
+.pg-list { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1.25rem 12px; }
+.pg-list .pitem { background: var(--ink); }
+.pg-list .pitem img { width: 100%; max-width: 100%; height: auto; aspect-ratio: 4 / 5; }
+.pg-cat[data-category="realestate"] .pitem img { aspect-ratio: 3 / 2; }
+.pg-list figcaption { padding-top: .5rem; font-size: .8rem; line-height: 1.4; color: var(--gray-light); background: var(--black); }
 
 /* ---------- Contact ---------- */
 .contact { padding: clamp(5rem, 10vw, 8rem) 0; background: var(--white); }   /* white, so it stands apart from About above */
@@ -572,6 +547,7 @@ html:not(.js) .filters { display: none; }
   .contact-grid, .about-grid { grid-template-columns: 1fr; gap: 2rem; }
   .about-photo { position: static; max-width: 420px; }
   .reel-grid-list { grid-template-columns: repeat(3, 1fr); }
+  .pg-list { grid-template-columns: repeat(3, 1fr); }
 }
 
 @media (max-width: 720px) {
@@ -607,10 +583,8 @@ html:not(.js) .filters { display: none; }
   .nav-links a::after { display: none; }
   .nav-links .nav-book { margin-top: .5rem; padding: .9rem 1.75rem; font: 600 .8rem/1.2 var(--body); letter-spacing: .2em; text-transform: uppercase; }
 
-  .gallery { grid-template-columns: 1fr 1fr; gap: 8px; }
-  .item.wide { grid-column: 1 / -1; }   /* an odd photo out fills the row instead of leaving a hole */
-  .item.wide img { aspect-ratio: 3 / 2; }
-  .item figcaption { padding: 2rem .75rem .7rem; font-size: 1.05rem; }
+  .pitem img { height: 62vw; }
+  .pg-list .pitem img { height: auto; }
   /* Category buttons: one swipeable row instead of three wrapped lines */
   .filters { flex-wrap: nowrap; overflow-x: auto; scrollbar-width: none; margin: 0 -1.5rem; padding: 0 1.5rem; width: calc(100% + 3rem); }
   .filters::-webkit-scrollbar { display: none; }
@@ -651,6 +625,7 @@ html:not(.js) .filters { display: none; }
   .reel-track { gap: 10px; }
   .reel-cap { padding-top: .6rem; font-size: 1rem; }
   .reel-grid-list { grid-template-columns: 1fr 1fr; gap: 1.5rem 10px; }
+  .pg-list { grid-template-columns: 1fr 1fr; gap: 1rem 10px; }
   .work-head { align-items: start; }
   /* Phones: brand on top, then Explore and Follow side by side; legal links wrap under the copyright */
   .footer-inner { grid-template-columns: 1fr 1fr; gap: 2rem 1.5rem; padding: 3rem 0 2rem; }

@@ -18,8 +18,8 @@
     </button>
     <nav class="nav-links" id="nav-links">
       <a href="#services">Services</a>
-      <a href="#work">Photos</a>
       <a href="#video">Videos</a>
+      <a href="#work">Photos</a>
       <a href="#about">About</a>
       <a href="#contact" class="nav-book">Book a shoot</a>
     </nav>
@@ -43,8 +43,9 @@
     <div class="hero-overlay"></div>
     <div class="hero-content">
       <img class="hero-seal fade-up" src="images/wax-seal.png" alt="" width="523" height="503">
+      <img class="hero-signature fade-up" src="images/logo-bellasofia.png" alt="Bellasofia Fortino" width="338" height="150">
+      <p class="eyebrow fade-up">Photo + Video &middot; Philly + NJ</p>
       <h1 class="fade-up">Capturing moments, so you can live in them.</h1>
-      <p class="hero-sub fade-up">Photo + video for weddings, events, sports, brands and real estate across Philly + NJ.</p>
       <div class="hero-actions fade-up">
         <a href="#contact" class="btn btn-white">Book a shoot</a>
         <a href="#work" class="btn btn-light">See the work</a>
@@ -138,427 +139,6 @@
     <div class="container">
       <div class="cta-band fade-up">
         <p>Planning something? Let&rsquo;s talk about it.</p>
-        <a class="btn btn-dark" href="#contact">Book a shoot</a>
-      </div>
-    </div>
-  </section>
-
-  <section class="work" id="work">
-    <div class="container">
-      <div class="work-head fade-up">
-        <h2>Photos</h2>
-        <div class="filters" role="group" aria-label="Choose a category">
-          <button class="filter active" type="button" data-filter="weddings" aria-pressed="true">Weddings &amp; Engagements</button>
-          <button class="filter" type="button" data-filter="events" aria-pressed="false">Concerts &amp; Events</button>
-          <button class="filter" type="button" data-filter="sports" aria-pressed="false">Sports</button>
-          <button class="filter" type="button" data-filter="brands" aria-pressed="false">Brands &amp; Headshots</button>
-          <button class="filter" type="button" data-filter="realestate" aria-pressed="false">Real Estate</button>
-          <button class="filter" type="button" data-filter="travel" aria-pressed="false">Travel &amp; Aerial</button>
-        </div>
-      </div>
-
-      <!--
-        Grouped to match the services. Each category shows its first six photos; "See more" shows the rest,
-        so put the best six first. Photos from the client's portfolio PDF use the web copies in images/web/;
-        Bella's newer shoots are in images/bella/ (800px and 1600px, WebP and JPEG). Full-size originals are never committed.
-        To add one: copy a <figure> below, change the paths, alt, width/height and caption, and set data-category to one of
-        weddings, events, sports, brands, realestate, travel.
-      -->
-      <div class="gallery fade-up" id="gallery">
-        <!-- Weddings & Engagements -->
-        <figure class="item" data-category="weddings">
-          <img src="images/web/img-007-024.jpg" alt="A man on one knee proposing on the beach" width="820" height="1229" loading="lazy" decoding="async">
-          <figcaption><span>Weddings &amp; Engagements</span>The proposal</figcaption>
-        </figure>
-        <figure class="item" data-category="weddings">
-          <img src="images/web/img-007-025.jpg" alt="A bride-to-be in white beside a floral arch and candles" width="1094" height="1640" loading="lazy" decoding="async">
-          <figcaption><span>Weddings &amp; Engagements</span>Bridal portrait</figcaption>
-        </figure>
-        <figure class="item" data-category="weddings">
-          <img src="images/web/img-007-026.jpg" alt="A couple embracing, the engagement ring in view" width="2000" height="1334" loading="lazy" decoding="async">
-          <figcaption><span>Weddings &amp; Engagements</span>She said yes</figcaption>
-        </figure>
-        <!-- Concerts & Events -->
-        <figure class="item" data-category="events">
-          <picture>
-            <source type="image/webp" srcset="images/bella/concert-09-800.webp 533w, images/bella/concert-09-1600.webp 1067w" sizes="(max-width: 720px) 50vw, (max-width: 1200px) 33vw, 400px">
-            <img src="images/bella/concert-09-800.jpg" srcset="images/bella/concert-09-800.jpg 533w, images/bella/concert-09-1600.jpg 1067w" sizes="(max-width: 720px) 50vw, (max-width: 1200px) 33vw, 400px"
-                 alt="The DJ from behind, light beams fanning out over the crowd" width="1067" height="1600" loading="lazy" decoding="async">
-          </picture>
-          <figcaption><span>Concerts &amp; Events</span>Main stage</figcaption>
-        </figure>
-        <figure class="item" data-category="events">
-          <picture>
-            <source type="image/webp" srcset="images/bella/concert-01-800.webp 800w, images/bella/concert-01-1600.webp 1600w" sizes="(max-width: 720px) 50vw, (max-width: 1200px) 33vw, 400px">
-            <img src="images/bella/concert-01-800.jpg" srcset="images/bella/concert-01-800.jpg 800w, images/bella/concert-01-1600.jpg 1600w" sizes="(max-width: 720px) 50vw, (max-width: 1200px) 33vw, 400px"
-                 alt="A packed crowd under green stage lights at a DJ show" width="1600" height="1067" loading="lazy" decoding="async">
-          </picture>
-          <figcaption><span>Concerts &amp; Events</span>Maddix live</figcaption>
-        </figure>
-        <figure class="item" data-category="events">
-          <picture>
-            <source type="image/webp" srcset="images/bella/concert-06-800.webp 533w, images/bella/concert-06-1600.webp 1067w" sizes="(max-width: 720px) 50vw, (max-width: 1200px) 33vw, 400px">
-            <img src="images/bella/concert-06-800.jpg" srcset="images/bella/concert-06-800.jpg 533w, images/bella/concert-06-1600.jpg 1067w" sizes="(max-width: 720px) 50vw, (max-width: 1200px) 33vw, 400px"
-                 alt="Two fans dancing in a crowd with arms raised" width="1067" height="1600" loading="lazy" decoding="async">
-          </picture>
-          <figcaption><span>Concerts &amp; Events</span>The crowd</figcaption>
-        </figure>
-        <figure class="item" data-category="events">
-          <picture>
-            <source type="image/webp" srcset="images/bella/concert-05-800.webp 533w, images/bella/concert-05-1600.webp 1067w" sizes="(max-width: 720px) 50vw, (max-width: 1200px) 33vw, 400px">
-            <img src="images/bella/concert-05-800.jpg" srcset="images/bella/concert-05-800.jpg 533w, images/bella/concert-05-1600.jpg 1067w" sizes="(max-width: 720px) 50vw, (max-width: 1200px) 33vw, 400px"
-                 alt="The DJ seen from behind under red and white lasers" width="1067" height="1600" loading="lazy" decoding="async">
-          </picture>
-          <figcaption><span>Concerts &amp; Events</span>Lasers</figcaption>
-        </figure>
-        <figure class="item" data-category="events">
-          <picture>
-            <source type="image/webp" srcset="images/bella/concert-12-800.webp 800w, images/bella/concert-12-1600.webp 1600w" sizes="(max-width: 720px) 50vw, (max-width: 1200px) 33vw, 400px">
-            <img src="images/bella/concert-12-800.jpg" srcset="images/bella/concert-12-800.jpg 800w, images/bella/concert-12-1600.jpg 1600w" sizes="(max-width: 720px) 50vw, (max-width: 1200px) 33vw, 400px"
-                 alt="Blue and pink smoke over a crowd at a concert" width="1600" height="1067" loading="lazy" decoding="async">
-          </picture>
-          <figcaption><span>Concerts &amp; Events</span>Maddix live</figcaption>
-        </figure>
-        <figure class="item" data-category="events">
-          <picture>
-            <source type="image/webp" srcset="images/bella/concert-02-800.webp 533w, images/bella/concert-02-1600.webp 1067w" sizes="(max-width: 720px) 50vw, (max-width: 1200px) 33vw, 400px">
-            <img src="images/bella/concert-02-800.jpg" srcset="images/bella/concert-02-800.jpg 533w, images/bella/concert-02-1600.jpg 1067w" sizes="(max-width: 720px) 50vw, (max-width: 1200px) 33vw, 400px"
-                 alt="The crowd facing a stage screen reading MADDIX" width="1067" height="1600" loading="lazy" decoding="async">
-          </picture>
-          <figcaption><span>Concerts &amp; Events</span>Maddix live</figcaption>
-        </figure>
-        <figure class="item" data-category="events">
-          <picture>
-            <source type="image/webp" srcset="images/bella/concert-04-800.webp 800w, images/bella/concert-04-1600.webp 1600w" sizes="(max-width: 720px) 50vw, (max-width: 1200px) 33vw, 400px">
-            <img src="images/bella/concert-04-800.jpg" srcset="images/bella/concert-04-800.jpg 800w, images/bella/concert-04-1600.jpg 1600w" sizes="(max-width: 720px) 50vw, (max-width: 1200px) 33vw, 400px"
-                 alt="The DJ in a cap and RAVE IS MY THERAPY shirt at the decks" width="1600" height="1067" loading="lazy" decoding="async">
-          </picture>
-          <figcaption><span>Concerts &amp; Events</span>Behind the decks</figcaption>
-        </figure>
-        <figure class="item" data-category="events">
-          <picture>
-            <source type="image/webp" srcset="images/bella/concert-08-800.webp 800w, images/bella/concert-08-1600.webp 1600w" sizes="(max-width: 720px) 50vw, (max-width: 1200px) 33vw, 400px">
-            <img src="images/bella/concert-08-800.jpg" srcset="images/bella/concert-08-800.jpg 800w, images/bella/concert-08-1600.jpg 1600w" sizes="(max-width: 720px) 50vw, (max-width: 1200px) 33vw, 400px"
-                 alt="A wide view of the dance floor under white light beams" width="1600" height="1067" loading="lazy" decoding="async">
-          </picture>
-          <figcaption><span>Concerts &amp; Events</span>Maddix live</figcaption>
-        </figure>
-        <!-- Sports -->
-        <figure class="item" data-category="sports">
-          <picture>
-            <source type="image/webp" srcset="images/bella/drexel-03-800.webp 533w, images/bella/drexel-03-1600.webp 1067w" sizes="(max-width: 720px) 50vw, (max-width: 1200px) 33vw, 400px">
-            <img src="images/bella/drexel-03-800.jpg" srcset="images/bella/drexel-03-800.jpg 533w, images/bella/drexel-03-1600.jpg 1067w" sizes="(max-width: 720px) 50vw, (max-width: 1200px) 33vw, 400px"
-                 alt="A Drexel player rising for a layup" width="1067" height="1600" loading="lazy" decoding="async">
-          </picture>
-          <figcaption><span>Sports</span>Drexel basketball</figcaption>
-        </figure>
-        <figure class="item" data-category="sports">
-          <picture>
-            <source type="image/webp" srcset="images/bella/drexel-16-800.webp 533w, images/bella/drexel-16-1600.webp 1067w" sizes="(max-width: 720px) 50vw, (max-width: 1200px) 33vw, 400px">
-            <img src="images/bella/drexel-16-800.jpg" srcset="images/bella/drexel-16-800.jpg 533w, images/bella/drexel-16-1600.jpg 1067w" sizes="(max-width: 720px) 50vw, (max-width: 1200px) 33vw, 400px"
-                 alt="A Drexel guard dribbling into the lane" width="1067" height="1600" loading="lazy" decoding="async">
-          </picture>
-          <figcaption><span>Sports</span>Drexel basketball</figcaption>
-        </figure>
-        <figure class="item" data-category="sports">
-          <picture>
-            <source type="image/webp" srcset="images/bella/drexel-15-800.webp 569w, images/bella/drexel-15-1600.webp 1138w" sizes="(max-width: 720px) 50vw, (max-width: 1200px) 33vw, 400px">
-            <img src="images/bella/drexel-15-800.jpg" srcset="images/bella/drexel-15-800.jpg 569w, images/bella/drexel-15-1600.jpg 1138w" sizes="(max-width: 720px) 50vw, (max-width: 1200px) 33vw, 400px"
-                 alt="A Drexel guard driving past a defender" width="1138" height="1600" loading="lazy" decoding="async">
-          </picture>
-          <figcaption><span>Sports</span>Drexel basketball</figcaption>
-        </figure>
-        <figure class="item" data-category="sports">
-          <picture>
-            <source type="image/webp" srcset="images/bella/drexel-04-800.webp 533w, images/bella/drexel-04-1600.webp 1067w" sizes="(max-width: 720px) 50vw, (max-width: 1200px) 33vw, 400px">
-            <img src="images/bella/drexel-04-800.jpg" srcset="images/bella/drexel-04-800.jpg 533w, images/bella/drexel-04-1600.jpg 1067w" sizes="(max-width: 720px) 50vw, (max-width: 1200px) 33vw, 400px"
-                 alt="Drexel players slapping hands along the bench" width="1067" height="1600" loading="lazy" decoding="async">
-          </picture>
-          <figcaption><span>Sports</span>Drexel basketball</figcaption>
-        </figure>
-        <figure class="item" data-category="sports">
-          <img src="images/web/img-008-031.jpg" alt="A lifeguard boat crew rowing through the waves" width="965" height="629" loading="lazy" decoding="async">
-          <figcaption><span>Sports</span>Through the surf</figcaption>
-        </figure>
-        <figure class="item" data-category="sports">
-          <picture>
-            <source type="image/webp" srcset="images/bella/drexel-02-800.webp 533w, images/bella/drexel-02-1600.webp 1067w" sizes="(max-width: 720px) 50vw, (max-width: 1200px) 33vw, 400px">
-            <img src="images/bella/drexel-02-800.jpg" srcset="images/bella/drexel-02-800.jpg 533w, images/bella/drexel-02-1600.jpg 1067w" sizes="(max-width: 720px) 50vw, (max-width: 1200px) 33vw, 400px"
-                 alt="A Drexel player lining up a free throw" width="1067" height="1600" loading="lazy" decoding="async">
-          </picture>
-          <figcaption><span>Sports</span>Drexel basketball</figcaption>
-        </figure>
-        <figure class="item" data-category="sports">
-          <picture>
-            <source type="image/webp" srcset="images/bella/drexel-05-800.webp 800w, images/bella/drexel-05-1600.webp 1600w" sizes="(max-width: 720px) 50vw, (max-width: 1200px) 33vw, 400px">
-            <img src="images/bella/drexel-05-800.jpg" srcset="images/bella/drexel-05-800.jpg 800w, images/bella/drexel-05-1600.jpg 1600w" sizes="(max-width: 720px) 50vw, (max-width: 1200px) 33vw, 400px"
-                 alt="A Drexel women&#x27;s player in a number 55 practice jersey" width="1600" height="1382" loading="lazy" decoding="async">
-          </picture>
-          <figcaption><span>Sports</span>Drexel women&#x27;s basketball</figcaption>
-        </figure>
-        <figure class="item" data-category="sports">
-          <picture>
-            <source type="image/webp" srcset="images/bella/drexel-06-800.webp 800w, images/bella/drexel-06-1600.webp 1600w" sizes="(max-width: 720px) 50vw, (max-width: 1200px) 33vw, 400px">
-            <img src="images/bella/drexel-06-800.jpg" srcset="images/bella/drexel-06-800.jpg 800w, images/bella/drexel-06-1600.jpg 1600w" sizes="(max-width: 720px) 50vw, (max-width: 1200px) 33vw, 400px"
-                 alt="A Drexel women&#x27;s player driving with the ball in practice" width="1600" height="1339" loading="lazy" decoding="async">
-          </picture>
-          <figcaption><span>Sports</span>Drexel women&#x27;s basketball</figcaption>
-        </figure>
-        <figure class="item" data-category="sports">
-          <picture>
-            <source type="image/webp" srcset="images/bella/drexel-10-800.webp 800w, images/bella/drexel-10-1600.webp 1600w" sizes="(max-width: 720px) 50vw, (max-width: 1200px) 33vw, 400px">
-            <img src="images/bella/drexel-10-800.jpg" srcset="images/bella/drexel-10-800.jpg 800w, images/bella/drexel-10-1600.jpg 1600w" sizes="(max-width: 720px) 50vw, (max-width: 1200px) 33vw, 400px"
-                 alt="A Drexel player taking a jump shot over a defender in practice" width="1600" height="1409" loading="lazy" decoding="async">
-          </picture>
-          <figcaption><span>Sports</span>Drexel practice</figcaption>
-        </figure>
-        <figure class="item" data-category="sports">
-          <picture>
-            <source type="image/webp" srcset="images/bella/drexel-12-800.webp 533w, images/bella/drexel-12-1600.webp 1067w" sizes="(max-width: 720px) 50vw, (max-width: 1200px) 33vw, 400px">
-            <img src="images/bella/drexel-12-800.jpg" srcset="images/bella/drexel-12-800.jpg 533w, images/bella/drexel-12-1600.jpg 1067w" sizes="(max-width: 720px) 50vw, (max-width: 1200px) 33vw, 400px"
-                 alt="A Drexel player in number 15 walking up the court" width="1067" height="1600" loading="lazy" decoding="async">
-          </picture>
-          <figcaption><span>Sports</span>Drexel basketball</figcaption>
-        </figure>
-        <figure class="item" data-category="sports">
-          <picture>
-            <source type="image/webp" srcset="images/bella/drexel-17-800.webp 533w, images/bella/drexel-17-1600.webp 1067w" sizes="(max-width: 720px) 50vw, (max-width: 1200px) 33vw, 400px">
-            <img src="images/bella/drexel-17-800.jpg" srcset="images/bella/drexel-17-800.jpg 533w, images/bella/drexel-17-1600.jpg 1067w" sizes="(max-width: 720px) 50vw, (max-width: 1200px) 33vw, 400px"
-                 alt="Drexel players gathered in a huddle" width="1067" height="1600" loading="lazy" decoding="async">
-          </picture>
-          <figcaption><span>Sports</span>Drexel basketball</figcaption>
-        </figure>
-        <figure class="item" data-category="sports">
-          <img src="images/web/img-008-029.jpg" alt="A lifeguard with a rescue board at the water&#x27;s edge" width="845" height="587" loading="lazy" decoding="async">
-          <figcaption><span>Sports</span>Lifeguard races</figcaption>
-        </figure>
-        <figure class="item" data-category="sports">
-          <img src="images/web/img-008-030.jpg" alt="Lifeguards launching the Brigantine boat" width="845" height="591" loading="lazy" decoding="async">
-          <figcaption><span>Sports</span>Brigantine crew</figcaption>
-        </figure>
-        <figure class="item" data-category="sports">
-          <img src="images/web/img-008-032.jpg" alt="A lifeguard team posing together on the beach" width="845" height="588" loading="lazy" decoding="async">
-          <figcaption><span>Sports</span>Race day</figcaption>
-        </figure>
-        <!-- Brands & Headshots -->
-        <figure class="item" data-category="brands">
-          <img src="images/web/img-006-021.jpg" alt="Vacation sunscreen spray over sparkling pool water" width="939" height="951" loading="lazy" decoding="async">
-          <figcaption><span>Brands &amp; Products</span>Vacation Classic Spray</figcaption>
-        </figure>
-        <figure class="item" data-category="brands">
-          <img src="images/web/img-006-020.jpg" alt="Vacation sunscreen bottles on a pool edge" width="845" height="911" loading="lazy" decoding="async">
-          <figcaption><span>Brands &amp; Products</span>Vacation sunscreen</figcaption>
-        </figure>
-        <figure class="item" data-category="brands">
-          <img src="images/web/img-005-013.jpg" alt="Staff headshot in a blue team sweatshirt" width="603" height="623" loading="lazy" decoding="async">
-          <figcaption><span>Headshots</span>Headshot</figcaption>
-        </figure>
-        <figure class="item" data-category="brands">
-          <img src="images/web/img-005-015.jpg" alt="Staff headshot against a seascape backdrop" width="724" height="712" loading="lazy" decoding="async">
-          <figcaption><span>Headshots</span>Headshot</figcaption>
-        </figure>
-        <figure class="item" data-category="brands">
-          <img src="images/web/img-005-017.jpg" alt="Staff headshot with a seascape backdrop" width="603" height="593" loading="lazy" decoding="async">
-          <figcaption><span>Headshots</span>Headshot</figcaption>
-        </figure>
-        <figure class="item" data-category="brands">
-          <img src="images/web/img-005-014.jpg" alt="Staff headshot in a tan top" width="603" height="797" loading="lazy" decoding="async">
-          <figcaption><span>Headshots</span>Headshot</figcaption>
-        </figure>
-        <figure class="item" data-category="brands">
-          <img src="images/web/img-004-012-upright.jpg" alt="Suburban Life magazine cover featuring Dr. Robert Fortino, spring 2026" width="990" height="1290" loading="lazy" decoding="async">
-          <figcaption><span>Headshots</span>Suburban Life cover</figcaption>
-        </figure>
-        <figure class="item" data-category="brands">
-          <img src="images/web/img-005-016.jpg" alt="Staff headshot in blue scrubs" width="603" height="593" loading="lazy" decoding="async">
-          <figcaption><span>Headshots</span>Headshot</figcaption>
-        </figure>
-        <!-- Real Estate -->
-        <figure class="item" data-category="realestate">
-          <picture>
-            <source type="image/webp" srcset="images/bella/house-01-800.webp 800w, images/bella/house-01-1600.webp 1600w" sizes="(max-width: 720px) 50vw, (max-width: 1200px) 33vw, 400px">
-            <img src="images/bella/house-01-800.jpg" srcset="images/bella/house-01-800.jpg 800w, images/bella/house-01-1600.jpg 1600w" sizes="(max-width: 720px) 50vw, (max-width: 1200px) 33vw, 400px"
-                 alt="A yellow house with a wide front porch and flowers" width="1600" height="1082" loading="lazy" decoding="async">
-          </picture>
-          <figcaption><span>Real Estate</span>Family home</figcaption>
-        </figure>
-        <figure class="item" data-category="realestate">
-          <picture>
-            <source type="image/webp" srcset="images/bella/condo-02-800.webp 800w, images/bella/condo-02-1600.webp 1600w" sizes="(max-width: 720px) 50vw, (max-width: 1200px) 33vw, 400px">
-            <img src="images/bella/condo-02-800.jpg" srcset="images/bella/condo-02-800.jpg 800w, images/bella/condo-02-1600.jpg 1600w" sizes="(max-width: 720px) 50vw, (max-width: 1200px) 33vw, 400px"
-                 alt="An open living room with wood floors and a fireplace" width="1600" height="1067" loading="lazy" decoding="async">
-          </picture>
-          <figcaption><span>Real Estate</span>Condo</figcaption>
-        </figure>
-        <figure class="item" data-category="realestate">
-          <picture>
-            <source type="image/webp" srcset="images/bella/house-02-800.webp 800w, images/bella/house-02-1600.webp 1600w" sizes="(max-width: 720px) 50vw, (max-width: 1200px) 33vw, 400px">
-            <img src="images/bella/house-02-800.jpg" srcset="images/bella/house-02-800.jpg 800w, images/bella/house-02-1600.jpg 1600w" sizes="(max-width: 720px) 50vw, (max-width: 1200px) 33vw, 400px"
-                 alt="A warm dining room with a chandelier and set table" width="1600" height="1068" loading="lazy" decoding="async">
-          </picture>
-          <figcaption><span>Real Estate</span>Family home</figcaption>
-        </figure>
-        <figure class="item" data-category="realestate">
-          <picture>
-            <source type="image/webp" srcset="images/bella/office-01-800.webp 800w, images/bella/office-01-1600.webp 1600w" sizes="(max-width: 720px) 50vw, (max-width: 1200px) 33vw, 400px">
-            <img src="images/bella/office-01-800.jpg" srcset="images/bella/office-01-800.jpg 800w, images/bella/office-01-1600.jpg 1600w" sizes="(max-width: 720px) 50vw, (max-width: 1200px) 33vw, 400px"
-                 alt="The columned brick entrance of a medical office" width="1600" height="1067" loading="lazy" decoding="async">
-          </picture>
-          <figcaption><span>Real Estate</span>Medical office</figcaption>
-        </figure>
-        <figure class="item" data-category="realestate">
-          <picture>
-            <source type="image/webp" srcset="images/bella/condo-08-800.webp 800w, images/bella/condo-08-1600.webp 1600w" sizes="(max-width: 720px) 50vw, (max-width: 1200px) 33vw, 400px">
-            <img src="images/bella/condo-08-800.jpg" srcset="images/bella/condo-08-800.jpg 800w, images/bella/condo-08-1600.jpg 1600w" sizes="(max-width: 720px) 50vw, (max-width: 1200px) 33vw, 400px"
-                 alt="A dining nook beside sliding doors to a balcony" width="1600" height="1065" loading="lazy" decoding="async">
-          </picture>
-          <figcaption><span>Real Estate</span>Condo</figcaption>
-        </figure>
-        <figure class="item" data-category="realestate">
-          <picture>
-            <source type="image/webp" srcset="images/bella/office-02-800.webp 800w, images/bella/office-02-1600.webp 1600w" sizes="(max-width: 720px) 50vw, (max-width: 1200px) 33vw, 400px">
-            <img src="images/bella/office-02-800.jpg" srcset="images/bella/office-02-800.jpg 800w, images/bella/office-02-1600.jpg 1600w" sizes="(max-width: 720px) 50vw, (max-width: 1200px) 33vw, 400px"
-                 alt="A bright waiting room with rows of chairs and ocean art" width="1600" height="1066" loading="lazy" decoding="async">
-          </picture>
-          <figcaption><span>Real Estate</span>Medical office</figcaption>
-        </figure>
-        <figure class="item" data-category="realestate">
-          <picture>
-            <source type="image/webp" srcset="images/bella/condo-04-800.webp 800w, images/bella/condo-04-1600.webp 1600w" sizes="(max-width: 720px) 50vw, (max-width: 1200px) 33vw, 400px">
-            <img src="images/bella/condo-04-800.jpg" srcset="images/bella/condo-04-800.jpg 800w, images/bella/condo-04-1600.jpg 1600w" sizes="(max-width: 720px) 50vw, (max-width: 1200px) 33vw, 400px"
-                 alt="A kitchen with wood cabinets and stainless appliances" width="1600" height="1070" loading="lazy" decoding="async">
-          </picture>
-          <figcaption><span>Real Estate</span>Condo</figcaption>
-        </figure>
-        <figure class="item" data-category="realestate">
-          <picture>
-            <source type="image/webp" srcset="images/bella/condo-09-800.webp 800w, images/bella/condo-09-1600.webp 1600w" sizes="(max-width: 720px) 50vw, (max-width: 1200px) 33vw, 400px">
-            <img src="images/bella/condo-09-800.jpg" srcset="images/bella/condo-09-800.jpg 800w, images/bella/condo-09-1600.jpg 1600w" sizes="(max-width: 720px) 50vw, (max-width: 1200px) 33vw, 400px"
-                 alt="A sunny balcony with a wrought-iron railing" width="1600" height="1067" loading="lazy" decoding="async">
-          </picture>
-          <figcaption><span>Real Estate</span>Condo</figcaption>
-        </figure>
-        <figure class="item" data-category="realestate">
-          <picture>
-            <source type="image/webp" srcset="images/bella/condo-10-800.webp 800w, images/bella/condo-10-1600.webp 1600w" sizes="(max-width: 720px) 50vw, (max-width: 1200px) 33vw, 400px">
-            <img src="images/bella/condo-10-800.jpg" srcset="images/bella/condo-10-800.jpg 800w, images/bella/condo-10-1600.jpg 1600w" sizes="(max-width: 720px) 50vw, (max-width: 1200px) 33vw, 400px"
-                 alt="A carpeted bedroom with a large window" width="1600" height="1069" loading="lazy" decoding="async">
-          </picture>
-          <figcaption><span>Real Estate</span>Condo</figcaption>
-        </figure>
-        <figure class="item" data-category="realestate">
-          <picture>
-            <source type="image/webp" srcset="images/bella/condo-13-800.webp 800w, images/bella/condo-13-1600.webp 1600w" sizes="(max-width: 720px) 50vw, (max-width: 1200px) 33vw, 400px">
-            <img src="images/bella/condo-13-800.jpg" srcset="images/bella/condo-13-800.jpg 800w, images/bella/condo-13-1600.jpg 1600w" sizes="(max-width: 720px) 50vw, (max-width: 1200px) 33vw, 400px"
-                 alt="A bathroom with a glass shower and double vanity" width="1600" height="1069" loading="lazy" decoding="async">
-          </picture>
-          <figcaption><span>Real Estate</span>Condo</figcaption>
-        </figure>
-        <figure class="item" data-category="realestate">
-          <picture>
-            <source type="image/webp" srcset="images/bella/office-06-800.webp 800w, images/bella/office-06-1600.webp 1600w" sizes="(max-width: 720px) 50vw, (max-width: 1200px) 33vw, 400px">
-            <img src="images/bella/office-06-800.jpg" srcset="images/bella/office-06-800.jpg 800w, images/bella/office-06-1600.jpg 1600w" sizes="(max-width: 720px) 50vw, (max-width: 1200px) 33vw, 400px"
-                 alt="A blue reception window in a medical office" width="1600" height="1066" loading="lazy" decoding="async">
-          </picture>
-          <figcaption><span>Real Estate</span>Medical office</figcaption>
-        </figure>
-        <figure class="item" data-category="realestate">
-          <picture>
-            <source type="image/webp" srcset="images/bella/office-08-800.webp 800w, images/bella/office-08-1600.webp 1600w" sizes="(max-width: 720px) 50vw, (max-width: 1200px) 33vw, 400px">
-            <img src="images/bella/office-08-800.jpg" srcset="images/bella/office-08-800.jpg 800w, images/bella/office-08-1600.jpg 1600w" sizes="(max-width: 720px) 50vw, (max-width: 1200px) 33vw, 400px"
-                 alt="An exam room with the Dr. Robert Fortino logo on the wall" width="1600" height="1067" loading="lazy" decoding="async">
-          </picture>
-          <figcaption><span>Real Estate</span>Medical office</figcaption>
-        </figure>
-        <!-- Travel & Aerial -->
-        <figure class="item" data-category="travel">
-          <img src="images/web/img-011-039.jpg" alt="Aerial view of a long beach and the town behind it" width="1600" height="900" loading="lazy" decoding="async">
-          <figcaption><span>Aerial</span>Drone</figcaption>
-        </figure>
-        <figure class="item" data-category="travel">
-          <img src="images/web/img-014-051.jpg" alt="Paella cooking in giant pans" width="1800" height="1200" loading="lazy" decoding="async">
-          <figcaption><span>Travel &amp; Food</span>Barcelona</figcaption>
-        </figure>
-        <figure class="item" data-category="travel">
-          <img src="images/web/img-013-045.jpg" alt="A camel caravan and its long shadows" width="652" height="978" loading="lazy" decoding="async">
-          <figcaption><span>Travel &amp; Food</span>Morocco</figcaption>
-        </figure>
-        <figure class="item" data-category="travel">
-          <img src="images/web/img-015-057.jpg" alt="A latte with leaf art in a dark cup" width="1800" height="1200" loading="lazy" decoding="async">
-          <figcaption><span>Travel &amp; Food</span>Latte art</figcaption>
-        </figure>
-        <figure class="item" data-category="travel">
-          <img src="images/web/img-016-061.jpg" alt="Red city bikes lined up on a Barcelona street" width="801" height="1200" loading="lazy" decoding="async">
-          <figcaption><span>Travel &amp; Food</span>Barcelona</figcaption>
-        </figure>
-        <figure class="item" data-category="travel">
-          <img src="images/web/img-010-034.jpg" alt="A beach at sunset with a seagull, shot on film" width="1800" height="1200" loading="lazy" decoding="async">
-          <figcaption><span>Travel &amp; Food</span>Film photography</figcaption>
-        </figure>
-        <figure class="item" data-category="travel">
-          <img src="images/web/img-012-040.jpg" alt="Desert dunes at dusk in Morocco" width="1086" height="724" loading="lazy" decoding="async">
-          <figcaption><span>Travel &amp; Food</span>Morocco</figcaption>
-        </figure>
-        <figure class="item" data-category="travel">
-          <img src="images/web/img-012-041.jpg" alt="Camels resting under the moon in Morocco" width="1086" height="724" loading="lazy" decoding="async">
-          <figcaption><span>Travel &amp; Food</span>Morocco</figcaption>
-        </figure>
-        <figure class="item" data-category="travel">
-          <img src="images/web/img-013-044.jpg" alt="A camel caravan crossing the dunes" width="652" height="978" loading="lazy" decoding="async">
-          <figcaption><span>Travel &amp; Food</span>Morocco</figcaption>
-        </figure>
-        <figure class="item" data-category="travel">
-          <img src="images/web/img-013-046.jpg" alt="Riders on a distant dune at dusk" width="652" height="978" loading="lazy" decoding="async">
-          <figcaption><span>Travel &amp; Food</span>Morocco</figcaption>
-        </figure>
-        <figure class="item" data-category="travel">
-          <img src="images/web/img-014-049.jpg" alt="A cold drink on a rooftop over Barcelona" width="1130" height="1614" loading="lazy" decoding="async">
-          <figcaption><span>Travel &amp; Food</span>Barcelona</figcaption>
-        </figure>
-        <figure class="item" data-category="travel">
-          <img src="images/web/img-014-050.jpg" alt="The Brunells bakery storefront in Barcelona" width="1019" height="1528" loading="lazy" decoding="async">
-          <figcaption><span>Travel &amp; Food</span>Barcelona</figcaption>
-        </figure>
-        <figure class="item" data-category="travel">
-          <img src="images/web/img-014-052.jpg" alt="A sandwich held up at a Barcelona food stall" width="1800" height="1200" loading="lazy" decoding="async">
-          <figcaption><span>Travel &amp; Food</span>Barcelona</figcaption>
-        </figure>
-        <figure class="item" data-category="travel">
-          <img src="images/web/img-015-055.jpg" alt="An &quot;All Those Food Market&quot; sign against blue sky" width="1100" height="1650" loading="lazy" decoding="async">
-          <figcaption><span>Travel &amp; Food</span>Food market</figcaption>
-        </figure>
-        <figure class="item" data-category="travel">
-          <img src="images/web/img-015-056.jpg" alt="A burger held up at an outdoor food market" width="1578" height="1138" loading="lazy" decoding="async">
-          <figcaption><span>Travel &amp; Food</span>Food market</figcaption>
-        </figure>
-        <figure class="item" data-category="travel">
-          <img src="images/web/img-015-058.jpg" alt="Chocolate strawberry cake and desserts" width="1539" height="1026" loading="lazy" decoding="async">
-          <figcaption><span>Travel &amp; Food</span>Dessert table</figcaption>
-        </figure>
-        <figure class="item" data-category="travel">
-          <img src="images/web/img-016-062.jpg" alt="A building corner against pale sky" width="1200" height="1800" loading="lazy" decoding="async">
-          <figcaption><span>Travel &amp; Food</span>Barcelona</figcaption>
-        </figure>
-        <figure class="item" data-category="travel">
-          <img src="images/web/img-016-063.jpg" alt="Escalators beside a green wall" width="1800" height="1200" loading="lazy" decoding="async">
-          <figcaption><span>Travel &amp; Food</span>Barcelona</figcaption>
-        </figure>
-        <figure class="item" data-category="travel">
-          <img src="images/web/img-016-067.jpg" alt="The entrance of La Boqueria market" width="1200" height="800" loading="lazy" decoding="async">
-          <figcaption><span>Travel &amp; Food</span>Barcelona</figcaption>
-        </figure>
-        <figure class="item" data-category="travel">
-          <img src="images/web/img-010-035.jpg" alt="A bright beach and white hillside town, shot on film" width="1248" height="826" loading="lazy" decoding="async">
-          <figcaption><span>Travel &amp; Food</span>Film photography</figcaption>
-        </figure>
-        <figure class="item" data-category="travel">
-          <img src="images/web/img-011-038-upright.jpg" alt="Aerial view of the shoreline at dusk" width="960" height="724" loading="lazy" decoding="async">
-          <figcaption><span>Aerial</span>Drone</figcaption>
-        </figure>
-      </div>
-      <p class="see-more-wrap"><button class="btn btn-line" id="see-more" type="button" aria-controls="gallery" hidden>See more</button></p>
-      <div class="cta-band fade-up">
-        <p>See something you love? Let&rsquo;s make yours next.</p>
         <a class="btn btn-dark" href="#contact">Book a shoot</a>
       </div>
     </div>
@@ -659,6 +239,591 @@
     </dialog>
   </section>
 
+  <section class="work" id="work">
+    <div class="container">
+      <div class="work-head fade-up">
+        <div>
+          <h2>Photos</h2>
+          <p class="section-note">Three favorites from each category</p>
+        </div>
+        <button class="btn btn-line see-all" id="photo-see-all" type="button" aria-haspopup="dialog">See all</button>
+      </div>
+      <div class="filters fade-up" role="group" aria-label="Show a category">
+          <button class="filter active" type="button" data-filter="weddings" aria-pressed="false">Weddings &amp; Engagements</button>
+          <button class="filter" type="button" data-filter="events" aria-pressed="false">Concerts &amp; Events</button>
+          <button class="filter" type="button" data-filter="sports" aria-pressed="false">Sports</button>
+          <button class="filter" type="button" data-filter="brands" aria-pressed="false">Brands &amp; Headshots</button>
+          <button class="filter" type="button" data-filter="realestate" aria-pressed="false">Real Estate</button>
+          <button class="filter" type="button" data-filter="travel" aria-pressed="false">Travel &amp; Aerial</button>
+      </div>
+    </div>
+
+    <!--
+      Rotating showcase: the same moving row as the videos, one group of three photos per category.
+      It pauses on hover / touch; tapping a category name above stops it on that category. "See all" opens every photo.
+      script.js copies the list once so the row loops. To change which three show, reorder the photos in the
+      "See all" list below and copy the first three of that category here.
+    -->
+    <div class="reel-belt photo-belt fade-up" id="photo-belt" role="region" aria-label="Photos by category, scrolling slowly. Hover or touch to pause." tabindex="-1">
+      <ul class="reel-track" id="photo-track">
+        <li class="pgroup" data-category="weddings">
+          <p class="pgroup-name">Weddings &amp; Engagements</p>
+          <div class="pgroup-photos">
+            <figure class="pitem">
+              <img src="images/web/img-007-024.jpg" alt="A man on one knee proposing on the beach" width="820" height="1229" loading="lazy" decoding="async">
+            </figure>
+            <figure class="pitem">
+              <img src="images/web/img-007-025.jpg" alt="A bride-to-be in white beside a floral arch and candles" width="1094" height="1640" loading="lazy" decoding="async">
+            </figure>
+            <figure class="pitem">
+              <img src="images/web/img-007-026.jpg" alt="A couple embracing, the engagement ring in view" width="2000" height="1334" loading="lazy" decoding="async">
+            </figure>
+          </div>
+        </li>
+        <li class="pgroup" data-category="events">
+          <p class="pgroup-name">Concerts &amp; Events</p>
+          <div class="pgroup-photos">
+            <figure class="pitem">
+              <picture>
+              <source type="image/webp" srcset="images/bella/concert-09-800.webp 533w, images/bella/concert-09-1600.webp 1067w" sizes="(max-width: 720px) 50vw, 320px">
+              <img src="images/bella/concert-09-800.jpg" srcset="images/bella/concert-09-800.jpg 533w, images/bella/concert-09-1600.jpg 1067w" sizes="(max-width: 720px) 50vw, 320px"
+              alt="The DJ from behind, light beams fanning out over the crowd" width="1067" height="1600" loading="lazy" decoding="async">
+              </picture>
+            </figure>
+            <figure class="pitem">
+              <picture>
+              <source type="image/webp" srcset="images/bella/concert-01-800.webp 800w, images/bella/concert-01-1600.webp 1600w" sizes="(max-width: 720px) 50vw, 320px">
+              <img src="images/bella/concert-01-800.jpg" srcset="images/bella/concert-01-800.jpg 800w, images/bella/concert-01-1600.jpg 1600w" sizes="(max-width: 720px) 50vw, 320px"
+              alt="A packed crowd under green stage lights at a DJ show" width="1600" height="1067" loading="lazy" decoding="async">
+              </picture>
+            </figure>
+            <figure class="pitem">
+              <picture>
+              <source type="image/webp" srcset="images/bella/concert-06-800.webp 533w, images/bella/concert-06-1600.webp 1067w" sizes="(max-width: 720px) 50vw, 320px">
+              <img src="images/bella/concert-06-800.jpg" srcset="images/bella/concert-06-800.jpg 533w, images/bella/concert-06-1600.jpg 1067w" sizes="(max-width: 720px) 50vw, 320px"
+              alt="Two fans dancing in a crowd with arms raised" width="1067" height="1600" loading="lazy" decoding="async">
+              </picture>
+            </figure>
+          </div>
+        </li>
+        <li class="pgroup" data-category="sports">
+          <p class="pgroup-name">Sports</p>
+          <div class="pgroup-photos">
+            <figure class="pitem">
+              <picture>
+              <source type="image/webp" srcset="images/bella/drexel-03-800.webp 533w, images/bella/drexel-03-1600.webp 1067w" sizes="(max-width: 720px) 50vw, 320px">
+              <img src="images/bella/drexel-03-800.jpg" srcset="images/bella/drexel-03-800.jpg 533w, images/bella/drexel-03-1600.jpg 1067w" sizes="(max-width: 720px) 50vw, 320px"
+              alt="A Drexel player rising for a layup" width="1067" height="1600" loading="lazy" decoding="async">
+              </picture>
+            </figure>
+            <figure class="pitem">
+              <picture>
+              <source type="image/webp" srcset="images/bella/drexel-16-800.webp 533w, images/bella/drexel-16-1600.webp 1067w" sizes="(max-width: 720px) 50vw, 320px">
+              <img src="images/bella/drexel-16-800.jpg" srcset="images/bella/drexel-16-800.jpg 533w, images/bella/drexel-16-1600.jpg 1067w" sizes="(max-width: 720px) 50vw, 320px"
+              alt="A Drexel guard dribbling into the lane" width="1067" height="1600" loading="lazy" decoding="async">
+              </picture>
+            </figure>
+            <figure class="pitem">
+              <picture>
+              <source type="image/webp" srcset="images/bella/drexel-15-800.webp 569w, images/bella/drexel-15-1600.webp 1138w" sizes="(max-width: 720px) 50vw, 320px">
+              <img src="images/bella/drexel-15-800.jpg" srcset="images/bella/drexel-15-800.jpg 569w, images/bella/drexel-15-1600.jpg 1138w" sizes="(max-width: 720px) 50vw, 320px"
+              alt="A Drexel guard driving past a defender" width="1138" height="1600" loading="lazy" decoding="async">
+              </picture>
+            </figure>
+          </div>
+        </li>
+        <li class="pgroup" data-category="brands">
+          <p class="pgroup-name">Brands &amp; Headshots</p>
+          <div class="pgroup-photos">
+            <figure class="pitem">
+              <img src="images/web/img-006-021.jpg" alt="Vacation sunscreen spray over sparkling pool water" width="939" height="951" loading="lazy" decoding="async">
+            </figure>
+            <figure class="pitem">
+              <img src="images/web/img-006-020.jpg" alt="Vacation sunscreen bottles on a pool edge" width="845" height="911" loading="lazy" decoding="async">
+            </figure>
+            <figure class="pitem">
+              <img src="images/web/img-005-013.jpg" alt="Staff headshot in a blue team sweatshirt" width="603" height="623" loading="lazy" decoding="async">
+            </figure>
+          </div>
+        </li>
+        <li class="pgroup" data-category="realestate">
+          <p class="pgroup-name">Real Estate</p>
+          <div class="pgroup-photos">
+            <figure class="pitem">
+              <picture>
+              <source type="image/webp" srcset="images/bella/house-01-800.webp 800w, images/bella/house-01-1600.webp 1600w" sizes="(max-width: 720px) 94vw, 600px">
+              <img src="images/bella/house-01-800.jpg" srcset="images/bella/house-01-800.jpg 800w, images/bella/house-01-1600.jpg 1600w" sizes="(max-width: 720px) 94vw, 600px"
+              alt="A yellow house with a wide front porch and flowers" width="1600" height="1082" loading="lazy" decoding="async">
+              </picture>
+            </figure>
+            <figure class="pitem">
+              <picture>
+              <source type="image/webp" srcset="images/bella/condo-02-800.webp 800w, images/bella/condo-02-1600.webp 1600w" sizes="(max-width: 720px) 94vw, 600px">
+              <img src="images/bella/condo-02-800.jpg" srcset="images/bella/condo-02-800.jpg 800w, images/bella/condo-02-1600.jpg 1600w" sizes="(max-width: 720px) 94vw, 600px"
+              alt="An open living room with wood floors and a fireplace" width="1600" height="1067" loading="lazy" decoding="async">
+              </picture>
+            </figure>
+            <figure class="pitem">
+              <picture>
+              <source type="image/webp" srcset="images/bella/house-02-800.webp 800w, images/bella/house-02-1600.webp 1600w" sizes="(max-width: 720px) 94vw, 600px">
+              <img src="images/bella/house-02-800.jpg" srcset="images/bella/house-02-800.jpg 800w, images/bella/house-02-1600.jpg 1600w" sizes="(max-width: 720px) 94vw, 600px"
+              alt="A warm dining room with a chandelier and set table" width="1600" height="1068" loading="lazy" decoding="async">
+              </picture>
+            </figure>
+          </div>
+        </li>
+        <li class="pgroup" data-category="travel">
+          <p class="pgroup-name">Travel &amp; Aerial</p>
+          <div class="pgroup-photos">
+            <figure class="pitem">
+              <img src="images/web/img-011-039.jpg" alt="Aerial view of a long beach and the town behind it" width="1600" height="900" loading="lazy" decoding="async">
+            </figure>
+            <figure class="pitem">
+              <img src="images/web/img-014-051.jpg" alt="Paella cooking in giant pans" width="1800" height="1200" loading="lazy" decoding="async">
+            </figure>
+            <figure class="pitem">
+              <img src="images/web/img-013-045.jpg" alt="A camel caravan and its long shadows" width="652" height="978" loading="lazy" decoding="async">
+            </figure>
+          </div>
+        </li>
+      </ul>
+    </div>
+    <p class="reel-hint" id="photo-hint" aria-live="polite"></p>
+    <div class="container">
+      <div class="cta-band fade-up">
+        <p>See something you love? Let&rsquo;s make yours next.</p>
+        <a class="btn btn-dark" href="#contact">Book a shoot</a>
+      </div>
+    </div>
+
+    <!--
+      "See all": every photo, by category. Photos from the client's portfolio PDF use the web copies in images/web/;
+      Bella's newer shoots are in images/bella/ (800px and 1600px, WebP and JPEG). Full-size originals are never committed.
+    -->
+    <dialog class="reel-grid photo-grid" id="photo-grid" aria-labelledby="photo-grid-title">
+      <div class="reel-grid-head">
+        <h2 id="photo-grid-title">All photos</h2>
+        <button class="dialog-close" type="button" aria-label="Close all photos">&times;</button>
+      </div>
+      <div class="photo-grid-body">
+      <section class="pg-cat" id="all-weddings" data-category="weddings" aria-labelledby="all-weddings-h">
+        <h3 id="all-weddings-h">Weddings &amp; Engagements <span>3</span></h3>
+        <div class="pg-list">
+          <figure class="pitem">
+            <img src="images/web/img-007-024.jpg" alt="A man on one knee proposing on the beach" width="820" height="1229" loading="lazy" decoding="async">
+            <figcaption>The proposal</figcaption>
+          </figure>
+          <figure class="pitem">
+            <img src="images/web/img-007-025.jpg" alt="A bride-to-be in white beside a floral arch and candles" width="1094" height="1640" loading="lazy" decoding="async">
+            <figcaption>Bridal portrait</figcaption>
+          </figure>
+          <figure class="pitem">
+            <img src="images/web/img-007-026.jpg" alt="A couple embracing, the engagement ring in view" width="2000" height="1334" loading="lazy" decoding="async">
+            <figcaption>She said yes</figcaption>
+          </figure>
+        </div>
+      </section>
+      <section class="pg-cat" id="all-events" data-category="events" aria-labelledby="all-events-h">
+        <h3 id="all-events-h">Concerts &amp; Events <span>8</span></h3>
+        <div class="pg-list">
+          <figure class="pitem">
+            <picture>
+            <source type="image/webp" srcset="images/bella/concert-09-800.webp 533w, images/bella/concert-09-1600.webp 1067w" sizes="(max-width: 560px) 50vw, (max-width: 960px) 33vw, 300px">
+            <img src="images/bella/concert-09-800.jpg" srcset="images/bella/concert-09-800.jpg 533w, images/bella/concert-09-1600.jpg 1067w" sizes="(max-width: 560px) 50vw, (max-width: 960px) 33vw, 300px"
+            alt="The DJ from behind, light beams fanning out over the crowd" width="1067" height="1600" loading="lazy" decoding="async">
+            </picture>
+            <figcaption>Main stage</figcaption>
+          </figure>
+          <figure class="pitem">
+            <picture>
+            <source type="image/webp" srcset="images/bella/concert-01-800.webp 800w, images/bella/concert-01-1600.webp 1600w" sizes="(max-width: 560px) 50vw, (max-width: 960px) 33vw, 300px">
+            <img src="images/bella/concert-01-800.jpg" srcset="images/bella/concert-01-800.jpg 800w, images/bella/concert-01-1600.jpg 1600w" sizes="(max-width: 560px) 50vw, (max-width: 960px) 33vw, 300px"
+            alt="A packed crowd under green stage lights at a DJ show" width="1600" height="1067" loading="lazy" decoding="async">
+            </picture>
+            <figcaption>Maddix live</figcaption>
+          </figure>
+          <figure class="pitem">
+            <picture>
+            <source type="image/webp" srcset="images/bella/concert-06-800.webp 533w, images/bella/concert-06-1600.webp 1067w" sizes="(max-width: 560px) 50vw, (max-width: 960px) 33vw, 300px">
+            <img src="images/bella/concert-06-800.jpg" srcset="images/bella/concert-06-800.jpg 533w, images/bella/concert-06-1600.jpg 1067w" sizes="(max-width: 560px) 50vw, (max-width: 960px) 33vw, 300px"
+            alt="Two fans dancing in a crowd with arms raised" width="1067" height="1600" loading="lazy" decoding="async">
+            </picture>
+            <figcaption>The crowd</figcaption>
+          </figure>
+          <figure class="pitem">
+            <picture>
+            <source type="image/webp" srcset="images/bella/concert-05-800.webp 533w, images/bella/concert-05-1600.webp 1067w" sizes="(max-width: 560px) 50vw, (max-width: 960px) 33vw, 300px">
+            <img src="images/bella/concert-05-800.jpg" srcset="images/bella/concert-05-800.jpg 533w, images/bella/concert-05-1600.jpg 1067w" sizes="(max-width: 560px) 50vw, (max-width: 960px) 33vw, 300px"
+            alt="The DJ seen from behind under red and white lasers" width="1067" height="1600" loading="lazy" decoding="async">
+            </picture>
+            <figcaption>Lasers</figcaption>
+          </figure>
+          <figure class="pitem">
+            <picture>
+            <source type="image/webp" srcset="images/bella/concert-12-800.webp 800w, images/bella/concert-12-1600.webp 1600w" sizes="(max-width: 560px) 50vw, (max-width: 960px) 33vw, 300px">
+            <img src="images/bella/concert-12-800.jpg" srcset="images/bella/concert-12-800.jpg 800w, images/bella/concert-12-1600.jpg 1600w" sizes="(max-width: 560px) 50vw, (max-width: 960px) 33vw, 300px"
+            alt="Blue and pink smoke over a crowd at a concert" width="1600" height="1067" loading="lazy" decoding="async">
+            </picture>
+            <figcaption>Maddix live</figcaption>
+          </figure>
+          <figure class="pitem">
+            <picture>
+            <source type="image/webp" srcset="images/bella/concert-02-800.webp 533w, images/bella/concert-02-1600.webp 1067w" sizes="(max-width: 560px) 50vw, (max-width: 960px) 33vw, 300px">
+            <img src="images/bella/concert-02-800.jpg" srcset="images/bella/concert-02-800.jpg 533w, images/bella/concert-02-1600.jpg 1067w" sizes="(max-width: 560px) 50vw, (max-width: 960px) 33vw, 300px"
+            alt="The crowd facing a stage screen reading MADDIX" width="1067" height="1600" loading="lazy" decoding="async">
+            </picture>
+            <figcaption>Maddix live</figcaption>
+          </figure>
+          <figure class="pitem">
+            <picture>
+            <source type="image/webp" srcset="images/bella/concert-04-800.webp 800w, images/bella/concert-04-1600.webp 1600w" sizes="(max-width: 560px) 50vw, (max-width: 960px) 33vw, 300px">
+            <img src="images/bella/concert-04-800.jpg" srcset="images/bella/concert-04-800.jpg 800w, images/bella/concert-04-1600.jpg 1600w" sizes="(max-width: 560px) 50vw, (max-width: 960px) 33vw, 300px"
+            alt="The DJ in a cap and RAVE IS MY THERAPY shirt at the decks" width="1600" height="1067" loading="lazy" decoding="async">
+            </picture>
+            <figcaption>Behind the decks</figcaption>
+          </figure>
+          <figure class="pitem">
+            <picture>
+            <source type="image/webp" srcset="images/bella/concert-08-800.webp 800w, images/bella/concert-08-1600.webp 1600w" sizes="(max-width: 560px) 50vw, (max-width: 960px) 33vw, 300px">
+            <img src="images/bella/concert-08-800.jpg" srcset="images/bella/concert-08-800.jpg 800w, images/bella/concert-08-1600.jpg 1600w" sizes="(max-width: 560px) 50vw, (max-width: 960px) 33vw, 300px"
+            alt="A wide view of the dance floor under white light beams" width="1600" height="1067" loading="lazy" decoding="async">
+            </picture>
+            <figcaption>Maddix live</figcaption>
+          </figure>
+        </div>
+      </section>
+      <section class="pg-cat" id="all-sports" data-category="sports" aria-labelledby="all-sports-h">
+        <h3 id="all-sports-h">Sports <span>14</span></h3>
+        <div class="pg-list">
+          <figure class="pitem">
+            <picture>
+            <source type="image/webp" srcset="images/bella/drexel-03-800.webp 533w, images/bella/drexel-03-1600.webp 1067w" sizes="(max-width: 560px) 50vw, (max-width: 960px) 33vw, 300px">
+            <img src="images/bella/drexel-03-800.jpg" srcset="images/bella/drexel-03-800.jpg 533w, images/bella/drexel-03-1600.jpg 1067w" sizes="(max-width: 560px) 50vw, (max-width: 960px) 33vw, 300px"
+            alt="A Drexel player rising for a layup" width="1067" height="1600" loading="lazy" decoding="async">
+            </picture>
+            <figcaption>Drexel basketball</figcaption>
+          </figure>
+          <figure class="pitem">
+            <picture>
+            <source type="image/webp" srcset="images/bella/drexel-16-800.webp 533w, images/bella/drexel-16-1600.webp 1067w" sizes="(max-width: 560px) 50vw, (max-width: 960px) 33vw, 300px">
+            <img src="images/bella/drexel-16-800.jpg" srcset="images/bella/drexel-16-800.jpg 533w, images/bella/drexel-16-1600.jpg 1067w" sizes="(max-width: 560px) 50vw, (max-width: 960px) 33vw, 300px"
+            alt="A Drexel guard dribbling into the lane" width="1067" height="1600" loading="lazy" decoding="async">
+            </picture>
+            <figcaption>Drexel basketball</figcaption>
+          </figure>
+          <figure class="pitem">
+            <picture>
+            <source type="image/webp" srcset="images/bella/drexel-15-800.webp 569w, images/bella/drexel-15-1600.webp 1138w" sizes="(max-width: 560px) 50vw, (max-width: 960px) 33vw, 300px">
+            <img src="images/bella/drexel-15-800.jpg" srcset="images/bella/drexel-15-800.jpg 569w, images/bella/drexel-15-1600.jpg 1138w" sizes="(max-width: 560px) 50vw, (max-width: 960px) 33vw, 300px"
+            alt="A Drexel guard driving past a defender" width="1138" height="1600" loading="lazy" decoding="async">
+            </picture>
+            <figcaption>Drexel basketball</figcaption>
+          </figure>
+          <figure class="pitem">
+            <picture>
+            <source type="image/webp" srcset="images/bella/drexel-04-800.webp 533w, images/bella/drexel-04-1600.webp 1067w" sizes="(max-width: 560px) 50vw, (max-width: 960px) 33vw, 300px">
+            <img src="images/bella/drexel-04-800.jpg" srcset="images/bella/drexel-04-800.jpg 533w, images/bella/drexel-04-1600.jpg 1067w" sizes="(max-width: 560px) 50vw, (max-width: 960px) 33vw, 300px"
+            alt="Drexel players slapping hands along the bench" width="1067" height="1600" loading="lazy" decoding="async">
+            </picture>
+            <figcaption>Drexel basketball</figcaption>
+          </figure>
+          <figure class="pitem">
+            <img src="images/web/img-008-031.jpg" alt="A lifeguard boat crew rowing through the waves" width="965" height="629" loading="lazy" decoding="async">
+            <figcaption>Through the surf</figcaption>
+          </figure>
+          <figure class="pitem">
+            <picture>
+            <source type="image/webp" srcset="images/bella/drexel-02-800.webp 533w, images/bella/drexel-02-1600.webp 1067w" sizes="(max-width: 560px) 50vw, (max-width: 960px) 33vw, 300px">
+            <img src="images/bella/drexel-02-800.jpg" srcset="images/bella/drexel-02-800.jpg 533w, images/bella/drexel-02-1600.jpg 1067w" sizes="(max-width: 560px) 50vw, (max-width: 960px) 33vw, 300px"
+            alt="A Drexel player lining up a free throw" width="1067" height="1600" loading="lazy" decoding="async">
+            </picture>
+            <figcaption>Drexel basketball</figcaption>
+          </figure>
+          <figure class="pitem">
+            <picture>
+            <source type="image/webp" srcset="images/bella/drexel-05-800.webp 800w, images/bella/drexel-05-1600.webp 1600w" sizes="(max-width: 560px) 50vw, (max-width: 960px) 33vw, 300px">
+            <img src="images/bella/drexel-05-800.jpg" srcset="images/bella/drexel-05-800.jpg 800w, images/bella/drexel-05-1600.jpg 1600w" sizes="(max-width: 560px) 50vw, (max-width: 960px) 33vw, 300px"
+            alt="A Drexel women&#x27;s player in a number 55 practice jersey" width="1600" height="1382" loading="lazy" decoding="async">
+            </picture>
+            <figcaption>Drexel women&#x27;s basketball</figcaption>
+          </figure>
+          <figure class="pitem">
+            <picture>
+            <source type="image/webp" srcset="images/bella/drexel-06-800.webp 800w, images/bella/drexel-06-1600.webp 1600w" sizes="(max-width: 560px) 50vw, (max-width: 960px) 33vw, 300px">
+            <img src="images/bella/drexel-06-800.jpg" srcset="images/bella/drexel-06-800.jpg 800w, images/bella/drexel-06-1600.jpg 1600w" sizes="(max-width: 560px) 50vw, (max-width: 960px) 33vw, 300px"
+            alt="A Drexel women&#x27;s player driving with the ball in practice" width="1600" height="1339" loading="lazy" decoding="async">
+            </picture>
+            <figcaption>Drexel women&#x27;s basketball</figcaption>
+          </figure>
+          <figure class="pitem">
+            <picture>
+            <source type="image/webp" srcset="images/bella/drexel-10-800.webp 800w, images/bella/drexel-10-1600.webp 1600w" sizes="(max-width: 560px) 50vw, (max-width: 960px) 33vw, 300px">
+            <img src="images/bella/drexel-10-800.jpg" srcset="images/bella/drexel-10-800.jpg 800w, images/bella/drexel-10-1600.jpg 1600w" sizes="(max-width: 560px) 50vw, (max-width: 960px) 33vw, 300px"
+            alt="A Drexel player taking a jump shot over a defender in practice" width="1600" height="1409" loading="lazy" decoding="async">
+            </picture>
+            <figcaption>Drexel practice</figcaption>
+          </figure>
+          <figure class="pitem">
+            <picture>
+            <source type="image/webp" srcset="images/bella/drexel-12-800.webp 533w, images/bella/drexel-12-1600.webp 1067w" sizes="(max-width: 560px) 50vw, (max-width: 960px) 33vw, 300px">
+            <img src="images/bella/drexel-12-800.jpg" srcset="images/bella/drexel-12-800.jpg 533w, images/bella/drexel-12-1600.jpg 1067w" sizes="(max-width: 560px) 50vw, (max-width: 960px) 33vw, 300px"
+            alt="A Drexel player in number 15 walking up the court" width="1067" height="1600" loading="lazy" decoding="async">
+            </picture>
+            <figcaption>Drexel basketball</figcaption>
+          </figure>
+          <figure class="pitem">
+            <picture>
+            <source type="image/webp" srcset="images/bella/drexel-17-800.webp 533w, images/bella/drexel-17-1600.webp 1067w" sizes="(max-width: 560px) 50vw, (max-width: 960px) 33vw, 300px">
+            <img src="images/bella/drexel-17-800.jpg" srcset="images/bella/drexel-17-800.jpg 533w, images/bella/drexel-17-1600.jpg 1067w" sizes="(max-width: 560px) 50vw, (max-width: 960px) 33vw, 300px"
+            alt="Drexel players gathered in a huddle" width="1067" height="1600" loading="lazy" decoding="async">
+            </picture>
+            <figcaption>Drexel basketball</figcaption>
+          </figure>
+          <figure class="pitem">
+            <img src="images/web/img-008-029.jpg" alt="A lifeguard with a rescue board at the water&#x27;s edge" width="845" height="587" loading="lazy" decoding="async">
+            <figcaption>Lifeguard races</figcaption>
+          </figure>
+          <figure class="pitem">
+            <img src="images/web/img-008-030.jpg" alt="Lifeguards launching the Brigantine boat" width="845" height="591" loading="lazy" decoding="async">
+            <figcaption>Brigantine crew</figcaption>
+          </figure>
+          <figure class="pitem">
+            <img src="images/web/img-008-032.jpg" alt="A lifeguard team posing together on the beach" width="845" height="588" loading="lazy" decoding="async">
+            <figcaption>Race day</figcaption>
+          </figure>
+        </div>
+      </section>
+      <section class="pg-cat" id="all-brands" data-category="brands" aria-labelledby="all-brands-h">
+        <h3 id="all-brands-h">Brands &amp; Headshots <span>8</span></h3>
+        <div class="pg-list">
+          <figure class="pitem">
+            <img src="images/web/img-006-021.jpg" alt="Vacation sunscreen spray over sparkling pool water" width="939" height="951" loading="lazy" decoding="async">
+            <figcaption>Vacation Classic Spray</figcaption>
+          </figure>
+          <figure class="pitem">
+            <img src="images/web/img-006-020.jpg" alt="Vacation sunscreen bottles on a pool edge" width="845" height="911" loading="lazy" decoding="async">
+            <figcaption>Vacation sunscreen</figcaption>
+          </figure>
+          <figure class="pitem">
+            <img src="images/web/img-005-013.jpg" alt="Staff headshot in a blue team sweatshirt" width="603" height="623" loading="lazy" decoding="async">
+            <figcaption>Headshot</figcaption>
+          </figure>
+          <figure class="pitem">
+            <img src="images/web/img-005-015.jpg" alt="Staff headshot against a seascape backdrop" width="724" height="712" loading="lazy" decoding="async">
+            <figcaption>Headshot</figcaption>
+          </figure>
+          <figure class="pitem">
+            <img src="images/web/img-005-017.jpg" alt="Staff headshot with a seascape backdrop" width="603" height="593" loading="lazy" decoding="async">
+            <figcaption>Headshot</figcaption>
+          </figure>
+          <figure class="pitem">
+            <img src="images/web/img-005-014.jpg" alt="Staff headshot in a tan top" width="603" height="797" loading="lazy" decoding="async">
+            <figcaption>Headshot</figcaption>
+          </figure>
+          <figure class="pitem">
+            <img src="images/web/img-004-012-upright.jpg" alt="Suburban Life magazine cover featuring Dr. Robert Fortino, spring 2026" width="990" height="1290" loading="lazy" decoding="async">
+            <figcaption>Suburban Life cover</figcaption>
+          </figure>
+          <figure class="pitem">
+            <img src="images/web/img-005-016.jpg" alt="Staff headshot in blue scrubs" width="603" height="593" loading="lazy" decoding="async">
+            <figcaption>Headshot</figcaption>
+          </figure>
+        </div>
+      </section>
+      <section class="pg-cat" id="all-realestate" data-category="realestate" aria-labelledby="all-realestate-h">
+        <h3 id="all-realestate-h">Real Estate <span>12</span></h3>
+        <div class="pg-list">
+          <figure class="pitem">
+            <picture>
+            <source type="image/webp" srcset="images/bella/house-01-800.webp 800w, images/bella/house-01-1600.webp 1600w" sizes="(max-width: 560px) 50vw, (max-width: 960px) 33vw, 300px">
+            <img src="images/bella/house-01-800.jpg" srcset="images/bella/house-01-800.jpg 800w, images/bella/house-01-1600.jpg 1600w" sizes="(max-width: 560px) 50vw, (max-width: 960px) 33vw, 300px"
+            alt="A yellow house with a wide front porch and flowers" width="1600" height="1082" loading="lazy" decoding="async">
+            </picture>
+            <figcaption>Family home</figcaption>
+          </figure>
+          <figure class="pitem">
+            <picture>
+            <source type="image/webp" srcset="images/bella/condo-02-800.webp 800w, images/bella/condo-02-1600.webp 1600w" sizes="(max-width: 560px) 50vw, (max-width: 960px) 33vw, 300px">
+            <img src="images/bella/condo-02-800.jpg" srcset="images/bella/condo-02-800.jpg 800w, images/bella/condo-02-1600.jpg 1600w" sizes="(max-width: 560px) 50vw, (max-width: 960px) 33vw, 300px"
+            alt="An open living room with wood floors and a fireplace" width="1600" height="1067" loading="lazy" decoding="async">
+            </picture>
+            <figcaption>Condo</figcaption>
+          </figure>
+          <figure class="pitem">
+            <picture>
+            <source type="image/webp" srcset="images/bella/house-02-800.webp 800w, images/bella/house-02-1600.webp 1600w" sizes="(max-width: 560px) 50vw, (max-width: 960px) 33vw, 300px">
+            <img src="images/bella/house-02-800.jpg" srcset="images/bella/house-02-800.jpg 800w, images/bella/house-02-1600.jpg 1600w" sizes="(max-width: 560px) 50vw, (max-width: 960px) 33vw, 300px"
+            alt="A warm dining room with a chandelier and set table" width="1600" height="1068" loading="lazy" decoding="async">
+            </picture>
+            <figcaption>Family home</figcaption>
+          </figure>
+          <figure class="pitem">
+            <picture>
+            <source type="image/webp" srcset="images/bella/office-01-800.webp 800w, images/bella/office-01-1600.webp 1600w" sizes="(max-width: 560px) 50vw, (max-width: 960px) 33vw, 300px">
+            <img src="images/bella/office-01-800.jpg" srcset="images/bella/office-01-800.jpg 800w, images/bella/office-01-1600.jpg 1600w" sizes="(max-width: 560px) 50vw, (max-width: 960px) 33vw, 300px"
+            alt="The columned brick entrance of a medical office" width="1600" height="1067" loading="lazy" decoding="async">
+            </picture>
+            <figcaption>Medical office</figcaption>
+          </figure>
+          <figure class="pitem">
+            <picture>
+            <source type="image/webp" srcset="images/bella/condo-08-800.webp 800w, images/bella/condo-08-1600.webp 1600w" sizes="(max-width: 560px) 50vw, (max-width: 960px) 33vw, 300px">
+            <img src="images/bella/condo-08-800.jpg" srcset="images/bella/condo-08-800.jpg 800w, images/bella/condo-08-1600.jpg 1600w" sizes="(max-width: 560px) 50vw, (max-width: 960px) 33vw, 300px"
+            alt="A dining nook beside sliding doors to a balcony" width="1600" height="1065" loading="lazy" decoding="async">
+            </picture>
+            <figcaption>Condo</figcaption>
+          </figure>
+          <figure class="pitem">
+            <picture>
+            <source type="image/webp" srcset="images/bella/office-02-800.webp 800w, images/bella/office-02-1600.webp 1600w" sizes="(max-width: 560px) 50vw, (max-width: 960px) 33vw, 300px">
+            <img src="images/bella/office-02-800.jpg" srcset="images/bella/office-02-800.jpg 800w, images/bella/office-02-1600.jpg 1600w" sizes="(max-width: 560px) 50vw, (max-width: 960px) 33vw, 300px"
+            alt="A bright waiting room with rows of chairs and ocean art" width="1600" height="1066" loading="lazy" decoding="async">
+            </picture>
+            <figcaption>Medical office</figcaption>
+          </figure>
+          <figure class="pitem">
+            <picture>
+            <source type="image/webp" srcset="images/bella/condo-04-800.webp 800w, images/bella/condo-04-1600.webp 1600w" sizes="(max-width: 560px) 50vw, (max-width: 960px) 33vw, 300px">
+            <img src="images/bella/condo-04-800.jpg" srcset="images/bella/condo-04-800.jpg 800w, images/bella/condo-04-1600.jpg 1600w" sizes="(max-width: 560px) 50vw, (max-width: 960px) 33vw, 300px"
+            alt="A kitchen with wood cabinets and stainless appliances" width="1600" height="1070" loading="lazy" decoding="async">
+            </picture>
+            <figcaption>Condo</figcaption>
+          </figure>
+          <figure class="pitem">
+            <picture>
+            <source type="image/webp" srcset="images/bella/condo-09-800.webp 800w, images/bella/condo-09-1600.webp 1600w" sizes="(max-width: 560px) 50vw, (max-width: 960px) 33vw, 300px">
+            <img src="images/bella/condo-09-800.jpg" srcset="images/bella/condo-09-800.jpg 800w, images/bella/condo-09-1600.jpg 1600w" sizes="(max-width: 560px) 50vw, (max-width: 960px) 33vw, 300px"
+            alt="A sunny balcony with a wrought-iron railing" width="1600" height="1067" loading="lazy" decoding="async">
+            </picture>
+            <figcaption>Condo</figcaption>
+          </figure>
+          <figure class="pitem">
+            <picture>
+            <source type="image/webp" srcset="images/bella/condo-10-800.webp 800w, images/bella/condo-10-1600.webp 1600w" sizes="(max-width: 560px) 50vw, (max-width: 960px) 33vw, 300px">
+            <img src="images/bella/condo-10-800.jpg" srcset="images/bella/condo-10-800.jpg 800w, images/bella/condo-10-1600.jpg 1600w" sizes="(max-width: 560px) 50vw, (max-width: 960px) 33vw, 300px"
+            alt="A carpeted bedroom with a large window" width="1600" height="1069" loading="lazy" decoding="async">
+            </picture>
+            <figcaption>Condo</figcaption>
+          </figure>
+          <figure class="pitem">
+            <picture>
+            <source type="image/webp" srcset="images/bella/condo-13-800.webp 800w, images/bella/condo-13-1600.webp 1600w" sizes="(max-width: 560px) 50vw, (max-width: 960px) 33vw, 300px">
+            <img src="images/bella/condo-13-800.jpg" srcset="images/bella/condo-13-800.jpg 800w, images/bella/condo-13-1600.jpg 1600w" sizes="(max-width: 560px) 50vw, (max-width: 960px) 33vw, 300px"
+            alt="A bathroom with a glass shower and double vanity" width="1600" height="1069" loading="lazy" decoding="async">
+            </picture>
+            <figcaption>Condo</figcaption>
+          </figure>
+          <figure class="pitem">
+            <picture>
+            <source type="image/webp" srcset="images/bella/office-06-800.webp 800w, images/bella/office-06-1600.webp 1600w" sizes="(max-width: 560px) 50vw, (max-width: 960px) 33vw, 300px">
+            <img src="images/bella/office-06-800.jpg" srcset="images/bella/office-06-800.jpg 800w, images/bella/office-06-1600.jpg 1600w" sizes="(max-width: 560px) 50vw, (max-width: 960px) 33vw, 300px"
+            alt="A blue reception window in a medical office" width="1600" height="1066" loading="lazy" decoding="async">
+            </picture>
+            <figcaption>Medical office</figcaption>
+          </figure>
+          <figure class="pitem">
+            <picture>
+            <source type="image/webp" srcset="images/bella/office-08-800.webp 800w, images/bella/office-08-1600.webp 1600w" sizes="(max-width: 560px) 50vw, (max-width: 960px) 33vw, 300px">
+            <img src="images/bella/office-08-800.jpg" srcset="images/bella/office-08-800.jpg 800w, images/bella/office-08-1600.jpg 1600w" sizes="(max-width: 560px) 50vw, (max-width: 960px) 33vw, 300px"
+            alt="An exam room with the Dr. Robert Fortino logo on the wall" width="1600" height="1067" loading="lazy" decoding="async">
+            </picture>
+            <figcaption>Medical office</figcaption>
+          </figure>
+        </div>
+      </section>
+      <section class="pg-cat" id="all-travel" data-category="travel" aria-labelledby="all-travel-h">
+        <h3 id="all-travel-h">Travel &amp; Aerial <span>21</span></h3>
+        <div class="pg-list">
+          <figure class="pitem">
+            <img src="images/web/img-011-039.jpg" alt="Aerial view of a long beach and the town behind it" width="1600" height="900" loading="lazy" decoding="async">
+            <figcaption>Drone</figcaption>
+          </figure>
+          <figure class="pitem">
+            <img src="images/web/img-014-051.jpg" alt="Paella cooking in giant pans" width="1800" height="1200" loading="lazy" decoding="async">
+            <figcaption>Barcelona</figcaption>
+          </figure>
+          <figure class="pitem">
+            <img src="images/web/img-013-045.jpg" alt="A camel caravan and its long shadows" width="652" height="978" loading="lazy" decoding="async">
+            <figcaption>Morocco</figcaption>
+          </figure>
+          <figure class="pitem">
+            <img src="images/web/img-015-057.jpg" alt="A latte with leaf art in a dark cup" width="1800" height="1200" loading="lazy" decoding="async">
+            <figcaption>Latte art</figcaption>
+          </figure>
+          <figure class="pitem">
+            <img src="images/web/img-016-061.jpg" alt="Red city bikes lined up on a Barcelona street" width="801" height="1200" loading="lazy" decoding="async">
+            <figcaption>Barcelona</figcaption>
+          </figure>
+          <figure class="pitem">
+            <img src="images/web/img-010-034.jpg" alt="A beach at sunset with a seagull, shot on film" width="1800" height="1200" loading="lazy" decoding="async">
+            <figcaption>Film photography</figcaption>
+          </figure>
+          <figure class="pitem">
+            <img src="images/web/img-012-040.jpg" alt="Desert dunes at dusk in Morocco" width="1086" height="724" loading="lazy" decoding="async">
+            <figcaption>Morocco</figcaption>
+          </figure>
+          <figure class="pitem">
+            <img src="images/web/img-012-041.jpg" alt="Camels resting under the moon in Morocco" width="1086" height="724" loading="lazy" decoding="async">
+            <figcaption>Morocco</figcaption>
+          </figure>
+          <figure class="pitem">
+            <img src="images/web/img-013-044.jpg" alt="A camel caravan crossing the dunes" width="652" height="978" loading="lazy" decoding="async">
+            <figcaption>Morocco</figcaption>
+          </figure>
+          <figure class="pitem">
+            <img src="images/web/img-013-046.jpg" alt="Riders on a distant dune at dusk" width="652" height="978" loading="lazy" decoding="async">
+            <figcaption>Morocco</figcaption>
+          </figure>
+          <figure class="pitem">
+            <img src="images/web/img-014-049.jpg" alt="A cold drink on a rooftop over Barcelona" width="1130" height="1614" loading="lazy" decoding="async">
+            <figcaption>Barcelona</figcaption>
+          </figure>
+          <figure class="pitem">
+            <img src="images/web/img-014-050.jpg" alt="The Brunells bakery storefront in Barcelona" width="1019" height="1528" loading="lazy" decoding="async">
+            <figcaption>Barcelona</figcaption>
+          </figure>
+          <figure class="pitem">
+            <img src="images/web/img-014-052.jpg" alt="A sandwich held up at a Barcelona food stall" width="1800" height="1200" loading="lazy" decoding="async">
+            <figcaption>Barcelona</figcaption>
+          </figure>
+          <figure class="pitem">
+            <img src="images/web/img-015-055.jpg" alt="An &quot;All Those Food Market&quot; sign against blue sky" width="1100" height="1650" loading="lazy" decoding="async">
+            <figcaption>Food market</figcaption>
+          </figure>
+          <figure class="pitem">
+            <img src="images/web/img-015-056.jpg" alt="A burger held up at an outdoor food market" width="1578" height="1138" loading="lazy" decoding="async">
+            <figcaption>Food market</figcaption>
+          </figure>
+          <figure class="pitem">
+            <img src="images/web/img-015-058.jpg" alt="Chocolate strawberry cake and desserts" width="1539" height="1026" loading="lazy" decoding="async">
+            <figcaption>Dessert table</figcaption>
+          </figure>
+          <figure class="pitem">
+            <img src="images/web/img-016-062.jpg" alt="A building corner against pale sky" width="1200" height="1800" loading="lazy" decoding="async">
+            <figcaption>Barcelona</figcaption>
+          </figure>
+          <figure class="pitem">
+            <img src="images/web/img-016-063.jpg" alt="Escalators beside a green wall" width="1800" height="1200" loading="lazy" decoding="async">
+            <figcaption>Barcelona</figcaption>
+          </figure>
+          <figure class="pitem">
+            <img src="images/web/img-016-067.jpg" alt="The entrance of La Boqueria market" width="1200" height="800" loading="lazy" decoding="async">
+            <figcaption>Barcelona</figcaption>
+          </figure>
+          <figure class="pitem">
+            <img src="images/web/img-010-035.jpg" alt="A bright beach and white hillside town, shot on film" width="1248" height="826" loading="lazy" decoding="async">
+            <figcaption>Film photography</figcaption>
+          </figure>
+          <figure class="pitem">
+            <img src="images/web/img-011-038-upright.jpg" alt="Aerial view of the shoreline at dusk" width="960" height="724" loading="lazy" decoding="async">
+            <figcaption>Drone</figcaption>
+          </figure>
+        </div>
+      </section>
+      </div>
+    </dialog>
+  </section>
+
   <section class="quote">
     <figure class="container fade-up">
       <blockquote>Good content isn't about good storytelling. It's about telling a true story well.</blockquote>
@@ -678,10 +843,18 @@
           <strong>photographer</strong> and <strong>videographer</strong> capturing <strong>weddings</strong>,
           <strong>live events</strong>, <strong>sports</strong>, <strong>brand content</strong> and
           <strong>real estate</strong> across <strong>Philly + NJ</strong>.</p>
-        <p>With a background in marketing, photography and digital communications, I help individuals, brands and
-          businesses bring their visions to life with content that feels genuine, intentional and uniquely yours.</p>
-        <p>Beyond the camera, I'm a certified Pilates instructor and a first-degree black belt in mixed martial arts,
-          so I know the dedication behind every craft.</p>
+        <p>The Social Hour is a boutique content creation business built from my passion for storytelling, creativity
+          and capturing life's most memorable moments. With a background in marketing, photography and digital
+          communications, I help individuals, brands and businesses bring their visions to life through authentic,
+          engaging content.</p>
+        <p>My creative journey began with a camera and a curiosity for seeing the world through a different lens. From
+          special celebrations and live events to social media content for businesses and sports organizations, I love
+          finding the little details that make every story unique.</p>
+        <p>Beyond the camera, I'm a certified Pilates instructor and a first-degree black belt in mixed martial arts.
+          My background in fitness, athletics and movement has shaped my discipline, creativity and appreciation for
+          the dedication behind every craft.</p>
+        <p>I believe every moment has a story worth telling. My goal is to create content that feels genuine,
+          intentional and uniquely yours, and to build meaningful relationships with my clients along the way.</p>
       </div>
     </div>
     <div class="container">
