@@ -1,4 +1,5 @@
-// The Social Hour Agency — navbar, video belt, mobile menu, gallery filter, fade-up on scroll, contact form.
+// The Social Hour Agency — navbar, video belt, mobile menu, photo categories, services links, fade-up on scroll,
+// sticky phone button, contact form.
 
 // Where the contact form sends to. Empty = not connected: the form checks the fields but sends nothing,
 // and says so. To connect it, paste the URL from a form service (e.g. Formspree or Basin) here.
@@ -182,29 +183,47 @@ if ("IntersectionObserver" in window) {
   fadeEls.forEach((el) => el.classList.add("in-view"));
 }
 
-// ---------- Gallery filter ----------
+// ---------- Photos: one category at a time, its first six photos, then "See more" ----------
+const FIRST = 6;
+const gallery = document.getElementById("gallery");
 const filters = document.querySelectorAll(".filter");
-const items = document.querySelectorAll(".gallery .item");
-filters.forEach((btn) => {
-  btn.addEventListener("click", () => {
-    const pick = btn.dataset.filter;
-    filters.forEach((b) => {
-      b.classList.toggle("active", b === btn);
-      b.setAttribute("aria-pressed", String(b === btn));
-    });
-    items.forEach((item) => {
-      const placeholder = item.classList.contains("placeholder");   // "coming soon" tiles only show under their own filter
-      const show = pick === "all" ? !placeholder : item.dataset.category === pick;
-      item.classList.toggle("hidden", !show);
-      item.classList.remove("filtering");
-      if (show) {
-        item.classList.add("in-view");              // already-filtered tiles shouldn't wait for a scroll
-        void item.offsetWidth;                      // restart the little pop-in animation
-        item.classList.add("filtering");
-      }
-    });
+const items = [...gallery.querySelectorAll(".item")];
+const seeMore = document.getElementById("see-more");
+let current = filters[0].dataset.filter;
+const showPhotos = (cat, all = false) => {
+  current = cat;
+  filters.forEach((b) => {
+    b.classList.toggle("active", b.dataset.filter === cat);
+    b.setAttribute("aria-pressed", String(b.dataset.filter === cat));
   });
+  let n = 0;
+  items.forEach((item) => {
+    const mine = item.dataset.category === cat;
+    const wasHidden = item.hidden;
+    item.hidden = !mine || (!all && n >= FIRST);
+    if (mine) n++;
+    item.classList.remove("filtering");
+    if (!item.hidden && wasHidden) { void item.offsetWidth; item.classList.add("filtering"); }   // a little pop-in
+  });
+  const shown = items.filter((item) => !item.hidden);
+  items.forEach((item) => item.classList.toggle("wide", shown.length % 2 === 1 && item === shown.at(-1)));   // phones only
+  const extra = n - FIRST;
+  seeMore.hidden = extra <= 0;
+  seeMore.setAttribute("aria-expanded", String(all));
+  seeMore.textContent = all ? "See less" : `See more (${extra})`;
+};
+showPhotos(current);
+filters.forEach((btn) => btn.addEventListener("click", () => showPhotos(btn.dataset.filter)));
+seeMore.addEventListener("click", () => {
+  const opening = seeMore.getAttribute("aria-expanded") !== "true";
+  showPhotos(current, opening);
+  if (!opening) document.getElementById("work").scrollIntoView();   // back to the top of the photos, not lost below them
 });
+
+// ---------- Services: "See the work" opens that category; the booking button picks it in the form ----------
+document.querySelectorAll("[data-tab]").forEach((a) => a.addEventListener("click", () => showPhotos(a.dataset.tab)));
+const projectType = document.getElementById("project-type");
+document.querySelectorAll("[data-type]").forEach((a) => a.addEventListener("click", () => { projectType.value = a.dataset.type; }));
 
 // Touch screens have no hover: a tap shows the caption instead.
 items.forEach((item) => {
@@ -212,6 +231,19 @@ items.forEach((item) => {
     if (window.matchMedia("(hover: none)").matches) item.classList.toggle("show-caption");
   });
 });
+
+// ---------- Phones: sticky "Book a shoot" ----------
+// Hidden while the hero (which has its own button), the contact form or the footer is on screen.
+const sticky = document.getElementById("sticky-book");
+if ("IntersectionObserver" in window) {
+  const onScreen = new Set();
+  const watch = new IntersectionObserver((entries) => {
+    entries.forEach((e) => (e.isIntersecting ? onScreen.add(e.target) : onScreen.delete(e.target)));
+    sticky.classList.toggle("show", onScreen.size === 0);
+  });
+  ["top", "contact"].forEach((id) => watch.observe(document.getElementById(id)));
+  watch.observe(document.querySelector(".footer"));
+}
 
 // ---------- Contact form ----------
 const form = document.getElementById("contact-form");

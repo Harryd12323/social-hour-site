@@ -54,6 +54,10 @@ section[id] { scroll-margin-top: var(--nav-h); }
 .btn-light:hover, .btn-light:focus-visible { background: var(--white); color: var(--black); }
 .btn-dark { color: var(--white); background: var(--black); border-color: var(--black); }
 .btn-dark:hover, .btn-dark:focus-visible { background: transparent; color: var(--black); }
+.btn-white { color: var(--black); background: var(--white); border-color: var(--white); }
+.btn-white:hover, .btn-white:focus-visible { background: transparent; color: var(--white); }
+.btn-line { color: var(--black); }
+.btn-line:hover, .btn-line:focus-visible { background: var(--black); color: var(--white); }
 
 /* ---------- Navbar ---------- */
 .nav {
@@ -94,13 +98,17 @@ section[id] { scroll-margin-top: var(--nav-h); }
   transition: transform .35s var(--ease);
 }
 .nav-links a:hover::after, .nav-links a:focus-visible::after { transform: scaleX(1); transform-origin: left; }
+.nav-links { align-items: center; }
+.nav-links .nav-book { padding: .7rem 1.1rem; border: 1px solid currentColor; }
+.nav-links .nav-book::after { display: none; }
+.nav-links .nav-book:hover, .nav-links .nav-book:focus-visible { background: var(--white); color: var(--black); }
 .nav-toggle { display: none; }
 
 /* ---------- Hero ---------- */
 .hero {
   position: relative;
-  min-height: 100vh;
-  min-height: 100svh;
+  min-height: 88vh;
+  min-height: 88svh;   /* a little shorter than the screen, so the services peek in below */
   display: grid;
   place-items: center;
   text-align: center;
@@ -123,43 +131,24 @@ section[id] { scroll-margin-top: var(--nav-h); }
   inset: 0;
   background: linear-gradient(180deg, rgba(0,0,0,.55) 0%, rgba(0,0,0,.35) 45%, rgba(0,0,0,.7) 100%);
 }
-.hero-content { position: relative; padding: 0 1.5rem; max-width: 960px; }
-.eyebrow {
-  margin: 0;
-  font-size: .78rem;
-  letter-spacing: .4em;
-  text-transform: uppercase;
-  opacity: .8;
+.hero-content { position: relative; padding: calc(var(--nav-h) + 1rem) 1.5rem 4.5rem; max-width: 960px; }
+.hero h1 {
+  max-width: 15ch;
+  margin: 0 auto;
+  font-size: clamp(2.5rem, 7vw, 5.2rem);
+  line-height: 1.04;
+  text-wrap: balance;
 }
-.hero h1 { margin: 0; line-height: 0; }
-.hero-signature { width: min(560px, 82vw); height: auto; margin: 0 auto; filter: invert(1); }
-.hero-seal { width: 76px; height: auto; margin: 0 auto 1.25rem; filter: drop-shadow(0 4px 10px rgba(0,0,0,.45)); }
-.hero .eyebrow { margin: 1.5rem 0 0; }
+.hero-seal { width: 64px; height: auto; margin: 0 auto 1.5rem; filter: drop-shadow(0 4px 10px rgba(0,0,0,.45)); }
 .hero-sub {
-  margin: 1.5rem auto 2.5rem;
-  max-width: 32ch;
-  font-family: var(--display);
-  font-style: italic;
-  font-size: clamp(1.15rem, 2.4vw, 1.6rem);
+  margin: 1.5rem auto 2.25rem;
+  max-width: 38ch;
+  font-size: clamp(1.02rem, 2vw, 1.25rem);
+  line-height: 1.5;
   opacity: .9;
+  text-wrap: balance;
 }
-.ig-pill {
-  display: flex;
-  align-items: center;
-  gap: .5rem;
-  width: max-content;
-  min-height: 40px;
-  margin: 1.5rem auto 0;
-  padding: .5rem 1.1rem;
-  font-size: .78rem;
-  letter-spacing: .12em;
-  text-decoration: none;
-  color: var(--white);
-  border: 1px solid rgba(255,255,255,.5);
-  border-radius: 999px;
-  transition: background .3s var(--ease), color .3s var(--ease), border-color .3s var(--ease);
-}
-.ig-pill:hover, .ig-pill:focus-visible { background: var(--white); color: var(--black); border-color: var(--white); }
+.hero-actions { display: flex; flex-wrap: wrap; justify-content: center; gap: .75rem; }
 .scroll-cue {
   position: absolute;
   bottom: 2rem;
@@ -178,6 +167,62 @@ section[id] { scroll-margin-top: var(--nav-h); }
 }
 @keyframes cue { from { transform: translateY(-100%); } to { transform: translateY(100%); } }
 
+/* ---------- Services ---------- */
+.services { padding: clamp(3.5rem, 8vw, 6rem) 0; background: var(--paper); }
+.section-head { margin-bottom: 2rem; }
+.section-head .section-note { margin-top: .9rem; }
+.service-list {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 14px;
+  width: min(1200px, 100% - 3rem);
+  margin: 0 auto;
+  padding: 0;
+  list-style: none;
+}
+.service { position: relative; display: flex; flex-direction: column; background: var(--white); border: 1px solid var(--gray-light); }
+/* position: relative keeps the hidden screen-reader text inside its card; without it, the swipe row's off-screen
+   cards leak that text out and the whole phone page scrolls sideways. */
+.service-img { display: block; overflow: hidden; background: var(--gray-light); }
+.service-img img { width: 100%; height: auto; aspect-ratio: 4 / 5; object-fit: cover; transition: transform .8s var(--ease); }
+.service-img:hover img { transform: scale(1.04); }
+.service-body { display: flex; flex-direction: column; flex: 1; gap: .55rem; padding: 1.1rem 1.1rem .6rem; }
+.service-tag { margin: 0; font: 500 .64rem/1.3 var(--body); letter-spacing: .22em; text-transform: uppercase; color: var(--gray); }
+.service h3 { margin: 0; font: 400 1.4rem/1.15 var(--display); }
+.service-body p:not(.service-tag) { flex: 1; margin: 0 0 .5rem; font-size: .92rem; line-height: 1.5; color: #3a3a3a; }
+.service .btn { padding: .85rem .75rem; font-size: .7rem; letter-spacing: .14em; text-align: center; }
+.service-see {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 44px;
+  font-size: .7rem;
+  letter-spacing: .18em;
+  text-transform: uppercase;
+  text-decoration: none;
+  color: #555;
+}
+.service-see:hover, .service-see:focus-visible { color: var(--black); text-decoration: underline; text-underline-offset: 4px; }
+
+/* ---------- Booking prompts between sections ---------- */
+.cta-band {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem 2rem;
+  margin-top: clamp(2.5rem, 6vw, 4rem);
+  padding-top: clamp(2rem, 5vw, 3rem);
+  border-top: 1px solid var(--gray-light);
+  text-align: center;
+}
+.cta-band p { margin: 0; font: italic 400 clamp(1.35rem, 3vw, 1.9rem)/1.25 var(--display); color: var(--ink); text-wrap: balance; }
+.video .cta-band { border-top-color: var(--gray-dark); }
+.video .cta-band p { color: var(--white); }
+
+/* Phones only (see the 720px media query): a small "Book a shoot" button that follows you down the page */
+.sticky-book { display: none; }
+
 /* ---------- About ---------- */
 .about { padding: clamp(5rem, 12vw, 9rem) 0; background: var(--paper); }
 .about-grid { display: grid; grid-template-columns: 1fr 1.5fr; gap: clamp(2rem, 5vw, 4.5rem); align-items: start; }
@@ -185,6 +230,7 @@ section[id] { scroll-margin-top: var(--nav-h); }
 .about-photo img { display: block; width: 100%; height: auto; aspect-ratio: 2 / 3; object-fit: cover; }
 .about .about-kicker { margin: .75rem 0 2rem; font-size: .75rem; letter-spacing: .25em; text-transform: uppercase; color: var(--gray); }
 .about p { margin: 0 0 1.25rem; max-width: 60ch; color: #3a3a3a; }
+.about strong { font-weight: 600; color: var(--ink); }
 
 /* ---------- Pull quote ---------- */
 .quote { padding: clamp(4rem, 9vw, 7rem) 0; background: var(--white); text-align: center; }
@@ -331,41 +377,30 @@ html.dialog-open { overflow: hidden; }
 .filter:hover { color: var(--black); }
 .filter.active { color: var(--black); border-color: var(--black); }
 
-/* Masonry columns: every photo keeps its own shape, nothing is cropped. */
-.gallery { columns: 3; column-gap: 14px; }
+/* An even grid, so a category reads at a glance. Photos are cropped to one shape; real estate stays landscape. */
+.gallery { display: grid; grid-template-columns: repeat(3, 1fr); gap: 14px; }
 .item {
   position: relative;
-  margin: 0 0 14px;
+  margin: 0;
   overflow: hidden;
-  break-inside: avoid;
   background: var(--gray-light);
   cursor: pointer;
 }
-.item.hidden { display: none; }
+.item[hidden] { display: none; }
 .item.filtering { animation: pop .45s var(--ease); }
 @keyframes pop { from { opacity: 0; transform: scale(.97); } to { opacity: 1; transform: none; } }
-
 .item img {
   width: 100%;
   height: auto;
-  transition: transform .8s var(--ease), filter .5s var(--ease);
+  aspect-ratio: 4 / 5;
+  object-fit: cover;
+  transition: transform .8s var(--ease);
 }
-.ph {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  gap: .35rem;
-  color: #6a6a6a;
-  background:
-    repeating-linear-gradient(45deg, transparent 0 14px, rgba(0,0,0,.035) 14px 15px),
-    linear-gradient(160deg, #e6e6e4, #cfcfcd);
-  border: 1px dashed #a9a9a7;
-}
-.ph span { font-family: var(--display); font-size: 1.5rem; color: #4a4a4a; }
-.item.placeholder { cursor: default; }
-.item.placeholder .ph { aspect-ratio: 4 / 3; }
-.ph small { font-size: .7rem; letter-spacing: .25em; text-transform: uppercase; }
+.item[data-category="realestate"] img { aspect-ratio: 3 / 2; }
+.see-more-wrap { margin: 2.25rem 0 0; text-align: center; }
+.see-more-wrap:has(> [hidden]) { display: none; }
+/* Without JavaScript every photo shows and the category buttons would do nothing, so hide them */
+html:not(.js) .filters { display: none; }
 
 /* Hover caption */
 .item figcaption {
@@ -392,9 +427,10 @@ html.dialog-open { overflow: hidden; }
 .item:hover img { transform: scale(1.04); }
 
 /* ---------- Contact ---------- */
-.contact { padding: clamp(5rem, 10vw, 8rem) 0; background: var(--paper); }
+.contact { padding: clamp(5rem, 10vw, 8rem) 0; background: var(--white); }   /* white, so it stands apart from About above */
 .contact-grid { display: grid; grid-template-columns: 1fr 1.3fr; gap: 4rem; }
 .contact p { color: #3a3a3a; max-width: 40ch; }
+.contact .contact-intro { margin: 1rem 0 0; }
 .contact-list { list-style: none; margin: 2rem 0 0; padding: 0; }
 .contact-list li { display: flex; flex-wrap: wrap; align-items: center; gap: .25rem 1rem; min-height: 48px;
   border-top: 1px solid #cfcfcd; }
@@ -514,8 +550,25 @@ html.dialog-open { overflow: hidden; }
   .contact-list span { display: block; width: auto; margin-bottom: .25rem; }
 }
 
+/* Narrower than five cards fit: the services become a sideways-swipe row (the next card peeks in) */
+@media (max-width: 1099px) {
+  .service-list {
+    display: flex;
+    gap: 12px;
+    width: auto;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    overscroll-behavior-x: contain;
+    scrollbar-width: none;
+    padding: 0 1.5rem 4px;
+    scroll-padding: 0 1.5rem;
+  }
+  .service-list::-webkit-scrollbar { display: none; }
+  .service { flex: 0 0 300px; scroll-snap-align: start; }
+}
+
 @media (max-width: 960px) {
-  .gallery { columns: 2; }
+  .nav-links { gap: 1.4rem; }   /* tablets: room for the logo and all five menu items */
   .contact-grid, .about-grid { grid-template-columns: 1fr; gap: 2rem; }
   .about-photo { position: static; max-width: 420px; }
   .reel-grid-list { grid-template-columns: repeat(3, 1fr); }
@@ -552,11 +605,48 @@ html.dialog-open { overflow: hidden; }
   .nav.open .nav-links { opacity: 1; visibility: visible; }
   .nav-links a { font-family: var(--display); font-size: 2rem; letter-spacing: .02em; text-transform: none; }
   .nav-links a::after { display: none; }
+  .nav-links .nav-book { margin-top: .5rem; padding: .9rem 1.75rem; font: 600 .8rem/1.2 var(--body); letter-spacing: .2em; text-transform: uppercase; }
+
+  .gallery { grid-template-columns: 1fr 1fr; gap: 8px; }
+  .item.wide { grid-column: 1 / -1; }   /* an odd photo out fills the row instead of leaving a hole */
+  .item.wide img { aspect-ratio: 3 / 2; }
+  .item figcaption { padding: 2rem .75rem .7rem; font-size: 1.05rem; }
+  /* Category buttons: one swipeable row instead of three wrapped lines */
+  .filters { flex-wrap: nowrap; overflow-x: auto; scrollbar-width: none; margin: 0 -1.5rem; padding: 0 1.5rem; width: calc(100% + 3rem); }
+  .filters::-webkit-scrollbar { display: none; }
+  .filter { flex-shrink: 0; white-space: nowrap; }
+
+  .sticky-book {
+    display: block;
+    position: fixed;
+    z-index: 40;
+    left: 50%;
+    bottom: calc(1rem + env(safe-area-inset-bottom));
+    min-height: 48px;
+    padding: .95rem 1.75rem;
+    font: 600 .75rem/1.2 var(--body);
+    letter-spacing: .2em;
+    text-transform: uppercase;
+    text-decoration: none;
+    white-space: nowrap;
+    color: var(--white);
+    background: var(--black);
+    border: 1px solid rgba(255,255,255,.55);
+    border-radius: 999px;
+    box-shadow: 0 6px 22px rgba(0,0,0,.35);
+    transform: translate(-50%, calc(100% + 2rem));
+    visibility: hidden;
+    transition: transform .35s var(--ease), visibility .35s;
+  }
+  .sticky-book.show { transform: translate(-50%, 0); visibility: visible; }
 }
 
 @media (max-width: 560px) {
   body { font-size: 16px; }
-  .gallery { columns: 1; }
+  .hero-actions { flex-direction: column; align-items: center; }
+  .hero-actions .btn { width: min(300px, 100%); text-align: center; }
+  .service { flex-basis: 78vw; }
+  .service-img img { aspect-ratio: 4 / 3; object-position: center 30%; }
   .reel { flex-basis: 42vw; }   /* about two and a half tiles in view: an obvious cue to swipe */
   .reel-track { gap: 10px; }
   .reel-cap { padding-top: .6rem; font-size: 1rem; }
