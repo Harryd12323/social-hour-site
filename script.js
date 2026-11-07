@@ -196,15 +196,30 @@ const openAllPhotos = (cat) => {
   if (section) photoGrid.scrollTop = section.offsetTop - photoGrid.querySelector(".reel-grid-head").offsetHeight;
   else photoGrid.scrollTop = 0;
 };
+// Captions: a mouse shows them on hover (CSS). Touch screens have no hover, so a tap on a photo zooms it slightly and
+// shows its caption, like the original gallery; tapping it again, or another photo, hides it.
+const hoverCaptions = window.matchMedia("(hover: hover) and (pointer: fine)");
+let captioned = null;
+const toggleCaption = (item) => {
+  if (captioned && captioned !== item) captioned.classList.remove("show-caption");
+  captioned = item && item.classList.toggle("show-caption") ? item : null;
+};
 const photos = conveyor({
   belt: photoBelt,
   track: document.getElementById("photo-track"),
   hint: document.getElementById("photo-hint"),
-  stoppedHint: `${tapWord} a photo or See all for more`,
+  stoppedHint: hoverCaptions.matches ? "Click a photo or See all for more" : "Tap a photo for its caption",
   idle: 8000,
-  onPick: (el) => { const g = el.closest(".pgroup"); if (g) openAllPhotos(g.dataset.category); },
+  // Once stopped: a mouse click opens that category in See all; a tap on a photo shows its caption
+  onPick: (el) => {
+    const item = el.closest(".pitem");
+    if (item && !hoverCaptions.matches) { toggleCaption(item); return; }
+    const g = el.closest(".pgroup");
+    if (g) openAllPhotos(g.dataset.category);
+  },
   // Light up the category that's passing by (the group nearest the left third of the row)
   onFrame: (x, setWidth) => {
+    if (captioned && !photos.stopped && photoBelt.contains(captioned)) toggleCaption(null);   // moving again: hide it
     if (pickedCat) { if (photos.stopped) return; pickedCat = ""; showCat(shownCat); }   // a tapped category stays chosen while stopped
     if (!setWidth || !groupStarts.length) return;
     const at = (x + photoBelt.clientWidth / 3) % setWidth;
@@ -228,7 +243,11 @@ const pickCat = (cat) => {
 };
 chips.forEach((c) => c.addEventListener("click", () => pickCat(c.dataset.filter)));
 document.getElementById("photo-see-all").addEventListener("click", () => openAllPhotos(pickedCat));
-photoGrid.addEventListener("close", () => { syncLock(); photos.touched(); });
+photoGrid.addEventListener("close", () => { syncLock(); photos.touched(); if (captioned) toggleCaption(null); });
+photoGrid.addEventListener("click", (e) => {
+  const item = !hoverCaptions.matches && e.target.closest(".pitem");
+  if (item) toggleCaption(item);
+});
 
 // Close buttons, and a click on the dark backdrop, close any overlay.
 overlays.forEach((d) => {

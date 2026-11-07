@@ -396,7 +396,7 @@ html:not(.js) .filters, html:not(.js) .see-all { display: none; }
 .pitem img { width: auto; max-width: none; height: clamp(230px, 34vw, 400px); aspect-ratio: 4 / 5; object-fit: cover;
   transition: transform .8s var(--ease); }
 .pgroup[data-category="realestate"] .pitem img { aspect-ratio: 3 / 2; }
-.pgroup:hover .pitem img { transform: scale(1.03); }
+@media (hover: hover) and (pointer: fine) { .pgroup:hover .pitem img { transform: scale(1.03); } }   /* mouse only: a tap shouldn't zoom all three */
 
 /* "See all" photos: full-screen, by category */
 .photo-grid-body { max-width: 1200px; margin: 0 auto; padding: .5rem clamp(1.25rem, 4vw, 3rem) 3rem; }
@@ -407,19 +407,20 @@ html:not(.js) .filters, html:not(.js) .see-all { display: none; }
 .pg-list .pitem { background: var(--gray-light); }
 .pg-list .pitem img { width: 100%; max-width: 100%; height: auto; aspect-ratio: 4 / 5; }
 .pg-cat[data-category="realestate"] .pitem img { aspect-ratio: 3 / 2; }
-/* Photo captions (the originals). Phones and touch screens: always shown, small, under each photo.
-   Mouse: hidden until you hover a photo, then they rise over its bottom edge, like the original gallery. */
-.pitem figcaption { padding-top: .45rem; font-size: .78rem; line-height: 1.35; color: #555; background: var(--paper); }
-.pgroup .pitem figcaption { white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+/* Photo captions (the originals): hidden until you hover a photo (mouse) or tap it (touch screens, see script.js),
+   then they rise over its bottom edge, like the original gallery. A tap also zooms the photo in slightly. */
+.pitem figcaption {
+  position: absolute; inset: auto 0 0 0;
+  padding: 2.5rem 1rem .9rem;
+  font: 400 1.15rem/1.2 var(--display); color: var(--white);
+  background: linear-gradient(0deg, rgba(0,0,0,.75), transparent);
+  opacity: 0; transform: translateY(10px);
+  transition: opacity .4s var(--ease), transform .4s var(--ease);
+  pointer-events: none;
+}
+.pitem.show-caption figcaption { opacity: 1; transform: none; }
+.pitem.show-caption img { transform: scale(1.04); }
 @media (hover: hover) and (pointer: fine) {
-  .pitem figcaption {
-    position: absolute; inset: auto 0 0 0;
-    padding: 2.5rem 1rem .9rem;
-    font: 400 1.15rem/1.2 var(--display); color: var(--white);
-    background: linear-gradient(0deg, rgba(0,0,0,.75), transparent);
-    opacity: 0; transform: translateY(10px);
-    transition: opacity .4s var(--ease), transform .4s var(--ease);
-  }
   .pitem:hover figcaption, .pitem:focus-within figcaption { opacity: 1; transform: none; }
 }
 
