@@ -433,6 +433,11 @@ html.dialog-open { overflow: hidden; }
 .contact-form .btn { justify-self: stretch; }
 .form-status { margin: 0; min-height: 1.5em; font-size: .9rem; text-align: center; }
 .form-status:empty { display: none; }   /* no blank gap inside the frame until there is a message */
+.contact-form .hp { display: none; }   /* spam trap: never shown to people */
+.contact-form [hidden] { display: none; }   /* after sending: the fields make way for the thank-you */
+.form-thanks { padding: clamp(2rem, 6vw, 3.5rem) 1rem; text-align: center; outline: none; }
+.contact .form-thanks p { margin: 0 auto; }
+.contact .form-thanks .form-thanks-h { margin-bottom: .75rem; font: 400 clamp(1.9rem, 4vw, 2.6rem)/1.1 var(--display); color: var(--ink); }
 
 /* ---------- Footer ---------- */
 .footer { color: var(--gray); background: var(--black); font-size: .85rem; line-height: 1.6; }

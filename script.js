@@ -1,8 +1,11 @@
 // The Social Hour Agency — navbar, video belt, mobile menu, gallery filter, fade-up on scroll, contact form.
 
-// Where the contact form sends to. Empty = not connected: the form checks the fields but sends nothing,
-// and says so. To connect it, paste the URL from a form service (e.g. Formspree or Basin) here.
-const FORM_ENDPOINT = "";
+// Where the contact form sends to: FormSubmit (formsubmit.co, no account needed), which emails each message to this
+// address. Nothing is delivered until the inbox owner clicks "Activate Form" in FormSubmit's first email. After that,
+// FormSubmit offers a random-string alias for the address: it can replace FORM_EMAIL here (and in the form's action
+// in index.html) so the address isn't in the page.
+const FORM_EMAIL = "bellasofia4tno@gmail.com";
+const FORM_ENDPOINT = `https://formsubmit.co/ajax/${FORM_EMAIL}`;
 
 // ---------- Navbar goes solid once you scroll past the top ----------
 const nav = document.getElementById("nav");
@@ -228,24 +231,32 @@ form.addEventListener("submit", async (e) => {
     status.textContent = "Please fill in your name, a valid email and a message.";
     return;
   }
-  if (!FORM_ENDPOINT) {
-    status.textContent = "This form isn't connected yet, so nothing was sent. Please email bellasofia4tno@gmail.com instead.";
-    return;
-  }
-  const button = form.querySelector("button");
+  const thanks = document.getElementById("form-thanks");
+  const showThanks = () => {
+    form.querySelector(".form-frame").hidden = true;
+    form.querySelector("button[type=submit]").hidden = true;
+    status.textContent = "";
+    thanks.hidden = false;
+    thanks.focus();
+  };
+  if (form.elements._honey.value) { showThanks(); return; }   // a bot filled the spam trap: look sent, send nothing
+  const button = form.querySelector("button[type=submit]");
   button.disabled = true;
   status.textContent = "Sending…";
   try {
     const res = await fetch(FORM_ENDPOINT, {
       method: "POST",
-      body: new FormData(form),
-      headers: { Accept: "application/json" },
+      headers: { "Content-Type": "application/json", Accept: "application/json" },
+      body: JSON.stringify(Object.fromEntries(new FormData(form))),
     });
-    if (!res.ok) throw new Error(res.status);
+    const data = await res.json().catch(() => ({}));
+    if (!res.ok || String(data.success) !== "true") throw new Error(data.message || `HTTP ${res.status}`);
     form.reset();
-    status.textContent = "Thanks — your message is on its way. We'll be in touch soon.";
-  } catch {
-    status.textContent = "Sorry, that didn't send. Please try again in a moment.";
+    showThanks();
+  } catch (err) {
+    status.textContent = /activat/i.test(err.message)
+      ? `This form is still being switched on, so your message wasn't sent. Please email ${FORM_EMAIL} instead.`
+      : `Sorry, that didn't send. Please try again, or email ${FORM_EMAIL}.`;
   } finally {
     button.disabled = false;
   }
