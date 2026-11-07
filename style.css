@@ -222,8 +222,6 @@ section[id] { scroll-margin-top: var(--nav-h); }
   text-align: center;
 }
 .cta-band p { margin: 0; font: italic 400 clamp(1.35rem, 3vw, 1.9rem)/1.25 var(--display); color: var(--ink); text-wrap: balance; }
-.video .cta-band { border-top-color: var(--gray-dark); }
-.video .cta-band p { color: var(--white); }
 
 /* Phones only (see the 720px media query): a small "Book a shoot" button that follows you down the page */
 .sticky-book { display: none; }
