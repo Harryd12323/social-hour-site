@@ -1,4 +1,4 @@
-// The Social Hour Agency — navbar, video belt, mobile menu, gallery filter, fade-up on scroll, contact form.
+// The Social Hour Agency — navbar, video belt, mobile menu, gallery filter, services links, fade-up on scroll, contact form.
 
 // Where the contact form sends to: FormSubmit (formsubmit.co, no account needed), which emails each message to this
 // address. Nothing is delivered until the inbox owner clicks "Activate Form" in FormSubmit's first email. After that,
@@ -215,6 +215,13 @@ items.forEach((item) => {
     if (window.matchMedia("(hover: none)").matches) item.classList.toggle("show-caption");
   });
 });
+
+// ---------- Services: "See the work" shows that photo category; the booking button picks it in the form ----------
+document.querySelectorAll("[data-filter-link]").forEach((a) => a.addEventListener("click", () => {
+  document.querySelector(`.filter[data-filter="${a.dataset.filterLink}"]`)?.click();
+}));
+const projectType = document.querySelector('#contact-form select[name="type"]');
+document.querySelectorAll("[data-type]").forEach((a) => a.addEventListener("click", () => { projectType.value = a.dataset.type; }));
 
 // ---------- Contact form ----------
 const form = document.getElementById("contact-form");

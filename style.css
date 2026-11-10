@@ -201,6 +201,44 @@ section[id] { scroll-margin-top: var(--nav-h); }
 .quote blockquote::after { content: "\201D"; }
 .quote figcaption { margin-top: 1.5rem; font-size: .78rem; letter-spacing: .3em; text-transform: uppercase; }
 
+/* ---------- Services ---------- */
+/* White, so it doesn't run into the off-white About section below it */
+.services { padding: clamp(5rem, 10vw, 8rem) 0; background: var(--white); }
+.section-head { margin-bottom: 3rem; }
+.section-head .section-note { margin-top: .9rem; }
+.service-list {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 14px;
+  width: min(1200px, 100% - 3rem);
+  margin: 0 auto;
+  padding: 0;
+  list-style: none;
+}
+.service { position: relative; display: flex; flex-direction: column; background: var(--paper); border: 1px solid var(--gray-light); }
+/* position: relative keeps the hidden screen-reader text inside its card; without it, the swipe row's off-screen
+   cards leak that text out and the whole phone page scrolls sideways. */
+.service-img { display: block; overflow: hidden; background: var(--gray-light); }
+.service-img img { display: block; width: 100%; height: auto; aspect-ratio: 4 / 5; object-fit: cover; transition: transform .8s var(--ease); }
+.service-img:hover img { transform: scale(1.04); }
+.service-body { display: flex; flex-direction: column; flex: 1; gap: .55rem; padding: 1.1rem 1.1rem .6rem; }
+.service-tag { margin: 0; font: 500 .64rem/1.3 var(--body); letter-spacing: .22em; text-transform: uppercase; color: var(--gray); }
+.service h3 { margin: 0; font: 400 1.4rem/1.15 var(--display); }
+.service-body p:not(.service-tag) { flex: 1; margin: 0 0 .5rem; font-size: .92rem; line-height: 1.5; color: #3a3a3a; }
+.service .btn { padding: .85rem .75rem; font-size: .7rem; letter-spacing: .14em; text-align: center; }
+.service-see {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 44px;
+  font-size: .7rem;
+  letter-spacing: .18em;
+  text-transform: uppercase;
+  text-decoration: none;
+  color: #555;
+}
+.service-see:hover, .service-see:focus-visible { color: var(--black); text-decoration: underline; text-underline-offset: 4px; }
+
 /* ---------- Video ---------- */
 .video { padding: clamp(5rem, 10vw, 8rem) 0; background: var(--black); color: var(--white); }
 .section-note { margin: 0; font-size: .75rem; letter-spacing: .25em; text-transform: uppercase; color: var(--gray); }
@@ -519,7 +557,25 @@ html.dialog-open { overflow: hidden; }
   .contact-list span { display: block; width: auto; margin-bottom: .25rem; }
 }
 
+/* Narrower than five cards fit: the services become a sideways-swipe row (the next card peeks in) */
+@media (max-width: 1099px) {
+  .service-list {
+    display: flex;
+    gap: 12px;
+    width: auto;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    overscroll-behavior-x: contain;
+    scrollbar-width: none;
+    padding: 0 1.5rem 4px;
+    scroll-padding: 0 1.5rem;
+  }
+  .service-list::-webkit-scrollbar { display: none; }
+  .service { flex: 0 0 300px; scroll-snap-align: start; }
+}
+
 @media (max-width: 960px) {
+  .nav-links { gap: 1.4rem; }   /* tablets: room for the logo and all five menu items */
   .gallery { columns: 2; }
   .contact-grid, .about-grid { grid-template-columns: 1fr; gap: 2rem; }
   .about-photo { position: static; max-width: 420px; }
@@ -562,6 +618,8 @@ html.dialog-open { overflow: hidden; }
 @media (max-width: 560px) {
   body { font-size: 16px; }
   .gallery { columns: 1; }
+  .service { flex-basis: 78vw; }
+  .service-img img { aspect-ratio: 4 / 3; object-position: center 30%; }
   .reel { flex-basis: 42vw; }   /* about two and a half tiles in view: an obvious cue to swipe */
   .reel-track { gap: 10px; }
   .reel-cap { padding-top: .6rem; font-size: 1rem; }
