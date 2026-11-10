@@ -245,6 +245,7 @@ section[id] { scroll-margin-top: var(--nav-h); }
   color: #555;
 }
 .service-see:hover, .service-see:focus-visible { color: var(--black); text-decoration: underline; text-underline-offset: 4px; }
+.service-links { display: flex; justify-content: space-between; gap: 1rem; }   /* "See the work" and "FAQs" share one row */
 
 /* ---------- Video ---------- */
 .video { padding: clamp(5rem, 10vw, 8rem) 0; background: var(--black); color: var(--white); }
