@@ -1,0 +1,4 @@
+# GitHub Pages builds this site with Jekyll. Everything is published as-is, except what's listed here.
+# docs/ holds internal notes (e.g. the SEO plan): kept in the repo, never put on the live or preview site.
+exclude:
+  - docs
