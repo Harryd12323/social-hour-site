@@ -39,6 +39,8 @@ The preview repo publishes the same files as production, so anything added to th
 canonical tag rather than `noindex`, so production isn't blocked by mistake:
 - Add `<link rel="canonical" href="https://<domain>/…">` to every page, pointing at the **production** URL of that page.
   The preview then tells Google "the real copy is over there".
+- **Done (Nov 2026):** every page has a canonical pointing at `https://harryd12323.github.io/social-hour-site/…`.
+  When the custom domain is live, change these to the new domain.
 - Also: in Google Search Console (item 4), verify only the production domain. If preview URLs ever appear in search,
   request their removal there.
 
@@ -245,7 +247,7 @@ Search Console (once live) and keep the ones with real local demand:
 ## Order of work (checklist)
 
 - [ ] **P0** Custom domain + `CNAME`
-- [ ] **P0** Canonical tags on every page (keeps the preview out of the index)
+- [x] **P0** Canonical tags on every page (keeps the preview out of the index). Done, pointing at `harryd12323.github.io/social-hour-site/`. Change them when the custom domain is live
 - [ ] **P0** Home page title / description / `<h1>` text
 - [ ] **P0** Search Console + Google Business Profile + `sitemap.xml` + `robots.txt`
 - [ ] **P0** Confirm business details and service area with Bella
