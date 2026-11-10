@@ -58,6 +58,14 @@
     <a href="#services" class="scroll-cue" aria-label="Scroll down"></a>
   </section>
 
+  <!-- Right under the hero: the two main next steps -->
+  <section class="top-actions">
+    <div class="container top-actions-inner fade-up">
+      <a href="#work" class="btn btn-outline">Explore more</a>
+      <a href="#contact" class="btn btn-dark">Book a shoot</a>
+    </div>
+  </section>
+
   <!-- Services: each card's button jumps to the form with that service picked; "See the work" shows its photos -->
   <section class="services" id="services">
     <div class="container">
@@ -679,6 +687,10 @@
           </picture>
           <figcaption><span>Real Estate</span>Family home</figcaption>
         </figure>
+      </div>
+      <!-- script.js shows 8 photos per filter; this button reveals the rest (without JavaScript, every photo shows) -->
+      <div class="gallery-more">
+        <button class="btn btn-outline" id="view-all" type="button" aria-controls="gallery" hidden>View all</button>
       </div>
     </div>
   </section>

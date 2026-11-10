@@ -52,6 +52,8 @@ section[id] { scroll-margin-top: var(--nav-h); }
 }
 .btn-light { color: var(--white); }
 .btn-light:hover, .btn-light:focus-visible { background: var(--white); color: var(--black); }
+.btn-outline { color: var(--ink); }
+.btn-outline:hover, .btn-outline:focus-visible { background: var(--black); color: var(--white); border-color: var(--black); }
 .btn-dark { color: var(--white); background: var(--black); border-color: var(--black); }
 .btn-dark:hover, .btn-dark:focus-visible { background: transparent; color: var(--black); }
 
@@ -200,6 +202,11 @@ section[id] { scroll-margin-top: var(--nav-h); }
 .quote blockquote::before { content: "\201C"; }
 .quote blockquote::after { content: "\201D"; }
 .quote figcaption { margin-top: 1.5rem; font-size: .78rem; letter-spacing: .3em; text-transform: uppercase; }
+
+/* ---------- Buttons under the hero ---------- */
+.top-actions { padding: clamp(2rem, 5vw, 3rem) 0; background: var(--paper); }
+.top-actions-inner { display: flex; flex-wrap: wrap; justify-content: center; gap: 1rem; }
+.top-actions .btn { min-width: 220px; text-align: center; }
 
 /* ---------- Services ---------- */
 /* White, so it doesn't run into the off-white About section below it */
@@ -380,6 +387,9 @@ html.dialog-open { overflow: hidden; }
   cursor: pointer;
 }
 .item.hidden { display: none; }
+.item.collapsed { display: none; }   /* past the first 8 of a filter, until "View all" */
+.gallery-more { display: flex; justify-content: center; margin-top: 3rem; }
+.gallery-more [hidden] { display: none; }
 .item.filtering { animation: pop .45s var(--ease); }
 @keyframes pop { from { opacity: 0; transform: scale(.97); } to { opacity: 1; transform: none; } }
 
@@ -618,6 +628,7 @@ html.dialog-open { overflow: hidden; }
 @media (max-width: 560px) {
   body { font-size: 16px; }
   .gallery { columns: 1; }
+  .top-actions .btn { width: min(300px, 100%); }
   .service { flex-basis: 78vw; }
   .service-img img { aspect-ratio: 4 / 3; object-position: center 30%; }
   .reel { flex-basis: 42vw; }   /* about two and a half tiles in view: an obvious cue to swipe */

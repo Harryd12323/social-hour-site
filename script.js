@@ -186,28 +186,50 @@ if ("IntersectionObserver" in window) {
 }
 
 // ---------- Gallery filter ----------
+// Each filter (All included) shows its first PER_FILTER photos; "View all" reveals the rest of that filter.
+const PER_FILTER = 8;
 const filters = document.querySelectorAll(".filter");
 const items = document.querySelectorAll(".gallery .item");
+const viewAll = document.getElementById("view-all");
+let pick = "all";
+
+function showGallery(expanded, animate) {
+  let shown = 0;
+  items.forEach((item) => {
+    const placeholder = item.classList.contains("placeholder");   // "coming soon" tiles only show under their own filter
+    const match = pick === "all" ? !placeholder : item.dataset.category === pick;
+    const wasVisible = !item.classList.contains("hidden") && !item.classList.contains("collapsed");
+    const collapsed = match && !expanded && shown >= PER_FILTER;
+    if (match) shown++;
+    item.classList.toggle("hidden", !match);
+    item.classList.toggle("collapsed", collapsed);
+    if (match && !collapsed && animate && !(expanded && wasVisible)) {
+      item.classList.remove("filtering");
+      item.classList.add("in-view");              // already-filtered tiles shouldn't wait for a scroll
+      void item.offsetWidth;                      // restart the little pop-in animation
+      item.classList.add("filtering");
+    }
+  });
+  viewAll.hidden = expanded || shown <= PER_FILTER;
+}
+
 filters.forEach((btn) => {
   btn.addEventListener("click", () => {
-    const pick = btn.dataset.filter;
+    pick = btn.dataset.filter;
     filters.forEach((b) => {
       b.classList.toggle("active", b === btn);
       b.setAttribute("aria-pressed", String(b === btn));
     });
-    items.forEach((item) => {
-      const placeholder = item.classList.contains("placeholder");   // "coming soon" tiles only show under their own filter
-      const show = pick === "all" ? !placeholder : item.dataset.category === pick;
-      item.classList.toggle("hidden", !show);
-      item.classList.remove("filtering");
-      if (show) {
-        item.classList.add("in-view");              // already-filtered tiles shouldn't wait for a scroll
-        void item.offsetWidth;                      // restart the little pop-in animation
-        item.classList.add("filtering");
-      }
-    });
+    showGallery(false, true);
   });
 });
+viewAll.addEventListener("click", () => {
+  const next = [...items].find((item) => item.classList.contains("collapsed"));
+  showGallery(true, true);
+  next?.setAttribute("tabindex", "-1");
+  next?.focus({ preventScroll: true });   // keyboard users land on the first newly shown photo
+});
+showGallery(false, false);
 
 // Touch screens have no hover: a tap shows the caption instead.
 items.forEach((item) => {
