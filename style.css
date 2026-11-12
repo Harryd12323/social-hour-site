@@ -208,6 +208,7 @@ section[id] { scroll-margin-top: var(--nav-h); }
   color: #555;
 }
 .service-see:hover, .service-see:focus-visible { color: var(--black); text-decoration: underline; text-underline-offset: 4px; }
+.service-links { display: flex; justify-content: space-between; gap: 1rem; }   /* "See the work" and "FAQs" share one row */
 
 /* ---------- Booking prompts between sections ---------- */
 .cta-band {
