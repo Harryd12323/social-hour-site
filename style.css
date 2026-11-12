@@ -147,6 +147,7 @@ section[id] { scroll-margin-top: var(--nav-h); }
   text-wrap: balance;
 }
 .hero-actions { display: flex; flex-wrap: wrap; justify-content: center; gap: .75rem; }
+.hero-actions + .eyebrow { margin-top: 1.75rem; }   /* the location line sits under the buttons, above Instagram */
 .hero-ig {
   display: inline-flex; align-items: center; gap: .45rem;
   min-height: 44px; margin-top: 1.1rem;
