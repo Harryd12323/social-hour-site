@@ -213,6 +213,7 @@ section[id] { scroll-margin-top: var(--nav-h); }
 .services { padding: clamp(5rem, 10vw, 8rem) 0; background: var(--white); }
 .section-head { margin-bottom: 3rem; }
 .section-head .section-note { margin-top: .9rem; }
+.keep-together { white-space: nowrap; }   /* phones: lines break before "Philly + South Jersey", never inside it */
 .service-list {
   display: grid;
   grid-template-columns: repeat(5, 1fr);
