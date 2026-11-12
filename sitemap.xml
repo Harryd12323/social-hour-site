@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Pages for search engines to index, at their production addresses. FAQ, Privacy and Terms are left out while they're
+     drafts (noindex); add each one here when its noindex line is removed. -->
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+  <url>
+    <loc>https://harryd12323.github.io/social-hour-site/</loc>
+  </url>
+</urlset>

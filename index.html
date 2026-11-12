@@ -11,19 +11,117 @@
   <link rel="apple-touch-icon" href="images/apple-touch-icon.png">
   <!--
     Link preview for texts and social posts (images/share.jpg, 1200x630). Apps that build previews need the full web
-    address, so og:url and og:image point at the 2.0 preview for now. WHEN THIS GOES LIVE: change both
-    "https://harryd12323.github.io/social-hour-site-v2-preview/" addresses below to the live site's address.
+    address. og:url matches the canonical (the production address). og:image points at the 2.0 preview for now, because
+    share.jpg isn't on production yet. WHEN THIS GOES LIVE: change og:image to the live site's address, and if a custom
+    domain is used, change og:url, the canonical tags on every page and sitemap.xml to it too.
   -->
   <meta property="og:type" content="website">
   <meta property="og:site_name" content="The Social Hour Agency">
   <meta property="og:title" content="The Social Hour Agency | Bellasofia Fortino, Photo + Video, Philly + NJ">
   <meta property="og:description" content="Bellasofia Fortino is a Philly + NJ photographer and videographer for weddings, events, sports, brands and real estate. The Social Hour Agency.">
-  <meta property="og:url" content="https://harryd12323.github.io/social-hour-site-v2-preview/">
+  <meta property="og:url" content="https://harryd12323.github.io/social-hour-site/">
   <meta property="og:image" content="https://harryd12323.github.io/social-hour-site-v2-preview/images/share.jpg">
   <meta property="og:image:width" content="1200">
   <meta property="og:image:height" content="630">
   <meta property="og:image:alt" content="Bellasofia Fortino signature logo on black, beside a concert photo of a DJ under stage lights">
   <meta name="twitter:card" content="summary_large_image">
+  <link rel="canonical" href="https://harryd12323.github.io/social-hour-site/">
+  <!--
+    Canonical: the production address of this page. The preview sites publish these same files, so this tells search
+    engines the production copy is the real one. Update every page's canonical when the custom domain goes live.
+    Business details for search engines (structured data). Only facts already shown on this page: name, phone, email,
+    Instagram, "Philly + NJ" and the five services. Add an address or specific towns only once Bella confirms them.
+  -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "ProfessionalService",
+        "@id": "https://harryd12323.github.io/social-hour-site/#business",
+        "name": "The Social Hour Agency",
+        "url": "https://harryd12323.github.io/social-hour-site/",
+        "image": "https://harryd12323.github.io/social-hour-site/images/hero.jpg",
+        "logo": "https://harryd12323.github.io/social-hour-site/images/logo-bellasofia.png",
+        "description": "Photo and video by Bellasofia Fortino for weddings and engagements, events, sports, brands and real estate in Philadelphia and New Jersey.",
+        "telephone": "+1-267-516-0152",
+        "email": "bellasofia4tno@gmail.com",
+        "founder": {
+          "@type": "Person",
+          "name": "Bellasofia Fortino"
+        },
+        "areaServed": [
+          {
+            "@type": "City",
+            "name": "Philadelphia"
+          },
+          {
+            "@type": "State",
+            "name": "New Jersey"
+          }
+        ],
+        "sameAs": [
+          "https://www.instagram.com/thesocial.hour/"
+        ],
+        "hasOfferCatalog": {
+          "@type": "OfferCatalog",
+          "name": "Services",
+          "itemListElement": [
+            {
+              "@type": "Offer",
+              "itemOffered": {
+                "@type": "Service",
+                "name": "Weddings & engagements photography",
+                "description": "Raw, romantic, unscripted moments from the ring to the reception."
+              }
+            },
+            {
+              "@type": "Offer",
+              "itemOffered": {
+                "@type": "Service",
+                "name": "Concert & event photography",
+                "description": "The sweat, the strobe lights and the energy, from the barricade to backstage."
+              }
+            },
+            {
+              "@type": "Offer",
+              "itemOffered": {
+                "@type": "Service",
+                "name": "Sports photography",
+                "description": "Raw emotion and game-winning moments from courtside."
+              }
+            },
+            {
+              "@type": "Offer",
+              "itemOffered": {
+                "@type": "Service",
+                "name": "Brand content",
+                "description": "Reels and social content that put local brands in motion, from the first take to the final post."
+              }
+            },
+            {
+              "@type": "Offer",
+              "itemOffered": {
+                "@type": "Service",
+                "name": "Real estate photography",
+                "description": "Interior and architectural photography that captures the feel of a home."
+              }
+            }
+          ]
+        }
+      },
+      {
+        "@type": "WebSite",
+        "@id": "https://harryd12323.github.io/social-hour-site/#website",
+        "name": "The Social Hour Agency",
+        "url": "https://harryd12323.github.io/social-hour-site/",
+        "publisher": {
+          "@id": "https://harryd12323.github.io/social-hour-site/#business"
+        }
+      }
+    ]
+  }
+  </script>
   <link rel="stylesheet" href="style.css">
   <script>document.documentElement.classList.add("js")</script>
 </head>
