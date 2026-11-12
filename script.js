@@ -288,6 +288,25 @@ document.querySelectorAll("[data-tab]").forEach((a) => a.addEventListener("click
 const projectType = document.getElementById("project-type");
 document.querySelectorAll("[data-type]").forEach((a) => a.addEventListener("click", () => { projectType.value = a.dataset.type; }));
 
+// ---------- Services: arrows for medium widths, where the cards scroll sideways ----------
+// Each click moves one card. The arrows grey out at either end. (Phones swipe; full desktop shows all five.)
+const serviceList = document.getElementById("service-list");
+const [servicePrev, serviceNext] = document.querySelectorAll(".service-arrow");
+function updateServiceArrows() {
+  const max = serviceList.scrollWidth - serviceList.clientWidth;
+  servicePrev.disabled = serviceList.scrollLeft <= 1;
+  serviceNext.disabled = serviceList.scrollLeft >= max - 1;
+}
+function stepServices(dir) {
+  const step = serviceList.querySelector(".service").offsetWidth + parseFloat(getComputedStyle(serviceList).columnGap);
+  serviceList.scrollBy({ left: dir * step, behavior: calm.matches ? "auto" : "smooth" });
+}
+servicePrev.addEventListener("click", () => stepServices(-1));
+serviceNext.addEventListener("click", () => stepServices(1));
+serviceList.addEventListener("scroll", updateServiceArrows, { passive: true });
+window.addEventListener("resize", updateServiceArrows);
+updateServiceArrows();
+
 // ---------- Phones: sticky "Book a shoot" ----------
 // Hidden while the hero (which has its own button), the contact form or the footer is on screen.
 const sticky = document.getElementById("sticky-book");

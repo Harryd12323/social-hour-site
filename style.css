@@ -177,6 +177,22 @@ section[id] { scroll-margin-top: var(--nav-h); }
 .services { padding: clamp(3.5rem, 8vw, 6rem) 0; background: var(--paper); }
 .section-head { margin-bottom: 2rem; }
 .section-head .section-note { margin-top: .9rem; }
+.services-head { display: flex; align-items: end; justify-content: space-between; gap: 1.5rem; }
+.service-arrows { display: none; gap: .5rem; }
+.service-arrow {
+  width: 44px;
+  height: 44px;
+  padding: 0;
+  font: 300 1.3rem/1 var(--body);
+  color: var(--ink);
+  background: none;
+  border: 1px solid var(--ink);
+  border-radius: 50%;
+  cursor: pointer;
+  transition: background .3s var(--ease), color .3s var(--ease), opacity .3s;
+}
+.service-arrow:hover:not(:disabled), .service-arrow:focus-visible { background: var(--black); color: var(--white); }
+.service-arrow:disabled { opacity: .3; cursor: default; }
 .service-list {
   display: grid;
   grid-template-columns: repeat(5, 1fr);
@@ -647,6 +663,11 @@ section.faq-group { scroll-margin-top: calc(var(--nav-h) + 1.5rem); }   /* headi
   }
   .service-list::-webkit-scrollbar { display: none; }
   .service { flex: 0 0 300px; scroll-snap-align: start; }
+}
+
+/* Medium widths (tablets, half-screen windows): arrows beside the heading, so a mouse can reach every card */
+@media (min-width: 721px) and (max-width: 1099px) {
+  .service-arrows { display: flex; }
 }
 
 @media (max-width: 960px) {

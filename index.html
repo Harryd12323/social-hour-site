@@ -182,12 +182,19 @@
   <!-- Services: each card's button jumps to the form with that service picked; "See the work" opens its photos -->
   <section class="services" id="services">
     <div class="container">
-      <div class="section-head fade-up">
-        <h2>Services</h2>
-        <p class="section-note">Photo + video &middot; Philly + NJ</p>
+      <div class="section-head services-head fade-up">
+        <div>
+          <h2>Services</h2>
+          <p class="section-note">Photo + video &middot; Philly + NJ</p>
+        </div>
+        <!-- Shown only at medium widths, where the cards become a sideways row (a mouse can't swipe it) -->
+        <div class="service-arrows">
+          <button class="service-arrow" type="button" aria-controls="service-list" aria-label="Previous services">&larr;</button>
+          <button class="service-arrow" type="button" aria-controls="service-list" aria-label="More services">&rarr;</button>
+        </div>
       </div>
     </div>
-    <ul class="service-list fade-up">
+    <ul class="service-list fade-up" id="service-list">
         <li class="service">
           <a class="service-img" href="#work" data-tab="weddings" tabindex="-1" aria-hidden="true">
             <picture>
