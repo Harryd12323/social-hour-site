@@ -148,7 +148,7 @@ section[id] { scroll-margin-top: var(--nav-h); }
 }
 .hero-actions { display: flex; flex-wrap: wrap; justify-content: center; gap: .75rem; }
 .hero-actions + .eyebrow { margin-top: 1.75rem; }   /* the location line sits under the buttons, above Instagram */
-.keep-together { white-space: nowrap; }   /* phones: the line breaks before "Philly + South Jersey", never inside it */
+.keep-together { white-space: nowrap; }   /* phones: lines break before "Philly + South Jersey", never inside it */
 /* Circled, like the original site's Instagram pill; fills white on hover */
 .hero-ig {
   display: inline-flex; align-items: center; gap: .5rem;
