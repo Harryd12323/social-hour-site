@@ -14,9 +14,11 @@ setNav();
 window.addEventListener("scroll", setNav, { passive: true });
 
 // ---------- Hero video: no moving background for people who've asked for reduced motion ----------
+// The page has no hero video at the moment (see the note above the hero in index.html); this only runs once one is added.
 const heroVideo = document.getElementById("hero-video");
 const calm = window.matchMedia("(prefers-reduced-motion: reduce)");
 const setHeroVideo = () => {
+  if (!heroVideo) return;                     // no video: the still photo is the hero
   if (calm.matches) { heroVideo.removeAttribute("autoplay"); heroVideo.pause(); }   // the still poster stays
   else heroVideo.play().catch(() => {});      // a blocked or missing video just leaves the still image
 };
@@ -191,6 +193,7 @@ const PER_FILTER = 8;
 const filters = document.querySelectorAll(".filter");
 const items = document.querySelectorAll(".gallery .item");
 const viewAll = document.getElementById("view-all");
+const pageLinks = document.querySelectorAll("#gallery-pages a");
 let pick = "all";
 
 function showGallery(expanded, animate) {
@@ -211,6 +214,7 @@ function showGallery(expanded, animate) {
     }
   });
   viewAll.hidden = expanded || shown <= PER_FILTER;
+  pageLinks.forEach((a) => { a.hidden = a.dataset.for !== pick; });   // the chosen filter's own page, if it has one
 }
 
 filters.forEach((btn) => {
@@ -244,6 +248,11 @@ document.querySelectorAll("[data-filter-link]").forEach((a) => a.addEventListene
 }));
 const projectType = document.querySelector('#contact-form select[name="type"]');
 document.querySelectorAll("[data-type]").forEach((a) => a.addEventListener("click", () => { projectType.value = a.dataset.type; }));
+// Links from the service pages do the same from outside: index.html?show=realestate#work picks that filter,
+// index.html?type=Real%20estate#contact picks that project type.
+const query = new URLSearchParams(location.search);
+if (query.has("show")) [...filters].find((b) => b.dataset.filter === query.get("show"))?.click();
+if ([...projectType.options].some((o) => o.value === query.get("type"))) projectType.value = query.get("type");
 
 // ---------- Contact form ----------
 const form = document.getElementById("contact-form");

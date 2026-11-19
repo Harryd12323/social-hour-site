@@ -20,7 +20,7 @@
   <meta property="og:image:alt" content="Aerial view of a long beach and the town behind it">
   <meta name="twitter:card" content="summary_large_image">
   <!-- The hero photo is the first thing on screen: fetch it early -->
-  <link rel="preload" as="image" href="images/hero.jpg" fetchpriority="high">
+  <link rel="preload" as="image" href="images/hero.webp" type="image/webp" fetchpriority="high">
   <!--
     Business details for search engines (structured data). Only facts already shown on this page: name, phone, email,
     Instagram, the area (Philadelphia + South Jersey) and the services. The service descriptions are the Services cards'
@@ -135,6 +135,10 @@
     ]
   }
   </script>
+  <!-- Browser tab + home-screen icon: her wax seal -->
+  <link rel="icon" type="image/png" sizes="32x32" href="images/favicon-32.png">
+  <link rel="icon" type="image/png" sizes="192x192" href="images/icon-192.png">
+  <link rel="apple-touch-icon" href="images/apple-touch-icon.png">
   <link rel="stylesheet" href="style.css">
   <script>document.documentElement.classList.add("js")</script>
 </head>
@@ -157,24 +161,21 @@
   </header>
 
   <!--
-    Hero background, in layers:
-      1. VIDEO: save your clip as videos/hero.mp4 (and optionally videos/hero.webm). It plays muted, looping,
-         with no controls. Keep it short (10-20 s) and small (under ~8 MB) so it loads fast on phones.
-      2. STILL IMAGE: images/hero.jpg is the poster - it shows while the video loads, if there's no video yet,
-         and for anyone with "reduce motion" turned on (script.js pauses the video for them).
-      3. If neither file exists, a dark gradient shows (see .hero in style.css).
+    Hero background: the still photo images/hero.jpg (set on .hero in style.css; a dark gradient shows if it's missing).
+    There is no hero video yet, so the page doesn't ask for one. TO ADD A VIDEO LATER: save the clip as videos/hero.mp4
+    (10-20 s, under ~8 MB, no sound needed) and paste this block back in as the first thing inside the section below.
+    It plays muted and looping over the photo; script.js pauses it for anyone with "reduce motion" turned on.
+
+      <video class="hero-video" id="hero-video" autoplay muted loop playsinline preload="metadata"
+             poster="images/hero.jpg" aria-hidden="true">
+        <source src="videos/hero.mp4" type="video/mp4">
+      </video>
   -->
   <section class="hero" id="top">
-    <video class="hero-video" id="hero-video" autoplay muted loop playsinline preload="metadata"
-           poster="images/hero.jpg" aria-hidden="true">
-      <!-- VIDEO FILE GOES HERE: -->
-      <source src="videos/hero.webm" type="video/webm">
-      <source src="videos/hero.mp4" type="video/mp4">
-    </video>
     <div class="hero-overlay"></div>
     <div class="hero-content">
       <img class="hero-seal fade-up" src="images/wax-seal-240.webp" alt="The Social Hour wax seal" width="240" height="231">
-      <h1 class="fade-up"><img class="hero-signature" src="images/logo-bellasofia.png" alt="Bellasofia Fortino" width="338" height="150"><span class="sr-only">, The Social Hour Agency: photography and video in Philadelphia and South Jersey</span></h1>
+      <h1 class="fade-up"><img class="hero-signature" src="images/logo-bellasofia.png" alt="Bellasofia Fortino" width="338" height="150" fetchpriority="high"><span class="sr-only">, The Social Hour Agency: photography and video in Philadelphia and South Jersey</span></h1>
       <p class="eyebrow fade-up">Creative Content Portfolio</p>
       <p class="hero-sub fade-up">Capturing moments,<br>so you can live in them</p>
       <a class="ig-pill fade-up" href="https://instagram.com/thesocial.hour" target="_blank" rel="noopener noreferrer">
@@ -196,7 +197,8 @@
     </div>
   </section>
 
-  <!-- Services: each card's button jumps to the form with that service picked; "See the work" shows its photos -->
+  <!-- Services: each card's button jumps to the form with that service picked; "See the work" shows its photos;
+       the card title opens that service's own page (Brand Content has no page yet) -->
   <section class="services" id="services">
     <div class="container">
       <div class="section-head fade-up">
@@ -214,7 +216,7 @@
           </a>
           <div class="service-body">
             <p class="service-tag">Weddings &amp; Engagements</p>
-            <h3>Caught in the Magic</h3>
+            <h3><a href="weddings-engagements.html">Caught in the Magic</a></h3>
             <p>Raw, romantic, unscripted moments from the ring to the reception.</p>
             <a class="btn btn-dark" href="#contact" data-type="Engagement or bridal">Secure your date</a>
             <div class="service-links">
@@ -233,7 +235,7 @@
           </a>
           <div class="service-body">
             <p class="service-tag">Concerts &amp; Events</p>
-            <h3>You Can Hear These Pictures.</h3>
+            <h3><a href="events.html">You Can Hear These Pictures.</a></h3>
             <p>The sweat, the strobe lights and the energy, from the barricade to backstage.</p>
             <a class="btn btn-dark" href="#contact" data-type="Event or sports">Book your next show</a>
             <div class="service-links">
@@ -252,7 +254,7 @@
           </a>
           <div class="service-body">
             <p class="service-tag">Sports</p>
-            <h3>Heart, Hustle, and Hardwood</h3>
+            <h3><a href="events.html#sports">Heart, Hustle, and Hardwood</a></h3>
             <p>Raw emotion and game-winning moments from courtside.</p>
             <a class="btn btn-dark" href="#contact" data-type="Event or sports">Get in the game</a>
             <div class="service-links">
@@ -289,7 +291,7 @@
           </a>
           <div class="service-body">
             <p class="service-tag">Real Estate</p>
-            <h3>Spaces with a Story.</h3>
+            <h3><a href="real-estate.html">Spaces with a Story.</a></h3>
             <p>Interior and architectural photography that captures the feel of a home.</p>
             <a class="btn btn-dark" href="#contact" data-type="Real estate">Book a shoot</a>
             <div class="service-links">
@@ -954,6 +956,13 @@
       <div class="gallery-more">
         <button class="btn btn-outline" id="view-all" type="button" aria-controls="gallery" hidden>View all</button>
       </div>
+      <!-- Filters that have their own page link to it. script.js shows only the link for the chosen filter (none under
+           "All"); without JavaScript all three show. -->
+      <p class="gallery-pages" id="gallery-pages">
+        <a class="service-see" data-for="bridal" href="weddings-engagements.html">More about Weddings &amp; Engagements &rarr;</a>
+        <a class="service-see" data-for="events" href="events.html">More about Events &amp; Sports &rarr;</a>
+        <a class="service-see" data-for="realestate" href="real-estate.html">More about Real Estate &rarr;</a>
+      </p>
     </div>
   </section>
 

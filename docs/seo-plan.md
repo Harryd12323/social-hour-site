@@ -254,9 +254,9 @@ Search Console (once live) and keep the ones with real local demand:
 - [ ] **P0** FAQ answers filled in, then remove `noindex` from `faq.html`
 - [x] **P0** LocalBusiness / ProfessionalService JSON-LD on the home page (no address, towns, prices or reviews yet)
 - [ ] **P1** Decide: keep hand-built HTML or move to a small static site generator
-- [ ] **P1** Service pages (engagements/proposals, real estate, events/concerts, sports, brand content; weddings if offered)
-- [ ] **P1** Internal links: cards → pages, page ↔ FAQ, footer Services column, breadcrumbs
-- [ ] **P1** Favicon on every page (Open Graph / Twitter tags are done; `images/share.jpg` is the preview image)
+- [ ] **P1** Service pages. Drafted as `weddings-engagements.html`, `real-estate.html` and `events.html` (concerts, events and sports): `noindex` and out of the sitemap until Bella fills in the [bracketed] notes and approves them. Brand content has no page yet
+- [ ] **P1** Internal links: footer Services column, breadcrumbs (done: card titles → pages, gallery filters → pages, pages ↔ FAQ and each other)
+- [x] **P1** Favicon (the wax seal) and Open Graph / Twitter tags on every page; `images/share.jpg` is the preview image
 - [ ] **P2** Three location pages (South Jersey, Philadelphia, Jersey Shore) with original content
 - [ ] **P2** Descriptive filenames on new images (alt text pass is done)
 - [x] **P2** Responsive WebP versions for `images/web/`, the headshot and the wax seal

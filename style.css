@@ -107,9 +107,13 @@ section[id] { scroll-margin-top: var(--nav-h); }
   place-items: center;
   text-align: center;
   color: var(--white);
-  /* Drop a photo at images/hero.jpg and it shows here; until then, the dark gradient does. */
+  /* The hero photo: images/hero.webp (the smaller file, same picture) where the browser reads WebP, else images/hero.jpg.
+     If you replace the photo, replace both files. With neither, the dark gradient shows. */
   background:
     url("images/hero.jpg") center / cover no-repeat,
+    radial-gradient(ellipse at 30% 20%, #3a3a3a 0%, #151515 55%, #050505 100%);
+  background:
+    image-set(url("images/hero.webp") type("image/webp"), url("images/hero.jpg") type("image/jpeg")) center / cover no-repeat,
     radial-gradient(ellipse at 30% 20%, #3a3a3a 0%, #151515 55%, #050505 100%);
   overflow: hidden;
 }
@@ -247,6 +251,9 @@ section[id] { scroll-margin-top: var(--nav-h); }
 }
 .service-see:hover, .service-see:focus-visible { color: var(--black); text-decoration: underline; text-underline-offset: 4px; }
 .service-links { display: flex; justify-content: space-between; gap: 1rem; }   /* "See the work" and "FAQs" share one row */
+/* The card title links to the service's own page: it looks like the plain title until hovered */
+.service h3 a { text-decoration: none; }
+.service h3 a:hover, .service h3 a:focus-visible { text-decoration: underline; text-underline-offset: 4px; text-decoration-thickness: 1px; }
 
 /* ---------- Video ---------- */
 .video { padding: clamp(5rem, 10vw, 8rem) 0; background: var(--black); color: var(--white); }
@@ -392,6 +399,10 @@ html.dialog-open { overflow: hidden; }
 .item.collapsed { display: none; }   /* past the first 8 of a filter, until "View all" */
 .gallery-more { display: flex; justify-content: center; margin-top: 3rem; }
 .gallery-more [hidden] { display: none; }
+/* The chosen filter's link to its own page, centered under the photos (empty, so no gap, under "All") */
+.gallery-pages { display: flex; flex-wrap: wrap; justify-content: center; gap: 0 2rem; margin: 0; }
+.gallery-pages a { margin-top: 1.25rem; }
+.gallery-pages [hidden] { display: none; }
 .item.filtering { animation: pop .45s var(--ease); }
 @keyframes pop { from { opacity: 0; transform: scale(.97); } to { opacity: 1; transform: none; } }
 
@@ -596,12 +607,36 @@ section.faq-group { scroll-margin-top: calc(var(--nav-h) + 1.5rem); }   /* headi
   margin-top: 3.5rem; padding-top: 2rem; border-top: 1px solid var(--gray-light); }
 .faq-cta p { margin: 0; font: italic 400 clamp(1.35rem, 3vw, 1.7rem)/1.25 var(--display); color: var(--ink); }
 
+/* ---------- Service pages (weddings-engagements.html, real-estate.html, events.html) ---------- */
+/* Built from the home page's own pieces: section note, card heading and line, gallery tiles, FAQ pills and closing row. */
+.service-main { width: min(1200px, 100% - 3rem); margin: 0 auto; padding: calc(var(--nav-h) + clamp(3rem, 8vw, 5rem)) 0 clamp(4rem, 9vw, 6rem); }
+.service-intro { max-width: 760px; }
+.service-main h1 { margin-top: .9rem; font-size: clamp(2.4rem, 6vw, 3.8rem); }
+.service-main h2 { margin: clamp(3.5rem, 8vw, 5rem) 0 1.5rem; font-size: clamp(1.8rem, 4vw, 2.6rem); }
+.service-main h2 + .section-note { margin: -.6rem 0 1.5rem; }
+.service-main .section-note { color: #6a6a6a; }   /* a shade darker than on the home page: small text on off-white */
+.service-lede { margin: 2rem 0 .5rem; font: italic 400 clamp(1.35rem, 3vw, 1.7rem)/1.25 var(--display); color: var(--ink); }
+.service-intro p { color: #3a3a3a; }
+.service-intro .draft-note { margin-top: 2rem; }
+.service-actions { display: flex; flex-wrap: wrap; align-items: center; gap: .5rem 2rem; margin: 1.75rem 0 2.5rem; }
+.service-reels { display: grid; grid-template-columns: repeat(auto-fill, minmax(160px, 260px)); gap: 2rem 14px; margin: 0; padding: 0; list-style: none; }
+.service-reels video { display: block; width: 100%; height: auto; aspect-ratio: 9 / 16; object-fit: cover; background: var(--ink); }
+.service-reels .reel-cap { margin: 0; }
+.service-others ul { margin-top: clamp(3.5rem, 8vw, 5rem); }
+.service-others a { color: #555; }
+
 /* ---------- Fade-up on scroll (only when JS is running, so nothing stays hidden without it) ---------- */
 .js .fade-up { opacity: 0; transform: translateY(28px); transition: opacity .9s var(--ease), transform .9s var(--ease); }
 .js .fade-up.in-view { opacity: 1; transform: none; }
-.hero .fade-up:nth-child(2) { transition-delay: .12s; }
-.hero .fade-up:nth-child(3) { transition-delay: .24s; }
-.hero .fade-up:nth-child(4) { transition-delay: .36s; }
+/* The hero is on screen from the start, so its fade-up runs straight from the stylesheet (same movement and timing)
+   instead of waiting for script.js to load: the signature shows sooner on slow phones. */
+.js .hero .fade-up { opacity: 1; transform: none; transition: none; animation: rise .9s var(--ease) backwards; }
+.hero .fade-up:nth-child(2) { animation-delay: .12s; }
+.hero .fade-up:nth-child(3) { animation-delay: .24s; }
+.hero .fade-up:nth-child(4) { animation-delay: .36s; }
+/* Starts at 1% rather than 0: it looks the same, but browsers only time an element's arrival once it isn't fully
+   transparent, so speed tests (Lighthouse's Largest Contentful Paint) count the signature from the first frame. */
+@keyframes rise { from { opacity: .01; transform: translateY(28px); } }
 
 @media (prefers-reduced-motion: reduce) {
   html { scroll-behavior: auto; }
