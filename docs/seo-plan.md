@@ -247,19 +247,19 @@ Search Console (once live) and keep the ones with real local demand:
 ## Order of work (checklist)
 
 - [ ] **P0** Custom domain + `CNAME`
-- [x] **P0** Canonical tags on every page (keeps the preview out of the index). Done, pointing at `harryd12323.github.io/social-hour-site/`. Change them when the custom domain is live
-- [ ] **P0** Home page title / description / `<h1>` text
-- [ ] **P0** Search Console + Google Business Profile + `sitemap.xml` + `robots.txt`
+- [x] **P0** Canonical tags on every page (keeps the preview out of the index). Done, pointing at `https://socialhouragency.com/` (the domain isn't connected to the site yet)
+- [x] **P0** Home page title / description / `<h1>` text (the `<h1>` keeps the signature and adds hidden words)
+- [ ] **P0** Search Console + Google Business Profile (`sitemap.xml` and `robots.txt` are done)
 - [ ] **P0** Confirm business details and service area with Bella
 - [ ] **P0** FAQ answers filled in, then remove `noindex` from `faq.html`
-- [ ] **P0** LocalBusiness / ProfessionalService JSON-LD on the home page
+- [x] **P0** LocalBusiness / ProfessionalService JSON-LD on the home page (no address, towns, prices or reviews yet)
 - [ ] **P1** Decide: keep hand-built HTML or move to a small static site generator
 - [ ] **P1** Service pages (engagements/proposals, real estate, events/concerts, sports, brand content; weddings if offered)
 - [ ] **P1** Internal links: cards → pages, page ↔ FAQ, footer Services column, breadcrumbs
-- [ ] **P1** Open Graph / Twitter tags + favicon on every page
+- [ ] **P1** Favicon on every page (Open Graph / Twitter tags are done; `images/share.jpg` is the preview image)
 - [ ] **P2** Three location pages (South Jersey, Philadelphia, Jersey Shore) with original content
-- [ ] **P2** Alt text pass + descriptive filenames on new images
-- [ ] **P2** Responsive WebP versions for `images/web/`
+- [ ] **P2** Descriptive filenames on new images (alt text pass is done)
+- [x] **P2** Responsive WebP versions for `images/web/`, the headshot and the wax seal
 - [ ] **P2** Service, Breadcrumb, VideoObject and image licence schema
 - [ ] **P3** One or two portfolio stories a month
 - [ ] **P3** Directory listings + vendor/agent links + reviews

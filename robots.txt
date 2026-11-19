@@ -1,0 +1,5 @@
+# Search engines may read the whole site. Draft pages keep themselves out of results with their own noindex tag.
+User-agent: *
+Allow: /
+
+Sitemap: https://socialhouragency.com/sitemap.xml

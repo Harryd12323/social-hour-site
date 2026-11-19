@@ -3,11 +3,138 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Bellasofia Fortino — The Social Hour Agency</title>
-  <meta name="description" content="Creative content portfolio of Bellasofia Fortino, The Social Hour Agency: engagements, brands, events, travel, aerial and headshots in Philly + South Jersey.">
-  <!-- Canonical: the production address of this page. The preview site publishes these same files, so this tells
-       search engines the production copy is the real one. Update every page's canonical when the custom domain goes live. -->
-  <link rel="canonical" href="https://harryd12323.github.io/social-hour-site/">
+  <title>Wedding, Real Estate &amp; Event Photographer in Philadelphia &amp; South Jersey | The Social Hour Agency</title>
+  <meta name="description" content="Wedding and engagement photography and video, real estate photography, events, sports and brand content in Philadelphia and South Jersey by Bellasofia Fortino.">
+  <!-- Canonical: this page's address on socialhouragency.com, the domain the site goes live on. The preview site
+       publishes these same files, so this tells search engines the live copy is the real one. -->
+  <link rel="canonical" href="https://socialhouragency.com/">
+  <!-- Link preview for texts and social posts (images/share.jpg, 1200x630, cut from the hero photo) -->
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="The Social Hour Agency">
+  <meta property="og:title" content="Wedding, Real Estate &amp; Event Photographer in Philadelphia &amp; South Jersey | The Social Hour Agency">
+  <meta property="og:description" content="Wedding and engagement photography and video, real estate photography, events, sports and brand content in Philadelphia and South Jersey by Bellasofia Fortino.">
+  <meta property="og:url" content="https://socialhouragency.com/">
+  <meta property="og:image" content="https://socialhouragency.com/images/share.jpg">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:image:alt" content="Aerial view of a long beach and the town behind it">
+  <meta name="twitter:card" content="summary_large_image">
+  <!-- The hero photo is the first thing on screen: fetch it early -->
+  <link rel="preload" as="image" href="images/hero.jpg" fetchpriority="high">
+  <!--
+    Business details for search engines (structured data). Only facts already shown on this page: name, phone, email,
+    Instagram, the area (Philadelphia + South Jersey) and the services. The service descriptions are the Services cards'
+    own words. Add an address, towns, prices or reviews only once Bella supplies them.
+  -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "WebSite",
+        "@id": "https://socialhouragency.com/#website",
+        "url": "https://socialhouragency.com/",
+        "name": "The Social Hour Agency",
+        "publisher": {
+          "@id": "https://socialhouragency.com/#business"
+        }
+      },
+      {
+        "@type": "ProfessionalService",
+        "@id": "https://socialhouragency.com/#business",
+        "name": "The Social Hour Agency",
+        "alternateName": "Bellasofia",
+        "url": "https://socialhouragency.com/",
+        "image": "https://socialhouragency.com/images/share.jpg",
+        "logo": "https://socialhouragency.com/images/logo-bellasofia.png",
+        "description": "Photo and video by Bellasofia Fortino for weddings and engagements, real estate, concerts and events, sports and brands in Philadelphia and South Jersey.",
+        "telephone": "+1-267-516-0152",
+        "email": "bellasofia4tno@gmail.com",
+        "founder": {
+          "@type": "Person",
+          "name": "Bellasofia Fortino"
+        },
+        "areaServed": [
+          {
+            "@type": "City",
+            "name": "Philadelphia"
+          },
+          {
+            "@type": "AdministrativeArea",
+            "name": "South Jersey",
+            "containedInPlace": {
+              "@type": "State",
+              "name": "New Jersey"
+            }
+          }
+        ],
+        "sameAs": [
+          "https://www.instagram.com/thesocial.hour/"
+        ],
+        "hasOfferCatalog": {
+          "@type": "OfferCatalog",
+          "name": "Services",
+          "itemListElement": [
+            {
+              "@type": "Offer",
+              "itemOffered": {
+                "@type": "Service",
+                "name": "Wedding and engagement photography and video",
+                "description": "Raw, romantic, unscripted moments from the ring to the reception."
+              }
+            },
+            {
+              "@type": "Offer",
+              "itemOffered": {
+                "@type": "Service",
+                "name": "Real estate photography",
+                "description": "Interior and architectural photography that captures the feel of a home."
+              }
+            },
+            {
+              "@type": "Offer",
+              "itemOffered": {
+                "@type": "Service",
+                "name": "Concert and event photography",
+                "description": "The sweat, the strobe lights and the energy, from the barricade to backstage."
+              }
+            },
+            {
+              "@type": "Offer",
+              "itemOffered": {
+                "@type": "Service",
+                "name": "Sports photography",
+                "description": "Raw emotion and game-winning moments from courtside."
+              }
+            },
+            {
+              "@type": "Offer",
+              "itemOffered": {
+                "@type": "Service",
+                "name": "Brand content",
+                "description": "Reels and social content that put local brands in motion, from the first take to the final post."
+              }
+            },
+            {
+              "@type": "Offer",
+              "itemOffered": {
+                "@type": "Service",
+                "name": "Aerial and drone photography"
+              }
+            },
+            {
+              "@type": "Offer",
+              "itemOffered": {
+                "@type": "Service",
+                "name": "Headshots"
+              }
+            }
+          ]
+        }
+      }
+    ]
+  }
+  </script>
   <link rel="stylesheet" href="style.css">
   <script>document.documentElement.classList.add("js")</script>
 </head>
@@ -46,8 +173,8 @@
     </video>
     <div class="hero-overlay"></div>
     <div class="hero-content">
-      <img class="hero-seal fade-up" src="images/wax-seal.png" alt="The Social Hour wax seal" width="523" height="503">
-      <h1 class="fade-up"><img class="hero-signature" src="images/logo-bellasofia.png" alt="Bellasofia Fortino" width="338" height="150"></h1>
+      <img class="hero-seal fade-up" src="images/wax-seal-240.webp" alt="The Social Hour wax seal" width="240" height="231">
+      <h1 class="fade-up"><img class="hero-signature" src="images/logo-bellasofia.png" alt="Bellasofia Fortino" width="338" height="150"><span class="sr-only">, The Social Hour Agency: photography and video in Philadelphia and South Jersey</span></h1>
       <p class="eyebrow fade-up">Creative Content Portfolio</p>
       <p class="hero-sub fade-up">Capturing moments,<br>so you can live in them</p>
       <a class="ig-pill fade-up" href="https://instagram.com/thesocial.hour" target="_blank" rel="noopener noreferrer">
@@ -80,7 +207,10 @@
     <ul class="service-list fade-up">
         <li class="service">
           <a class="service-img" href="#work" data-filter-link="bridal" tabindex="-1" aria-hidden="true">
-            <img src="images/web/img-007-026.jpg" alt="A couple embracing, the engagement ring in view" width="2000" height="1334" loading="lazy" decoding="async">
+            <picture>
+              <source type="image/webp" srcset="images/web/img-007-026-800.webp 800w, images/web/img-007-026-1600.webp 1600w" sizes="(max-width: 720px) 78vw, (max-width: 1099px) 300px, 230px">
+              <img src="images/web/img-007-026.jpg" alt="Engagement photo of a couple embracing, the ring in view" width="2000" height="1334" loading="lazy" decoding="async">
+            </picture>
           </a>
           <div class="service-body">
             <p class="service-tag">Weddings &amp; Engagements</p>
@@ -98,7 +228,7 @@
             <picture>
               <source type="image/webp" srcset="images/bella/concert-09-800.webp 534w, images/bella/concert-09-1600.webp 1067w" sizes="(max-width: 720px) 78vw, (max-width: 1099px) 300px, 230px">
               <img src="images/bella/concert-09-800.jpg" srcset="images/bella/concert-09-800.jpg 534w, images/bella/concert-09-1600.jpg 1067w" sizes="(max-width: 720px) 78vw, (max-width: 1099px) 300px, 230px"
-                   alt="A DJ on stage with light beams fanning over the crowd" width="1067" height="1600" loading="lazy" decoding="async">
+                   alt="Concert photo of a DJ on stage with light beams fanning over the crowd" width="1067" height="1600" loading="lazy" decoding="async">
             </picture>
           </a>
           <div class="service-body">
@@ -117,7 +247,7 @@
             <picture>
               <source type="image/webp" srcset="images/bella/drexel-03-800.webp 534w, images/bella/drexel-03-1600.webp 1067w" sizes="(max-width: 720px) 78vw, (max-width: 1099px) 300px, 230px">
               <img src="images/bella/drexel-03-800.jpg" srcset="images/bella/drexel-03-800.jpg 534w, images/bella/drexel-03-1600.jpg 1067w" sizes="(max-width: 720px) 78vw, (max-width: 1099px) 300px, 230px"
-                   alt="A basketball player rising for a layup" width="1067" height="1600" loading="lazy" decoding="async">
+                   alt="Sports photo of a basketball player rising for a layup" width="1067" height="1600" loading="lazy" decoding="async">
             </picture>
           </a>
           <div class="service-body">
@@ -133,7 +263,10 @@
         </li>
         <li class="service">
           <a class="service-img" href="#work" data-filter-link="brands" tabindex="-1" aria-hidden="true">
-            <img src="images/web/img-006-021.jpg" alt="A sunscreen bottle over sparkling pool water" width="939" height="951" loading="lazy" decoding="async">
+            <picture>
+              <source type="image/webp" srcset="images/web/img-006-021-800.webp 800w, images/web/img-006-021-1600.webp 939w" sizes="(max-width: 720px) 78vw, (max-width: 1099px) 300px, 230px">
+              <img src="images/web/img-006-021.jpg" alt="Brand product photo of a sunscreen bottle over sparkling pool water" width="939" height="951" loading="lazy" decoding="async">
+            </picture>
           </a>
           <div class="service-body">
             <p class="service-tag">Brand Content</p>
@@ -151,7 +284,7 @@
             <picture>
               <source type="image/webp" srcset="images/bella/house-02-800.webp 800w, images/bella/house-02-1600.webp 1600w" sizes="(max-width: 720px) 78vw, (max-width: 1099px) 300px, 230px">
               <img src="images/bella/house-02-800.jpg" srcset="images/bella/house-02-800.jpg 800w, images/bella/house-02-1600.jpg 1600w" sizes="(max-width: 720px) 78vw, (max-width: 1099px) 300px, 230px"
-                   alt="A warm dining room with a chandelier and set table" width="1600" height="1068" loading="lazy" decoding="async">
+                   alt="Real estate interior photo of a warm dining room with a chandelier and set table" width="1600" height="1068" loading="lazy" decoding="async">
             </picture>
           </a>
           <div class="service-body">
@@ -171,7 +304,10 @@
   <section class="about" id="about">
     <div class="container about-grid">
       <figure class="about-photo fade-up">
-        <img src="images/bella-headshot.jpg" alt="Bellasofia Fortino smiling outdoors among palm fronds" width="1200" height="1800" loading="lazy" decoding="async">
+        <picture>
+          <source type="image/webp" srcset="images/bella-headshot-600.webp 600w, images/bella-headshot-1200.webp 1200w" sizes="(max-width: 960px) min(420px, 100vw), 30vw">
+          <img src="images/bella-headshot.jpg" alt="Bellasofia Fortino, photographer and founder of The Social Hour Agency, smiling outdoors among palm fronds" width="1200" height="1800" loading="lazy" decoding="async">
+        </picture>
       </figure>
       <div class="fade-up">
         <h2>Meet Bellasofia</h2>
@@ -319,39 +455,66 @@
       -->
       <div class="gallery" id="gallery">
         <figure class="item fade-up" data-category="bridal">
-          <img src="images/web/img-007-024.jpg" alt="A man on one knee proposing on the beach" width="820" height="1229" loading="lazy" decoding="async">
+          <picture>
+            <source type="image/webp" srcset="images/web/img-007-024-800.webp 800w" sizes="(max-width: 720px) 100vw, (max-width: 960px) 50vw, 33vw">
+            <img src="images/web/img-007-024.jpg" alt="Proposal photography: a man on one knee proposing on the beach" width="820" height="1229" loading="lazy" decoding="async">
+          </picture>
           <figcaption><span>Engagements &amp; Bridal</span>The proposal</figcaption>
         </figure>
         <figure class="item fade-up" data-category="bridal">
-          <img src="images/web/img-007-025.jpg" alt="A bride-to-be in white beside a floral arch and candles" width="1094" height="1640" loading="lazy" decoding="async">
+          <picture>
+            <source type="image/webp" srcset="images/web/img-007-025-800.webp 800w, images/web/img-007-025-1600.webp 1094w" sizes="(max-width: 720px) 100vw, (max-width: 960px) 50vw, 33vw">
+            <img src="images/web/img-007-025.jpg" alt="Bridal portrait of a bride-to-be in white beside a floral arch and candles" width="1094" height="1640" loading="lazy" decoding="async">
+          </picture>
           <figcaption><span>Engagements &amp; Bridal</span>Bridal portrait</figcaption>
         </figure>
         <figure class="item fade-up" data-category="bridal">
-          <img src="images/web/img-007-026.jpg" alt="A couple embracing, the engagement ring in view" width="2000" height="1334" loading="lazy" decoding="async">
+          <picture>
+            <source type="image/webp" srcset="images/web/img-007-026-800.webp 800w, images/web/img-007-026-1600.webp 1600w" sizes="(max-width: 720px) 100vw, (max-width: 960px) 50vw, 33vw">
+            <img src="images/web/img-007-026.jpg" alt="Engagement photo of a couple embracing, the ring in view" width="2000" height="1334" loading="lazy" decoding="async">
+          </picture>
           <figcaption><span>Engagements &amp; Bridal</span>She said yes</figcaption>
         </figure>
         <figure class="item fade-up" data-category="brands">
-          <img src="images/web/img-006-020.jpg" alt="Vacation sunscreen bottles on a pool edge" width="845" height="911" loading="lazy" decoding="async">
+          <picture>
+            <source type="image/webp" srcset="images/web/img-006-020-800.webp 800w" sizes="(max-width: 720px) 100vw, (max-width: 960px) 50vw, 33vw">
+            <img src="images/web/img-006-020.jpg" alt="Brand product photo of Vacation sunscreen bottles on a pool edge" width="845" height="911" loading="lazy" decoding="async">
+          </picture>
           <figcaption><span>Brands &amp; Products</span>Vacation sunscreen</figcaption>
         </figure>
         <figure class="item fade-up" data-category="brands">
-          <img src="images/web/img-006-021.jpg" alt="Vacation sunscreen spray over sparkling pool water" width="939" height="951" loading="lazy" decoding="async">
+          <picture>
+            <source type="image/webp" srcset="images/web/img-006-021-800.webp 800w, images/web/img-006-021-1600.webp 939w" sizes="(max-width: 720px) 100vw, (max-width: 960px) 50vw, 33vw">
+            <img src="images/web/img-006-021.jpg" alt="Brand product photo of Vacation sunscreen spray over sparkling pool water" width="939" height="951" loading="lazy" decoding="async">
+          </picture>
           <figcaption><span>Brands &amp; Products</span>Vacation Classic Spray</figcaption>
         </figure>
         <figure class="item fade-up" data-category="events">
-          <img src="images/web/img-008-029.jpg" alt="A lifeguard with a rescue board at the water&#x27;s edge" width="845" height="587" loading="lazy" decoding="async">
+          <picture>
+            <source type="image/webp" srcset="images/web/img-008-029-800.webp 800w" sizes="(max-width: 720px) 100vw, (max-width: 960px) 50vw, 33vw">
+            <img src="images/web/img-008-029.jpg" alt="A lifeguard with a rescue board at the water&#x27;s edge" width="845" height="587" loading="lazy" decoding="async">
+          </picture>
           <figcaption><span>Events &amp; Sports</span>Lifeguard races</figcaption>
         </figure>
         <figure class="item fade-up" data-category="events">
-          <img src="images/web/img-008-030.jpg" alt="Lifeguards launching the Brigantine boat" width="845" height="591" loading="lazy" decoding="async">
+          <picture>
+            <source type="image/webp" srcset="images/web/img-008-030-800.webp 800w" sizes="(max-width: 720px) 100vw, (max-width: 960px) 50vw, 33vw">
+            <img src="images/web/img-008-030.jpg" alt="Lifeguards launching the Brigantine boat" width="845" height="591" loading="lazy" decoding="async">
+          </picture>
           <figcaption><span>Events &amp; Sports</span>Brigantine crew</figcaption>
         </figure>
         <figure class="item fade-up" data-category="events">
-          <img src="images/web/img-008-031.jpg" alt="A lifeguard boat crew rowing through the waves" width="965" height="629" loading="lazy" decoding="async">
+          <picture>
+            <source type="image/webp" srcset="images/web/img-008-031-800.webp 800w, images/web/img-008-031-1600.webp 965w" sizes="(max-width: 720px) 100vw, (max-width: 960px) 50vw, 33vw">
+            <img src="images/web/img-008-031.jpg" alt="Event photo of a lifeguard boat crew rowing through the waves" width="965" height="629" loading="lazy" decoding="async">
+          </picture>
           <figcaption><span>Events &amp; Sports</span>Through the surf</figcaption>
         </figure>
         <figure class="item fade-up" data-category="events">
-          <img src="images/web/img-008-032.jpg" alt="A lifeguard team posing together on the beach" width="845" height="588" loading="lazy" decoding="async">
+          <picture>
+            <source type="image/webp" srcset="images/web/img-008-032-800.webp 800w" sizes="(max-width: 720px) 100vw, (max-width: 960px) 50vw, 33vw">
+            <img src="images/web/img-008-032.jpg" alt="A lifeguard team posing together on the beach" width="845" height="588" loading="lazy" decoding="async">
+          </picture>
           <figcaption><span>Events &amp; Sports</span>Race day</figcaption>
         </figure>
         <!-- DJ & concert (Maddix) -->
@@ -359,7 +522,7 @@
           <picture>
             <source type="image/webp" srcset="images/bella/concert-01-800.webp 800w, images/bella/concert-01-1600.webp 1600w" sizes="(max-width: 720px) 100vw, (max-width: 960px) 50vw, 33vw">
             <img src="images/bella/concert-01-800.jpg" srcset="images/bella/concert-01-800.jpg 800w, images/bella/concert-01-1600.jpg 1600w" sizes="(max-width: 720px) 100vw, (max-width: 960px) 50vw, 33vw"
-                 alt="A packed crowd under green stage lights at a DJ show" width="1600" height="1067" loading="lazy" decoding="async">
+                 alt="Concert photography: a packed crowd under green stage lights at a DJ show" width="1600" height="1067" loading="lazy" decoding="async">
           </picture>
           <figcaption><span>Events &amp; Sports</span>Maddix live</figcaption>
         </figure>
@@ -424,7 +587,7 @@
           <picture>
             <source type="image/webp" srcset="images/bella/drexel-02-800.webp 533w, images/bella/drexel-02-1600.webp 1067w" sizes="(max-width: 720px) 100vw, (max-width: 960px) 50vw, 33vw">
             <img src="images/bella/drexel-02-800.jpg" srcset="images/bella/drexel-02-800.jpg 533w, images/bella/drexel-02-1600.jpg 1067w" sizes="(max-width: 720px) 100vw, (max-width: 960px) 50vw, 33vw"
-                 alt="A Drexel player lining up a free throw" width="1067" height="1600" loading="lazy" decoding="async">
+                 alt="Sports photography: a Drexel basketball player lining up a free throw" width="1067" height="1600" loading="lazy" decoding="async">
           </picture>
           <figcaption><span>Events &amp; Sports</span>Drexel basketball</figcaption>
         </figure>
@@ -501,111 +664,192 @@
           <figcaption><span>Events &amp; Sports</span>Drexel basketball</figcaption>
         </figure>
         <figure class="item fade-up" data-category="travel">
-          <img src="images/web/img-012-040.jpg" alt="Desert dunes at dusk in Morocco" width="1086" height="724" loading="lazy" decoding="async">
+          <picture>
+            <source type="image/webp" srcset="images/web/img-012-040-800.webp 800w, images/web/img-012-040-1600.webp 1086w" sizes="(max-width: 720px) 100vw, (max-width: 960px) 50vw, 33vw">
+            <img src="images/web/img-012-040.jpg" alt="Desert dunes at dusk in Morocco" width="1086" height="724" loading="lazy" decoding="async">
+          </picture>
           <figcaption><span>Travel &amp; Food</span>Morocco</figcaption>
         </figure>
         <figure class="item fade-up" data-category="travel">
-          <img src="images/web/img-012-041.jpg" alt="Camels resting under the moon in Morocco" width="1086" height="724" loading="lazy" decoding="async">
+          <picture>
+            <source type="image/webp" srcset="images/web/img-012-041-800.webp 800w, images/web/img-012-041-1600.webp 1086w" sizes="(max-width: 720px) 100vw, (max-width: 960px) 50vw, 33vw">
+            <img src="images/web/img-012-041.jpg" alt="Camels resting under the moon in Morocco" width="1086" height="724" loading="lazy" decoding="async">
+          </picture>
           <figcaption><span>Travel &amp; Food</span>Morocco</figcaption>
         </figure>
         <figure class="item fade-up" data-category="travel">
-          <img src="images/web/img-013-044.jpg" alt="A camel caravan crossing the dunes" width="652" height="978" loading="lazy" decoding="async">
+          <picture>
+            <source type="image/webp" srcset="images/web/img-013-044-800.webp 652w" sizes="(max-width: 720px) 100vw, (max-width: 960px) 50vw, 33vw">
+            <img src="images/web/img-013-044.jpg" alt="A camel caravan crossing the dunes" width="652" height="978" loading="lazy" decoding="async">
+          </picture>
           <figcaption><span>Travel &amp; Food</span>Morocco</figcaption>
         </figure>
         <figure class="item fade-up" data-category="travel">
-          <img src="images/web/img-013-045.jpg" alt="A camel caravan and its long shadows" width="652" height="978" loading="lazy" decoding="async">
+          <picture>
+            <source type="image/webp" srcset="images/web/img-013-045-800.webp 652w" sizes="(max-width: 720px) 100vw, (max-width: 960px) 50vw, 33vw">
+            <img src="images/web/img-013-045.jpg" alt="A camel caravan and its long shadows" width="652" height="978" loading="lazy" decoding="async">
+          </picture>
           <figcaption><span>Travel &amp; Food</span>Morocco</figcaption>
         </figure>
         <figure class="item fade-up" data-category="travel">
-          <img src="images/web/img-013-046.jpg" alt="Riders on a distant dune at dusk" width="652" height="978" loading="lazy" decoding="async">
+          <picture>
+            <source type="image/webp" srcset="images/web/img-013-046-800.webp 652w" sizes="(max-width: 720px) 100vw, (max-width: 960px) 50vw, 33vw">
+            <img src="images/web/img-013-046.jpg" alt="Riders on a distant dune at dusk" width="652" height="978" loading="lazy" decoding="async">
+          </picture>
           <figcaption><span>Travel &amp; Food</span>Morocco</figcaption>
         </figure>
         <figure class="item fade-up" data-category="travel">
-          <img src="images/web/img-014-049.jpg" alt="A cold drink on a rooftop over Barcelona" width="1130" height="1614" loading="lazy" decoding="async">
+          <picture>
+            <source type="image/webp" srcset="images/web/img-014-049-800.webp 800w, images/web/img-014-049-1600.webp 1130w" sizes="(max-width: 720px) 100vw, (max-width: 960px) 50vw, 33vw">
+            <img src="images/web/img-014-049.jpg" alt="A cold drink on a rooftop over Barcelona" width="1130" height="1614" loading="lazy" decoding="async">
+          </picture>
           <figcaption><span>Travel &amp; Food</span>Barcelona</figcaption>
         </figure>
         <figure class="item fade-up" data-category="travel">
-          <img src="images/web/img-014-050.jpg" alt="The Brunells bakery storefront in Barcelona" width="1019" height="1528" loading="lazy" decoding="async">
+          <picture>
+            <source type="image/webp" srcset="images/web/img-014-050-800.webp 800w, images/web/img-014-050-1600.webp 1019w" sizes="(max-width: 720px) 100vw, (max-width: 960px) 50vw, 33vw">
+            <img src="images/web/img-014-050.jpg" alt="The Brunells bakery storefront in Barcelona" width="1019" height="1528" loading="lazy" decoding="async">
+          </picture>
           <figcaption><span>Travel &amp; Food</span>Barcelona</figcaption>
         </figure>
         <figure class="item fade-up" data-category="travel">
-          <img src="images/web/img-014-051.jpg" alt="Paella cooking in giant pans" width="1800" height="1200" loading="lazy" decoding="async">
+          <picture>
+            <source type="image/webp" srcset="images/web/img-014-051-800.webp 800w, images/web/img-014-051-1600.webp 1600w" sizes="(max-width: 720px) 100vw, (max-width: 960px) 50vw, 33vw">
+            <img src="images/web/img-014-051.jpg" alt="Paella cooking in giant pans" width="1800" height="1200" loading="lazy" decoding="async">
+          </picture>
           <figcaption><span>Travel &amp; Food</span>Barcelona</figcaption>
         </figure>
         <figure class="item fade-up" data-category="travel">
-          <img src="images/web/img-014-052.jpg" alt="A sandwich held up at a Barcelona food stall" width="1800" height="1200" loading="lazy" decoding="async">
+          <picture>
+            <source type="image/webp" srcset="images/web/img-014-052-800.webp 800w, images/web/img-014-052-1600.webp 1600w" sizes="(max-width: 720px) 100vw, (max-width: 960px) 50vw, 33vw">
+            <img src="images/web/img-014-052.jpg" alt="A sandwich held up at a Barcelona food stall" width="1800" height="1200" loading="lazy" decoding="async">
+          </picture>
           <figcaption><span>Travel &amp; Food</span>Barcelona</figcaption>
         </figure>
         <figure class="item fade-up" data-category="travel">
-          <img src="images/web/img-015-055.jpg" alt="An &quot;All Those Food Market&quot; sign against blue sky" width="1100" height="1650" loading="lazy" decoding="async">
+          <picture>
+            <source type="image/webp" srcset="images/web/img-015-055-800.webp 800w, images/web/img-015-055-1600.webp 1100w" sizes="(max-width: 720px) 100vw, (max-width: 960px) 50vw, 33vw">
+            <img src="images/web/img-015-055.jpg" alt="An &quot;All Those Food Market&quot; sign against blue sky" width="1100" height="1650" loading="lazy" decoding="async">
+          </picture>
           <figcaption><span>Travel &amp; Food</span>Food market</figcaption>
         </figure>
         <figure class="item fade-up" data-category="travel">
-          <img src="images/web/img-015-056.jpg" alt="A burger held up at an outdoor food market" width="1578" height="1138" loading="lazy" decoding="async">
+          <picture>
+            <source type="image/webp" srcset="images/web/img-015-056-800.webp 800w, images/web/img-015-056-1600.webp 1578w" sizes="(max-width: 720px) 100vw, (max-width: 960px) 50vw, 33vw">
+            <img src="images/web/img-015-056.jpg" alt="A burger held up at an outdoor food market" width="1578" height="1138" loading="lazy" decoding="async">
+          </picture>
           <figcaption><span>Travel &amp; Food</span>Food market</figcaption>
         </figure>
         <figure class="item fade-up" data-category="travel">
-          <img src="images/web/img-015-057.jpg" alt="A latte with leaf art in a dark cup" width="1800" height="1200" loading="lazy" decoding="async">
+          <picture>
+            <source type="image/webp" srcset="images/web/img-015-057-800.webp 800w, images/web/img-015-057-1600.webp 1600w" sizes="(max-width: 720px) 100vw, (max-width: 960px) 50vw, 33vw">
+            <img src="images/web/img-015-057.jpg" alt="A latte with leaf art in a dark cup" width="1800" height="1200" loading="lazy" decoding="async">
+          </picture>
           <figcaption><span>Travel &amp; Food</span>Latte art</figcaption>
         </figure>
         <figure class="item fade-up" data-category="travel">
-          <img src="images/web/img-015-058.jpg" alt="Chocolate strawberry cake and desserts" width="1539" height="1026" loading="lazy" decoding="async">
+          <picture>
+            <source type="image/webp" srcset="images/web/img-015-058-800.webp 800w, images/web/img-015-058-1600.webp 1539w" sizes="(max-width: 720px) 100vw, (max-width: 960px) 50vw, 33vw">
+            <img src="images/web/img-015-058.jpg" alt="Chocolate strawberry cake and desserts" width="1539" height="1026" loading="lazy" decoding="async">
+          </picture>
           <figcaption><span>Travel &amp; Food</span>Dessert table</figcaption>
         </figure>
         <figure class="item fade-up" data-category="travel">
-          <img src="images/web/img-016-061.jpg" alt="Red city bikes lined up on a Barcelona street" width="801" height="1200" loading="lazy" decoding="async">
+          <picture>
+            <source type="image/webp" srcset="images/web/img-016-061-800.webp 800w" sizes="(max-width: 720px) 100vw, (max-width: 960px) 50vw, 33vw">
+            <img src="images/web/img-016-061.jpg" alt="Red city bikes lined up on a Barcelona street" width="801" height="1200" loading="lazy" decoding="async">
+          </picture>
           <figcaption><span>Travel &amp; Food</span>Barcelona</figcaption>
         </figure>
         <figure class="item fade-up" data-category="travel">
-          <img src="images/web/img-016-062.jpg" alt="A building corner against pale sky" width="1200" height="1800" loading="lazy" decoding="async">
+          <picture>
+            <source type="image/webp" srcset="images/web/img-016-062-800.webp 800w, images/web/img-016-062-1600.webp 1200w" sizes="(max-width: 720px) 100vw, (max-width: 960px) 50vw, 33vw">
+            <img src="images/web/img-016-062.jpg" alt="A building corner against pale sky" width="1200" height="1800" loading="lazy" decoding="async">
+          </picture>
           <figcaption><span>Travel &amp; Food</span>Barcelona</figcaption>
         </figure>
         <figure class="item fade-up" data-category="travel">
-          <img src="images/web/img-016-063.jpg" alt="Escalators beside a green wall" width="1800" height="1200" loading="lazy" decoding="async">
+          <picture>
+            <source type="image/webp" srcset="images/web/img-016-063-800.webp 800w, images/web/img-016-063-1600.webp 1600w" sizes="(max-width: 720px) 100vw, (max-width: 960px) 50vw, 33vw">
+            <img src="images/web/img-016-063.jpg" alt="Escalators beside a green wall" width="1800" height="1200" loading="lazy" decoding="async">
+          </picture>
           <figcaption><span>Travel &amp; Food</span>Barcelona</figcaption>
         </figure>
         <figure class="item fade-up" data-category="travel">
-          <img src="images/web/img-016-067.jpg" alt="The entrance of La Boqueria market" width="1200" height="800" loading="lazy" decoding="async">
+          <picture>
+            <source type="image/webp" srcset="images/web/img-016-067-800.webp 800w, images/web/img-016-067-1600.webp 1200w" sizes="(max-width: 720px) 100vw, (max-width: 960px) 50vw, 33vw">
+            <img src="images/web/img-016-067.jpg" alt="The entrance of La Boqueria market" width="1200" height="800" loading="lazy" decoding="async">
+          </picture>
           <figcaption><span>Travel &amp; Food</span>Barcelona</figcaption>
         </figure>
         <figure class="item fade-up" data-category="travel">
-          <img src="images/web/img-010-034.jpg" alt="A beach at sunset with a seagull, shot on film" width="1800" height="1200" loading="lazy" decoding="async">
+          <picture>
+            <source type="image/webp" srcset="images/web/img-010-034-800.webp 800w, images/web/img-010-034-1600.webp 1600w" sizes="(max-width: 720px) 100vw, (max-width: 960px) 50vw, 33vw">
+            <img src="images/web/img-010-034.jpg" alt="A beach at sunset with a seagull, shot on film" width="1800" height="1200" loading="lazy" decoding="async">
+          </picture>
           <figcaption><span>Travel &amp; Food</span>Film photography</figcaption>
         </figure>
         <figure class="item fade-up" data-category="travel">
-          <img src="images/web/img-010-035.jpg" alt="A bright beach and white hillside town, shot on film" width="1248" height="826" loading="lazy" decoding="async">
+          <picture>
+            <source type="image/webp" srcset="images/web/img-010-035-800.webp 800w, images/web/img-010-035-1600.webp 1248w" sizes="(max-width: 720px) 100vw, (max-width: 960px) 50vw, 33vw">
+            <img src="images/web/img-010-035.jpg" alt="A bright beach and white hillside town, shot on film" width="1248" height="826" loading="lazy" decoding="async">
+          </picture>
           <figcaption><span>Travel &amp; Food</span>Film photography</figcaption>
         </figure>
         <figure class="item fade-up" data-category="aerial">
-          <img src="images/web/img-011-039.jpg" alt="Aerial view of a long beach and the town behind it" width="1600" height="900" loading="lazy" decoding="async">
+          <picture>
+            <source type="image/webp" srcset="images/web/img-011-039-800.webp 800w, images/web/img-011-039-1600.webp 1600w" sizes="(max-width: 720px) 100vw, (max-width: 960px) 50vw, 33vw">
+            <img src="images/web/img-011-039.jpg" alt="Aerial drone photo of a long beach and the town behind it" width="1600" height="900" loading="lazy" decoding="async">
+          </picture>
           <figcaption><span>Aerial</span>Drone</figcaption>
         </figure>
         <figure class="item fade-up" data-category="aerial">
-          <img src="images/web/img-011-038-upright.jpg" alt="Aerial view of the shoreline at dusk" width="960" height="724" loading="lazy" decoding="async">
+          <picture>
+            <source type="image/webp" srcset="images/web/img-011-038-upright-800.webp 800w, images/web/img-011-038-upright-1600.webp 960w" sizes="(max-width: 720px) 100vw, (max-width: 960px) 50vw, 33vw">
+            <img src="images/web/img-011-038-upright.jpg" alt="Aerial drone photo of the shoreline at dusk" width="960" height="724" loading="lazy" decoding="async">
+          </picture>
           <figcaption><span>Aerial</span>Drone</figcaption>
         </figure>
         <figure class="item fade-up" data-category="headshots">
-          <img src="images/web/img-004-012-upright.jpg" alt="Suburban Life magazine cover featuring Dr. Robert Fortino, spring 2026" width="990" height="1290" loading="lazy" decoding="async">
+          <picture>
+            <source type="image/webp" srcset="images/web/img-004-012-upright-800.webp 800w, images/web/img-004-012-upright-1600.webp 990w" sizes="(max-width: 720px) 100vw, (max-width: 960px) 50vw, 33vw">
+            <img src="images/web/img-004-012-upright.jpg" alt="Suburban Life magazine cover featuring Dr. Robert Fortino, spring 2026" width="990" height="1290" loading="lazy" decoding="async">
+          </picture>
           <figcaption><span>Headshots</span>Suburban Life cover</figcaption>
         </figure>
         <figure class="item fade-up" data-category="headshots">
-          <img src="images/web/img-005-013.jpg" alt="Staff headshot in a blue team sweatshirt" width="603" height="623" loading="lazy" decoding="async">
+          <picture>
+            <source type="image/webp" srcset="images/web/img-005-013-800.webp 603w" sizes="(max-width: 720px) 100vw, (max-width: 960px) 50vw, 33vw">
+            <img src="images/web/img-005-013.jpg" alt="Staff headshot in a blue team sweatshirt" width="603" height="623" loading="lazy" decoding="async">
+          </picture>
           <figcaption><span>Headshots</span>Headshot</figcaption>
         </figure>
         <figure class="item fade-up" data-category="headshots">
-          <img src="images/web/img-005-014.jpg" alt="Staff headshot in a tan top" width="603" height="797" loading="lazy" decoding="async">
+          <picture>
+            <source type="image/webp" srcset="images/web/img-005-014-800.webp 603w" sizes="(max-width: 720px) 100vw, (max-width: 960px) 50vw, 33vw">
+            <img src="images/web/img-005-014.jpg" alt="Staff headshot in a tan top" width="603" height="797" loading="lazy" decoding="async">
+          </picture>
           <figcaption><span>Headshots</span>Headshot</figcaption>
         </figure>
         <figure class="item fade-up" data-category="headshots">
-          <img src="images/web/img-005-015.jpg" alt="Staff headshot against a seascape backdrop" width="724" height="712" loading="lazy" decoding="async">
+          <picture>
+            <source type="image/webp" srcset="images/web/img-005-015-800.webp 724w" sizes="(max-width: 720px) 100vw, (max-width: 960px) 50vw, 33vw">
+            <img src="images/web/img-005-015.jpg" alt="Staff headshot against a seascape backdrop" width="724" height="712" loading="lazy" decoding="async">
+          </picture>
           <figcaption><span>Headshots</span>Headshot</figcaption>
         </figure>
         <figure class="item fade-up" data-category="headshots">
-          <img src="images/web/img-005-016.jpg" alt="Staff headshot in blue scrubs" width="603" height="593" loading="lazy" decoding="async">
+          <picture>
+            <source type="image/webp" srcset="images/web/img-005-016-800.webp 603w" sizes="(max-width: 720px) 100vw, (max-width: 960px) 50vw, 33vw">
+            <img src="images/web/img-005-016.jpg" alt="Staff headshot in blue scrubs" width="603" height="593" loading="lazy" decoding="async">
+          </picture>
           <figcaption><span>Headshots</span>Headshot</figcaption>
         </figure>
         <figure class="item fade-up" data-category="headshots">
-          <img src="images/web/img-005-017.jpg" alt="Staff headshot with a seascape backdrop" width="603" height="593" loading="lazy" decoding="async">
+          <picture>
+            <source type="image/webp" srcset="images/web/img-005-017-800.webp 603w" sizes="(max-width: 720px) 100vw, (max-width: 960px) 50vw, 33vw">
+            <img src="images/web/img-005-017.jpg" alt="Staff headshot with a seascape backdrop" width="603" height="593" loading="lazy" decoding="async">
+          </picture>
           <figcaption><span>Headshots</span>Headshot</figcaption>
         </figure>
         <!-- Real estate: medical office, condo, family home -->
@@ -613,7 +857,7 @@
           <picture>
             <source type="image/webp" srcset="images/bella/office-01-800.webp 800w, images/bella/office-01-1600.webp 1600w" sizes="(max-width: 720px) 100vw, (max-width: 960px) 50vw, 33vw">
             <img src="images/bella/office-01-800.jpg" srcset="images/bella/office-01-800.jpg 800w, images/bella/office-01-1600.jpg 1600w" sizes="(max-width: 720px) 100vw, (max-width: 960px) 50vw, 33vw"
-                 alt="The columned brick entrance of a medical office" width="1600" height="1067" loading="lazy" decoding="async">
+                 alt="Commercial real estate photo of the columned brick entrance of a medical office" width="1600" height="1067" loading="lazy" decoding="async">
           </picture>
           <figcaption><span>Real Estate</span>Medical office</figcaption>
         </figure>
@@ -645,7 +889,7 @@
           <picture>
             <source type="image/webp" srcset="images/bella/condo-02-800.webp 800w, images/bella/condo-02-1600.webp 1600w" sizes="(max-width: 720px) 100vw, (max-width: 960px) 50vw, 33vw">
             <img src="images/bella/condo-02-800.jpg" srcset="images/bella/condo-02-800.jpg 800w, images/bella/condo-02-1600.jpg 1600w" sizes="(max-width: 720px) 100vw, (max-width: 960px) 50vw, 33vw"
-                 alt="An open living room with wood floors and a fireplace" width="1600" height="1067" loading="lazy" decoding="async">
+                 alt="Real estate photo of an open living room with wood floors and a fireplace" width="1600" height="1067" loading="lazy" decoding="async">
           </picture>
           <figcaption><span>Real Estate</span>Condo</figcaption>
         </figure>
@@ -653,7 +897,7 @@
           <picture>
             <source type="image/webp" srcset="images/bella/condo-04-800.webp 800w, images/bella/condo-04-1600.webp 1600w" sizes="(max-width: 720px) 100vw, (max-width: 960px) 50vw, 33vw">
             <img src="images/bella/condo-04-800.jpg" srcset="images/bella/condo-04-800.jpg 800w, images/bella/condo-04-1600.jpg 1600w" sizes="(max-width: 720px) 100vw, (max-width: 960px) 50vw, 33vw"
-                 alt="A kitchen with wood cabinets and stainless appliances" width="1600" height="1070" loading="lazy" decoding="async">
+                 alt="Real estate photo of a kitchen with wood cabinets and stainless appliances" width="1600" height="1070" loading="lazy" decoding="async">
           </picture>
           <figcaption><span>Real Estate</span>Condo</figcaption>
         </figure>
@@ -693,7 +937,7 @@
           <picture>
             <source type="image/webp" srcset="images/bella/house-01-800.webp 800w, images/bella/house-01-1600.webp 1600w" sizes="(max-width: 720px) 100vw, (max-width: 960px) 50vw, 33vw">
             <img src="images/bella/house-01-800.jpg" srcset="images/bella/house-01-800.jpg 800w, images/bella/house-01-1600.jpg 1600w" sizes="(max-width: 720px) 100vw, (max-width: 960px) 50vw, 33vw"
-                 alt="A yellow house with a wide front porch and flowers" width="1600" height="1082" loading="lazy" decoding="async">
+                 alt="Real estate exterior photo of a yellow house with a wide front porch and flowers" width="1600" height="1082" loading="lazy" decoding="async">
           </picture>
           <figcaption><span>Real Estate</span>Family home</figcaption>
         </figure>
@@ -701,7 +945,7 @@
           <picture>
             <source type="image/webp" srcset="images/bella/house-02-800.webp 800w, images/bella/house-02-1600.webp 1600w" sizes="(max-width: 720px) 100vw, (max-width: 960px) 50vw, 33vw">
             <img src="images/bella/house-02-800.jpg" srcset="images/bella/house-02-800.jpg 800w, images/bella/house-02-1600.jpg 1600w" sizes="(max-width: 720px) 100vw, (max-width: 960px) 50vw, 33vw"
-                 alt="A warm dining room with a chandelier and set table" width="1600" height="1068" loading="lazy" decoding="async">
+                 alt="Real estate interior photo of a warm dining room with a chandelier and set table" width="1600" height="1068" loading="lazy" decoding="async">
           </picture>
           <figcaption><span>Real Estate</span>Family home</figcaption>
         </figure>
@@ -771,7 +1015,7 @@
   <footer class="footer">
     <div class="footer-inner">
       <div class="footer-brand">
-        <a class="footer-mark" href="#top"><img src="images/wax-seal.png" alt="" width="523" height="503"><span>The Social Hour Agency</span></a>
+        <a class="footer-mark" href="#top"><img src="images/wax-seal-240.webp" alt="" width="240" height="231" loading="lazy" decoding="async"><span>The Social Hour Agency</span></a>
         <p>Creative content by Bellasofia Fortino.<br>Serving Philly + South Jersey.</p>
       </div>
       <nav class="footer-col" aria-label="Footer">

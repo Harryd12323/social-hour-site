@@ -3,12 +3,23 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>FAQ — The Social Hour Agency</title>
-  <meta name="description" content="Answers to common questions about booking photo and video with The Social Hour Agency for weddings, real estate, events and brands in Philly + South Jersey.">
+  <title>FAQ: Wedding, Real Estate &amp; Event Photography in Philadelphia &amp; South Jersey | The Social Hour Agency</title>
+  <meta name="description" content="Answers to common questions about booking wedding and engagement, real estate, event and brand photo and video with The Social Hour Agency in Philadelphia and South Jersey.">
   <!-- DRAFT: the answers are still placeholders, so keep this page out of search results until Bella fills them in.
        Delete this line once every [Answer coming soon] has been replaced. -->
   <meta name="robots" content="noindex">
-  <link rel="canonical" href="https://harryd12323.github.io/social-hour-site/faq.html">
+  <link rel="canonical" href="https://socialhouragency.com/faq.html">
+  <!-- Link preview for texts and social posts (images/share.jpg, 1200x630, cut from the hero photo) -->
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="The Social Hour Agency">
+  <meta property="og:title" content="FAQ: Wedding, Real Estate &amp; Event Photography in Philadelphia &amp; South Jersey | The Social Hour Agency">
+  <meta property="og:description" content="Answers to common questions about booking wedding and engagement, real estate, event and brand photo and video with The Social Hour Agency in Philadelphia and South Jersey.">
+  <meta property="og:url" content="https://socialhouragency.com/faq.html">
+  <meta property="og:image" content="https://socialhouragency.com/images/share.jpg">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:image:alt" content="Aerial view of a long beach and the town behind it">
+  <meta name="twitter:card" content="summary_large_image">
   <link rel="stylesheet" href="style.css">
 </head>
 <body class="legal-page">
@@ -151,7 +162,7 @@
   <footer class="footer">
     <div class="footer-inner">
       <div class="footer-brand">
-        <a class="footer-mark" href="index.html#top"><img src="images/wax-seal.png" alt="" width="523" height="503"><span>The Social Hour Agency</span></a>
+        <a class="footer-mark" href="index.html#top"><img src="images/wax-seal-240.webp" alt="" width="240" height="231" loading="lazy" decoding="async"><span>The Social Hour Agency</span></a>
         <p>Creative content by Bellasofia Fortino.<br>Serving Philly + South Jersey.</p>
       </div>
       <nav class="footer-col" aria-label="Footer">
@@ -189,19 +200,23 @@
     document.getElementById("year").textContent = new Date().getFullYear();
 
     // FAQPage structured data for search engines, built from the questions and answers above so it always matches
-    // what visitors see (Google reads JSON-LD added this way).
-    const faqData = document.createElement("script");
-    faqData.type = "application/ld+json";
-    faqData.textContent = JSON.stringify({
-      "@context": "https://schema.org",
-      "@type": "FAQPage",
-      mainEntity: [...document.querySelectorAll(".faq-item")].map((item) => ({
-        "@type": "Question",
-        name: item.querySelector("summary").textContent.trim(),
-        acceptedAnswer: { "@type": "Answer", text: item.querySelector(".faq-answer").textContent.trim() },
-      })),
-    });
-    document.head.append(faqData);
+    // what visitors see (Google reads JSON-LD added this way). Only questions with a real answer are included:
+    // anything still marked [Answer coming soon] is left out, and nothing is added while every answer is a placeholder.
+    const answered = [...document.querySelectorAll(".faq-item")].filter((item) => !item.querySelector(".todo"));
+    if (answered.length) {
+      const faqData = document.createElement("script");
+      faqData.type = "application/ld+json";
+      faqData.textContent = JSON.stringify({
+        "@context": "https://schema.org",
+        "@type": "FAQPage",
+        mainEntity: answered.map((item) => ({
+          "@type": "Question",
+          name: item.querySelector("summary").textContent.trim(),
+          acceptedAnswer: { "@type": "Answer", text: item.querySelector(".faq-answer").textContent.trim() },
+        })),
+      });
+      document.head.append(faqData);
+    }
 
   </script>
 </body>
