@@ -166,6 +166,9 @@ section[id] { scroll-margin-top: var(--nav-h); }
   transition: background .3s var(--ease), color .3s var(--ease), border-color .3s var(--ease);
 }
 .ig-pill:hover, .ig-pill:focus-visible { background: var(--white); color: var(--black); border-color: var(--white); }
+/* The location line sits just above Instagram, as on the 2.0 site */
+.hero .hero-location { margin-top: 0; line-height: 1.9; }
+.hero-location + .ig-pill { margin-top: 1rem; }
 .scroll-cue {
   position: absolute;
   bottom: 2rem;
